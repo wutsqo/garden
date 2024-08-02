@@ -1,0 +1,27 @@
+.imageWrapper {
+  @apply absolute w-full h-96 md:h-64 bg-black left-0 top-16 -z-10;
+}
+
+.overlay {
+  @apply w-full h-full bg-gradient-to-t from-black to-black/25 backdrop-blur-lg relative z-0;
+}
+
+.info {
+  @apply flex flex-col justify-end mx-auto container px-4 xl:px-6 py-4 h-full;
+}
+
+.title {
+  @apply text-white text-4xl font-bold font-sans;
+}
+
+.author {
+  @apply text-white text-xl mt-4;
+}
+
+.contentWrapper {
+  @apply relative top-80 md:top-48 py-8 xl:px-2 mx-auto container pb-80;
+}
+
+.content {
+  @apply prose lg:prose-lg font-sans;
+}

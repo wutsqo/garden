@@ -1,0 +1,43 @@
+{
+  "name": "frontpage",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node ./scripts/static.js && next dev",
+    "build": "node ./scripts/static.js && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky",
+    "collect": "node ./scripts/static.js",
+    "content": "node ./scripts/content.js && node ./scripts/static.js"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.1.5",
+    "axios": "^1.7.2",
+    "gsap": "^3.12.5",
+    "just-debounce": "^1.1.0",
+    "mapbox-gl": "^2.15.0",
+    "next": "14.2.5",
+    "outstatic": "^1.4.9",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-map-gl": "^7.1.7",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "sharp": "^0.33.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/mapbox-gl": "^3.4.0",
+    "@types/node": "22.0.2",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "autoprefixer": "10.4.19",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.5",
+    "husky": "^9.1.4",
+    "postcss": "8.4.40",
+    "tailwindcss": "3.4.7",
+    "typescript": "5.5.4"
+  }
+}

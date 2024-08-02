@@ -1,0 +1,15 @@
+.main {
+  padding-top: 4rem;
+}
+
+.leftContainer {
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
+}
+
+.rightContainer {
+  @media (min-width: 1024px) {
+    width: 70%;
+  }
+}

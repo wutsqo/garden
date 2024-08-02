@@ -1,0 +1,63 @@
+.container {
+  padding: 1rem;
+  margin-top: 6rem;
+  padding-bottom: 8rem;
+
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+.content {
+  margin-top: 4rem;
+  font-size: 2rem;
+  max-width: 56rem;
+}
+
+.connect {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px #000;
+}
+
+.email {
+  grid-row: span 2 / span 2;
+  grid-column: span 2 / span 2;
+  background: rgb(248 183 37);
+  border: 2px solid black;
+  color: white;
+  font-size: 1.5rem;
+  gap: 1rem;
+  min-height: 8rem;
+}
+
+.email > div {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.github {
+  height: 8rem;
+  background-color: #24292e;
+  border: 2px solid black;
+}
+
+.linkedin {
+  height: 8rem;
+  background-color: #0077b5;
+  border: 2px solid black;
+}

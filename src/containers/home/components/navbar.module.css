@@ -1,0 +1,46 @@
+.nav {
+  height: 4rem;
+  background: black;
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  color: white;
+  font-size: 1.125rem;
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
+  z-index: 50;
+}
+
+.logo {
+  display: none;
+  height: calc(4rem - 8px);
+  padding-left: 1rem;
+  align-items: center;
+  font-size: 1.25rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  justify-content: flex-start;
+  padding-right: 2rem;
+  height: calc(4rem - 8px);
+  padding-left: 1rem;
+
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+    gap: 2rem;
+  }
+}
+
+.navInverted {
+  background: white;
+}

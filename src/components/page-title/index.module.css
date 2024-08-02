@@ -1,0 +1,9 @@
+.title {
+  -webkit-text-stroke: 2px black;
+  color: transparent;
+  @apply text-5xl uppercase;
+}
+
+.subtitle {
+  @apply text-xl mt-4 mb-8;
+}

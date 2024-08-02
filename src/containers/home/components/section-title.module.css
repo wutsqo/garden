@@ -1,0 +1,33 @@
+.container {
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  color: black;
+}
+
+.container.dark {
+  color: white;
+}
+
+.number {
+  border: 2px solid black;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  background: white;
+}
+
+.dark .number {
+  background: black;
+  color: white;
+  border: 2px solid white;
+}
+
+.title {
+  font-size: 1.25rem;
+}

@@ -1,0 +1,33 @@
+.wrapper {
+  @apply container mx-auto px-4 pt-32;
+}
+
+.title {
+  -webkit-text-stroke: 2px black;
+  color: transparent;
+  @apply text-5xl uppercase;
+}
+
+.content {
+  @apply mt-8 text-base flex flex-col gap-6;
+}
+
+.innerContent {
+  @apply flex flex-col gap-4;
+}
+
+.content a {
+  @apply hover:underline;
+}
+
+.content .spotify {
+  @apply flex gap-4 items-center;
+}
+
+.trackInfo {
+  @apply flex flex-col items-start justify-center;
+}
+
+.trackName {
+  @apply truncate text-base;
+}

@@ -1,0 +1,64 @@
+.wrapper {
+  @apply mx-auto container;
+}
+
+.subtitle {
+  @apply text-lg md:text-xl mt-4 mb-8;
+}
+
+.books {
+  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-8 max-w-screen-lg;
+}
+
+.book {
+  @apply flex flex-col relative;
+}
+
+.cover {
+  @apply w-full aspect-2/3 relative rounded-r-xl shadow-xl overflow-hidden bg-gray-300 hover:-translate-y-2 transition-transform;
+}
+
+.info {
+  @apply h-32;
+}
+
+.title {
+  @apply font-sans font-medium mt-2;
+}
+
+.author {
+  @apply font-light text-sm mt-1;
+}
+
+.status {
+  --f: 10px; /* control the folded part*/
+  --r: 15px; /* control the ribbon shape */
+  --t: 10px; /* the top offset */
+
+  position: absolute;
+  inset: var(--t) calc(-1 * var(--f)) auto auto;
+  padding: 0 10px var(--f) calc(10px + var(--r));
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--f)),
+    calc(100% - var(--f)) 100%,
+    calc(100% - var(--f)) calc(100% - var(--f)),
+    0 calc(100% - var(--f)),
+    var(--r) calc(50% - var(--f) / 2)
+  );
+  box-shadow: 0 calc(-1 * var(--f)) 0 inset #0005;
+  z-index: 10;
+  color: white;
+  font-size: 0.875rem;
+  padding-right: 1rem;
+}
+.status.read {
+  background: #23c8a0;
+}
+.status.reading {
+  background: #885edd;
+}
+.status.to-read {
+  background: #da1d7e;
+}

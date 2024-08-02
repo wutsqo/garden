@@ -1,0 +1,7 @@
+.wrapper {
+  @apply bg-black w-full h-72 relative text-white;
+}
+
+.innerWrapper {
+  @apply flex flex-col justify-end items-start lg:flex-row lg:justify-between lg:items-end h-full w-full p-8;
+}

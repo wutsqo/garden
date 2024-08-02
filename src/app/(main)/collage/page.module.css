@@ -1,0 +1,15 @@
+.wrapper {
+  @apply container mx-auto px-4 pt-32 pb-16;
+}
+
+.collage {
+  @apply mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6;
+}
+
+.collageItem {
+  @apply relative aspect-square;
+}
+
+.lastUpdated {
+  @apply my-6;
+}
