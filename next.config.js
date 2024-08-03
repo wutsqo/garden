@@ -12,6 +12,11 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    outputFileTracingIncludes: {
+      "/*": ["./content/space/**/*"],
+    },
+  },
 };
 
 module.exports = nextConfig;
