@@ -22,7 +22,6 @@
     "paths": {
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@containers/*": ["./src/containers/*"],
       "@images/*": ["./public/images/*"],
       "@components/*": ["./src/components/*"]
     },

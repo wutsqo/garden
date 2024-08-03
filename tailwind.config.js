@@ -4,7 +4,6 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/containers/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
     extend: {
@@ -31,6 +30,14 @@ module.exports = {
       },
       animation: {
         "spin-slow": "spin 8s linear infinite",
+        write: "write 1000ms ease-out 800ms",
+        "fade-in": "fade-in 300ms ease-out forwards",
+        "fade-in-up": "fade-in-up 300ms ease-out forwards",
+        nudge: "nudge 400ms linear",
+      },
+      borderRadius: {
+        cartoon: "2% 95% 1% 95%/95% 3% 92% 3%",
+        cartoon2: "95% 1% 90% 1%/5% 90% 2% 93%",
       },
     },
   },
