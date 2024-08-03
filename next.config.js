@@ -14,7 +14,7 @@ const nextConfig = {
   },
   experimental: {
     outputFileTracingIncludes: {
-      "/*": ["./content/space/**/*"],
+      "/*": ["./space/**/*"],
     },
   },
 };
