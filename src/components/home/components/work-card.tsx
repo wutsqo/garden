@@ -16,13 +16,13 @@ const WorkCard: FC<Work> = ({
   repo,
 }) => {
   return (
-    <div className="w-full sm:w-[calc(50%-2rem)] xl:w-[calc(33%-2rem)] shadow-brutalist border-2 border-black bg-white relative">
+    <div className="w-full sm:w-[calc(50%-2rem)] lg:w-[calc(33%-2rem)] shadow-brutalist border-2 border-black bg-white relative rounded-cartoon2 overflow-hidden">
       {image ? (
         <div className={s.imageContainer}>
           <Image src={image} alt={title} placeholder="blur" fill />
         </div>
       ) : null}
-      <div className={mergeClassname(s.content, live && "mb-12")}>
+      <div className={mergeClassname(s.content, (live || repo) && "mb-12")}>
         <div className={s.title}>
           <h3>{title}</h3>
         </div>

@@ -10,7 +10,7 @@ import Button from "@components/button";
 
 const Contact = () => {
   return (
-    <div className={s.container}>
+    <div className={s.wrapper}>
       <SectionTitle number="🤝" title="Connect" />
       <div className={s.content}>
         Let&apos; connect! Say hello and have a chat. →

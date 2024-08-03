@@ -6,7 +6,7 @@ import s from "./expertise.module.css";
 export default function Expertise() {
   return (
     <>
-      <div className={s.container}>
+      <div className={s.wrapper}>
         <SectionTitle number="🔥" title="Expertise" />
         <div className={s.content}>
           {EXPERTISES.map((item) => (

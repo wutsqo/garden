@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -18,7 +20,7 @@ module.exports = {
         "github-black": "#24292E",
       },
       boxShadow: {
-        brutalist: "4px 4px #000",
+        brutalist: "2px 2px #1a1a1a",
       },
       aspectRatio: {
         "21/9": "21 / 9",
@@ -39,7 +41,49 @@ module.exports = {
         cartoon: "2% 95% 1% 95%/95% 3% 92% 3%",
         cartoon2: "95% 1% 90% 1%/5% 90% 2% 93%",
       },
+      keyframes: {
+        write: {
+          "0%": { "stroke-dashoffset": "2000" },
+          "100%": { "stroke-dashoffset": "0" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0px)" },
+        },
+        nudge: {
+          "0%": {
+            transform: "rotate(-7deg)",
+          },
+          "33%": {
+            transform: "rotate(7deg)",
+          },
+
+          "66%": {
+            transform: "rotate(-7deg)",
+          },
+        },
+      },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          "animation-delay": (value) => {
+            return {
+              "animation-delay": value,
+            };
+          },
+        },
+        {
+          values: theme("transitionDelay"),
+        }
+      );
+    }),
+  ],
 };

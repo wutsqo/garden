@@ -11,12 +11,12 @@ const SelectedWorks: FC = () => {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
-    <div className={s.container}>
+    <div className={s.wrapper}>
       <div className={s.title}>
         <SectionTitle number="🎨" title="Selected Works" />
       </div>
 
-      <div className="mt-8 p-4 w-full flex flex-wrap gap-6 md:px-8">
+      <div className="mt-8 p-4 w-full flex flex-wrap gap-6 md:px-8 opacity-0 animate-fade-in-up animation-delay-[900ms]">
         {WORKS.slice(0, 3).map((work) => (
           <WorkCard {...work} key={work.title} />
         ))}

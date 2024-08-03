@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = ({ onClick, children, className }) => {
   return (
     <button
       className={mergeClassname(
-        "bg-white px-8 py-2 shadow-brutalist border-2 border-black relative overflow-hidden",
+        "bg-white px-8 py-2 border-2 border-black relative overflow-hidden rounded-cartoon2 shadow-brutalist",
         className
       )}
       onClick={() => {

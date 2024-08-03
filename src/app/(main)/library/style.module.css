@@ -1,5 +1,5 @@
 .wrapper {
-  @apply mx-auto container;
+  @apply mx-auto container max-w-screen-lg;
 }
 
 .subtitle {
@@ -7,7 +7,7 @@
 }
 
 .books {
-  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-8 max-w-screen-lg;
+  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-8 max-w-screen-lg opacity-0 animate-fade-in-up animation-delay-[300ms];
 }
 
 .book {

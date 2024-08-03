@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import s from "./about-v2.module.css";
 import Map from "react-map-gl";
 import SectionTitle from "../components/section-title";
@@ -63,14 +63,16 @@ const About = () => {
         }}
       />
       <div className={s.mapOverlay}>
-        <SectionTitle number="📋" title="About" darkMode />
-        <p className={s.story}>
-          Hey, I am a vibrant CS student 👨‍💻 and aspiring software engineer ✨
-          based in Indonesia 🇮🇩. Driven by curiosity, a zest for life, and a
-          passion for coding 🔥, I strive to conquer the ever-expanding tech
-          industry and achieve great things in this rapidly evolving landscape
-          🚀.
-        </p>
+        <div className={s.mapOverlayContent}>
+          <SectionTitle number="📋" title="About" darkMode />
+          <p className={s.story}>
+            Hey, I am a vibrant CS student 👨‍💻 and aspiring software engineer ✨
+            based in Indonesia 🇮🇩. Driven by curiosity, a zest for life, and a
+            passion for coding 🔥, I strive to conquer the ever-expanding tech
+            industry and achieve great things in this rapidly evolving landscape
+            🚀.
+          </p>
+        </div>
       </div>
     </div>
   );

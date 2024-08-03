@@ -25,6 +25,10 @@
   }
 }
 
+.mapOverlayContent {
+  @apply container mx-auto max-w-screen-lg md:px-8;
+}
+
 .story {
   margin-top: 2rem;
   max-width: 36rem;

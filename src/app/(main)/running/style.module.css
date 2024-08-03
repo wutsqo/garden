@@ -1,9 +1,9 @@
 .root {
-  @apply p-4 pt-32 container mx-auto;
+  @apply p-4 pt-32 container mx-auto max-w-screen-lg;
 }
 
 .pageContent {
-  @apply mt-8;
+  @apply mt-8 opacity-0 animate-fade-in-up animation-delay-[300ms];
 }
 
 .sectionTitle {

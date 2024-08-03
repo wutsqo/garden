@@ -16,47 +16,51 @@ export default function Experiences() {
 
   return (
     <>
-      <div className={s.container}>
+      <div className={s.wrapper}>
         <SectionTitle number="🚀" title="Experiences" />
       </div>
-      <div className={s.companies}>
-        <div
-          className={mergeClassname(
-            s.marker,
-            s[colors[activeId % colors.length]]
-          )}
-          style={{
-            transform: `translateX(${activeId * 100}%)`,
-          }}
-        />
-        {EXPERIENCES.map((experience, i) => (
-          <button
-            key={experience.id}
+      <div className={s.detailWrapper}>
+        <div className={s.companies}>
+          <div
             className={mergeClassname(
-              s.company,
-              experience.id === activeId ? s.active : ""
+              s.marker,
+              s[colors[activeId % colors.length]]
             )}
-            onClick={() => setActiveId(experience.id)}
-          >
-            {experience.company}
-          </button>
-        ))}
-      </div>
-      <div className={s.detail}>
-        <h3 className={s.header}>
-          <span className={s.title}>{activeExperience.title}</span> @{" "}
-          <span>{activeExperience.company}</span>
-        </h3>
-        <div className={s.date}>{activeExperience.date}</div>
-        <div className={s.description}>
-          {activeExperience.desc.map((desc) => (
-            <li
-              key={desc}
-              dangerouslySetInnerHTML={{
-                __html: desc,
-              }}
-            ></li>
+            style={{
+              transform: `translateX(${activeId * 100}%)`,
+            }}
+          />
+          {EXPERIENCES.map((experience, i) => (
+            <button
+              key={experience.id}
+              className={mergeClassname(
+                s.company,
+                experience.id === activeId ? s.active : ""
+              )}
+              onClick={() => setActiveId(experience.id)}
+            >
+              {experience.company}
+            </button>
           ))}
+        </div>
+      </div>
+      <div className={s.detailWrapper}>
+        <div className={s.detail}>
+          <h3 className={s.header}>
+            <span className={s.title}>{activeExperience.title}</span> @{" "}
+            <span>{activeExperience.company}</span>
+          </h3>
+          <div className={s.date}>{activeExperience.date}</div>
+          <div className={s.description}>
+            {activeExperience.desc.map((desc) => (
+              <li
+                key={desc}
+                dangerouslySetInnerHTML={{
+                  __html: desc,
+                }}
+              ></li>
+            ))}
+          </div>
         </div>
       </div>
     </>

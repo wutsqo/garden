@@ -9,14 +9,12 @@ import Contact from "@components/home/sections/contact";
 export default function Home() {
   return (
     <main className={s.main}>
-      <div className="container mx-auto">
-        <Hero />
-        <Works />
-        <Expertise />
-        <Experiences />
-        <About />
-        <Contact />
-      </div>
+      <Hero />
+      <Works />
+      <Expertise />
+      <Experiences />
+      <About />
+      <Contact />
     </main>
   );
 }

@@ -1,5 +1,5 @@
-.container {
-  overflow: hidden;
+.wrapper {
+  @apply overflow-hidden container mx-auto max-w-screen-lg;
 }
 
 .title {
@@ -8,6 +8,8 @@
   @media (min-width: 768px) {
     padding-inline: 2rem;
   }
+
+  @apply opacity-0 animate-fade-in-up animation-delay-[750ms];
 }
 
 .works {

@@ -1,11 +1,5 @@
-.container {
-  padding: 1rem;
-  margin-top: 6rem;
-  padding-bottom: 8rem;
-
-  @media (min-width: 768px) {
-    padding-inline: 2rem;
-  }
+.wrapper {
+  @apply p-4 mt-24 pb-32 md:px-8 container mx-auto max-w-screen-lg;
 }
 
 .content {
@@ -29,7 +23,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 4px 4px #000;
+  
+  @apply shadow-brutalist;
 }
 
 .email {

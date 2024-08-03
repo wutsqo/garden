@@ -1,9 +1,9 @@
 .title {
   -webkit-text-stroke: 2px black;
   color: transparent;
-  @apply text-5xl uppercase;
+  @apply text-5xl uppercase opacity-0 animate-fade-in-up;
 }
 
 .subtitle {
-  @apply text-xl mt-4 mb-8;
+  @apply text-xl mt-4 mb-8 opacity-0 animate-fade-in-up animation-delay-[150ms];
 }

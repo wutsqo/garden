@@ -20,6 +20,8 @@
   align-items: center;
   font-size: 1.25rem;
   background: white;
+
+  @apply rounded-cartoon2;
 }
 
 .dark .number {

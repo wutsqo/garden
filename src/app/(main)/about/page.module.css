@@ -1,5 +1,5 @@
 .wrapper {
-  @apply container mx-auto px-4 pt-32;
+  @apply container mx-auto px-4 pt-32 max-w-screen-lg;
 }
 
 .title {
@@ -9,7 +9,7 @@
 }
 
 .content {
-  @apply mt-8 text-base flex flex-col gap-6;
+  @apply mt-8 text-base flex flex-col gap-6 opacity-0 animate-fade-in-up animation-delay-[300ms];
 }
 
 .innerContent {
