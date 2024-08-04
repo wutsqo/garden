@@ -11,7 +11,7 @@ export async function getBooks(): Promise<Book[]> {
     "author",
     "body",
     "coverImage",
-    "readingStatus",
+    "isRead",
     "slug",
   ]);
   const books: Book[] = documents.map((doc) => ({
@@ -20,7 +20,7 @@ export async function getBooks(): Promise<Book[]> {
     author: doc.author?.name ?? "",
     body: doc.content,
     cover: doc.coverImage ?? "",
-    status: doc.readingStatus as string,
+    status: doc.isRead ? "read" : "unread",
   }));
   return books;
 }
@@ -45,6 +45,6 @@ export async function getBook(id: string): Promise<Book> {
     author: document.author?.name ?? "",
     body: document.content,
     cover: document.coverImage ?? "",
-    status: document.readingStatus as string,
+    status: document.isRead ? "read" : "unread",
   };
 }
