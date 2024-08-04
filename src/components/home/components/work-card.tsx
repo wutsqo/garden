@@ -19,7 +19,13 @@ const WorkCard: FC<Work> = ({
     <div className="w-full sm:w-[calc(50%-2rem)] lg:w-[calc(33%-2rem)] shadow-brutalist border-2 border-black bg-white relative rounded-cartoon2 overflow-hidden">
       {image ? (
         <div className={s.imageContainer}>
-          <Image src={image} alt={title} placeholder="blur" fill />
+          <Image
+            src={image}
+            alt={title}
+            placeholder="blur"
+            fill
+            sizes="(max-width: 640px) 100vw, 50vw"
+          />
         </div>
       ) : null}
       <div className={mergeClassname(s.content, (live || repo) && "mb-12")}>
