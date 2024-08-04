@@ -1,7 +1,8 @@
 "use client";
+
 import { mergeClassname } from "@utils/merge-classname";
 import s from "./cell.module.css";
-import { FC, Fragment, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 interface Props {
   color?: string;

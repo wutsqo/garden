@@ -1,7 +1,11 @@
 import "./globals.css";
 import Navbar from "@components/home/components/navbar";
 import Footer from "@components/home/components/footer";
-import Mondrian from "@components/mondrian";
+import dynamic from "next/dynamic";
+
+const Mondrian = dynamic(() => import("@components/mondrian"), {
+  ssr: false,
+});
 
 export const metadata = {
   title: "Muhammad Urwatil Wutsqo",
@@ -19,7 +23,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         <div className="mt-8 absolute">
-          <Mondrian />
+          <Mondrian keyPrefix="header" />
         </div>
         <div className="min-h-screen">{children}</div>
         <Footer />
