@@ -1,9 +1,9 @@
 .wrapper {
-  @apply container mx-auto max-w-screen-lg p-4 py-48 prose md:prose-lg;
+  @apply container mx-auto max-w-screen-lg p-0 pt-8 md:px-4 md:py-48 prose md:prose-lg;
 }
 
 .contentWrapper {
-  @apply bg-white shadow-lg rounded-lg py-24 px-24 font-sans;
+  @apply bg-white shadow-lg md:rounded-lg py-24 px-4 md:px-24 font-sans;
 }
 
 .imageWrapper {
