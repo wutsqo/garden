@@ -1,5 +1,4 @@
-"use client";
-
+import Link from "next/link";
 import styles from "./hero.module.css";
 import Button from "@components/button";
 
@@ -19,12 +18,9 @@ export default function Hero() {
         </div>
       </div>
 
-      <Button
-        onClick={() => window.open("mailto:urwatilwutsqo16@gmail.com")}
-        className={styles.buttonText}
-      >
-        Book a Consultation
-      </Button>
+      <Link href="/services" className={styles.buttonText}>
+        <Button>Book a Consultation</Button>
+      </Link>
     </div>
   );
 }

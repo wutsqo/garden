@@ -59,6 +59,6 @@
 .status.reading {
   background: #885edd;
 }
-.status.to-read {
+.status.unread {
   background: #da1d7e;
 }

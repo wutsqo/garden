@@ -39,3 +39,4 @@ node_modules
 .env
 .npmrc
 public/images
+certificates
