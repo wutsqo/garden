@@ -33,10 +33,6 @@
   @apply text-magenta-cerise;
 }
 
-.secondHighlight {
-  @apply text-yellow-beer;
-}
-
 .buttonText {
   @apply text-base block mt-12 opacity-0 animate-fade-in-up animation-delay-[600ms];
 }
