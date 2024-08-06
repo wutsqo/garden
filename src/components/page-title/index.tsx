@@ -5,7 +5,7 @@ import { PageTitleProps } from "./index.type";
 const PageTitle: FC<PageTitleProps> = ({ title, subtitle }) => {
   return (
     <>
-      <div className={s.title}>{title}</div>
+      <h1 className={s.title}>{title}</h1>
       {subtitle ? <div className={s.subtitle}>{subtitle}</div> : null}
     </>
   );

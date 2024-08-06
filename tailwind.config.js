@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,6 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-chivo)"],
+        mono: ["var(--font-chivo-mono)"],
+      },
       colors: {
         "magenta-cerise": "#DA1D7E",
         "yellow-beer": "#F8B725",
