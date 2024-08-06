@@ -1,38 +1,31 @@
 import PageTitle from "@components/page-title";
 import markdownToHtml from "@utils/markdown-to-html";
-import { getDocumentBySlug, getDocumentSlugs } from "outstatic/server";
 import s from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { getPageData, getPageMetadata, getPageSlugs } from "./data";
 
-export default async function Services({
+export default async function Page({
   params,
-}: {
+}: Readonly<{
   params: {
     slug: string;
   };
-}) {
-  const document = getDocumentBySlug("pages", params.slug, [
-    "title",
-    "subtitle",
-    "publishedAt",
-    "content",
-    "coverImage",
-  ]);
+}>) {
+  const { slug } = params;
+  const data = await getPageData(slug);
 
-  if (!document) {
-    return notFound();
-  }
+  if (!data) notFound();
 
-  const content = await markdownToHtml(document?.content ?? "");
+  const content = await markdownToHtml(data?.content ?? "");
 
   return (
     <main className={s.wrapper}>
       <div className={s.imageWrapper}>
-        {document?.coverImage ? (
+        {data?.coverImage ? (
           <Image
-            src={document?.coverImage ?? ""}
-            alt={document?.title ?? ""}
+            src={data?.coverImage ?? ""}
+            alt={data?.title ?? ""}
             fill
             style={{
               objectFit: "cover",
@@ -43,8 +36,8 @@ export default async function Services({
       </div>
       <div className={s.contentWrapper}>
         <PageTitle
-          title={document?.title ?? ""}
-          subtitle={document?.subtitle as string | undefined}
+          title={data?.title ?? ""}
+          subtitle={data?.subtitle as string | undefined}
         />
         <div
           className={s.content}
@@ -55,11 +48,6 @@ export default async function Services({
   );
 }
 
-export async function generateStaticParams() {
-  const slugs = getDocumentSlugs("pages");
-  return slugs.map((slug) => ({
-    params: {
-      slug: slug,
-    },
-  }));
-}
+export const generateStaticParams = getPageSlugs;
+
+export const generateMetadata = getPageMetadata;
