@@ -8,10 +8,12 @@ export async function GET(req: NextRequest) {
   const title = searchParams.get("title");
   const description = searchParams.get("description");
 
-  const chivoMono = fetch(
+  const chivo = await fetch(
+    new URL("../../../../public/Chivo-Regular.ttf", import.meta.url)
+  ).then((res) => res.arrayBuffer());
+  const chivoMono = await fetch(
     new URL("../../../../public/ChivoMono-Regular.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
-  const chivoMonoData = await chivoMono;
 
   return new ImageResponse(
     (
@@ -32,6 +34,7 @@ export async function GET(req: NextRequest) {
           style={{
             display: "flex",
             fontSize: "24px",
+            fontFamily: "Chivo Mono",
           }}
         >
           <span style={{ color: "#DA1D7E" }}>W</span>
@@ -61,6 +64,7 @@ export async function GET(req: NextRequest) {
             style={{
               fontSize: "32px",
               fontStyle: "normal",
+              paddingLeft: "4px",
             }}
           >
             {description}
@@ -73,8 +77,13 @@ export async function GET(req: NextRequest) {
       height: 630,
       fonts: [
         {
+          name: "Chivo",
+          data: chivo,
+          style: "normal",
+        },
+        {
           name: "Chivo Mono",
-          data: chivoMonoData,
+          data: chivoMono,
           style: "normal",
         },
       ],
