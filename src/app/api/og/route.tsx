@@ -26,14 +26,15 @@ export async function GET(req: NextRequest) {
           alignItems: "flex-start",
           backgroundImage: `url(${
             process.env.SITE_URL ?? "http://localhost:3000"
-          }/og.png)`,
-          padding: "64px 72px",
+          }/og-lg.png)`,
+          padding: "110px 120px",
         }}
       >
         <div
           style={{
             display: "flex",
-            fontSize: "24px",
+            fontSize: "48px",
+            paddingLeft: "8px",
             fontFamily: "Chivo Mono",
           }}
         >
@@ -48,13 +49,13 @@ export async function GET(req: NextRequest) {
             flexDirection: "column",
             alignItems: "flex-start",
             justifyContent: "center",
-            height: "360px",
-            gap: "24px",
+            height: "600px",
+            gap: "48px",
           }}
         >
           <div
             style={{
-              fontSize: "64px",
+              fontSize: "128px",
               fontStyle: "normal",
             }}
           >
@@ -62,9 +63,9 @@ export async function GET(req: NextRequest) {
           </div>
           <div
             style={{
-              fontSize: "32px",
+              fontSize: "64px",
               fontStyle: "normal",
-              paddingLeft: "4px",
+              paddingLeft: "8px",
             }}
           >
             {description}
@@ -73,8 +74,8 @@ export async function GET(req: NextRequest) {
       </div>
     ),
     {
-      width: 1200,
-      height: 630,
+      width: 2000,
+      height: 1000,
       fonts: [
         {
           name: "Chivo",
