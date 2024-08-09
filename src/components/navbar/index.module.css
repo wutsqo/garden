@@ -41,6 +41,12 @@
   }
 }
 
+.link:first-child {
+  @screen md {
+    display: none;
+  }
+}
+
 .navInverted {
   background: white;
 }

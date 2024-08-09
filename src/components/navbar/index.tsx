@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { NAVIGATIONS } from "../config";
+import { NAVIGATIONS } from "./config";
 import { mergeClassname } from "@utils/merge-classname";
-import useScrollPosition from "@hooks/useScrollPosition";
-import styles from "./navbar.module.css";
+import useScrollPosition from "@hooks/use-scroll-position";
+import styles from "./index.module.css";
 import { COLOR_PALETTE } from "@utils/color";
 
 export default function Navbar() {
@@ -28,6 +28,7 @@ export default function Navbar() {
       <div className={styles.links}>
         {NAVIGATIONS.map((navigation, i) => (
           <Link
+            className={styles.link}
             key={navigation.path}
             href={navigation.path}
             style={{
