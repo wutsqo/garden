@@ -29,6 +29,13 @@ export async function getBookSlugs(): Promise<string[]> {
   return getDocumentSlugs("books");
 }
 
+export async function getBookStaticPaths() {
+  const slugs = await getBookSlugs();
+  return slugs.map((slug) => ({
+    id: slug,
+  }));
+}
+
 export async function getBook(id: string): Promise<Book> {
   const document = getDocumentBySlug("books", id, [
     "title",
@@ -48,3 +55,5 @@ export async function getBook(id: string): Promise<Book> {
     status: document.isRead ? "read" : "unread",
   };
 }
+
+export { type Book };

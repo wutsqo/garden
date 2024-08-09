@@ -1,6 +1,7 @@
 import Image from "next/image";
 import s from "./page.module.css";
-import { getBook, getBookSlugs } from "../data";
+import { getBook, getBookStaticPaths } from "@services/books";
+import PageTitle, { PageTitleVariant } from "@components/page-title";
 
 export default async function BookDetail({
   params,
@@ -9,44 +10,31 @@ export default async function BookDetail({
     id: string;
   };
 }>) {
-  const data = await getBook(params.id);
+  const book = await getBook(params.id);
 
   return (
-    <div className={s.wrapper}>
+    <main className={s.wrapper}>
       <div className={s.imageWrapper}>
-        <Image
-          src={data.cover}
-          alt={data.title}
-          fill
-          style={{
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-        <div className={s.overlay}>
-          <div className={s.info}>
-            <div className={s.title}>{data.title}</div>
-            <div className={s.author}>{data.author}</div>
-          </div>
-        </div>
+        <Image src={book.cover} alt="Library" fill />
+        <div className={s.imageOverlay} />
       </div>
       <div className={s.contentWrapper}>
+        <div className={s.titleWrapper}>
+          <PageTitle
+            title={book.title}
+            subtitle={`By ${book.author}`}
+            variant={PageTitleVariant.WhiteBeforeLg}
+          />
+        </div>
         <div
-          className={s.content}
+          className={s.booksWrapper}
           dangerouslySetInnerHTML={{
-            __html: data.body ?? "",
+            __html: book.body ?? "",
           }}
-        ></div>
+        />
       </div>
-    </div>
+    </main>
   );
 }
 
-export async function generateStaticParams() {
-  const slugs = await getBookSlugs();
-  return slugs.map((slug) => ({
-    params: {
-      id: slug,
-    },
-  }));
-}
+export const generateStaticParams = getBookStaticPaths;

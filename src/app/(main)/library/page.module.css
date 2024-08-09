@@ -15,14 +15,14 @@
 }
 
 .contentWrapper {
-  @apply font-sans shadow-lg lg:rounded-lg mb-16 overflow-hidden;
+  @apply font-sans shadow-lg lg:rounded-lg mt-8 mb-16 overflow-hidden;
 }
 
 .titleWrapper {
-  @apply p-6 w-full lg:p-12 lg:bg-white;
-  @apply flex flex-col justify-end;
+  @apply p-6 h-40 w-full lg:p-12 lg:bg-white;
 }
 
 .booksWrapper {
   @apply p-6 lg:p-12 lg:gap-8 w-full bg-white;
+  @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8;
 }

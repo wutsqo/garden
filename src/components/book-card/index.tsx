@@ -1,13 +1,18 @@
 import { FC } from "react";
-import s from "./style.module.css";
+import s from "./index.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { Book } from "./interface";
 import { mergeClassname } from "@utils/merge-classname";
+import { BookCardProps } from "./index.type";
 
-const BookCard: FC<Book> = (book) => {
+const BookCard: FC<BookCardProps> = ({ book, delay }) => {
   return (
-    <div className={s.book}>
+    <div
+      className={s.book}
+      style={{
+        animationDelay: `${delay}ms`,
+      }}
+    >
       <Link href={`/library/${book.id}`} className={s.cover}>
         <Image
           src={book.cover}
