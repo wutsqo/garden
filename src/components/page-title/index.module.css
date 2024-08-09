@@ -7,3 +7,17 @@
 .subtitle {
   @apply text-xl mt-4 mb-8 opacity-0 animate-fade-in-up animation-delay-[150ms];
 }
+
+.whiteBeforeLg {
+  @apply text-white lg:text-black;
+}
+
+.whiteBeforeLg .title {
+  -webkit-text-stroke: 2px white;
+  color: transparent !important;
+
+  @screen lg {
+    -webkit-text-stroke: 2px black;
+    color: transparent !important;
+  }
+}
