@@ -1,6 +1,6 @@
 import "./globals.css";
-import Navbar from "@components/home/components/navbar";
-import Footer from "@components/home/components/footer";
+import Navbar from "@components/navbar";
+import Footer from "@components/footer";
 import dynamic from "next/dynamic";
 import { Chivo, Chivo_Mono } from "next/font/google";
 import { Metadata } from "next";

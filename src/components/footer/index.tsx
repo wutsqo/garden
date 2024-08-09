@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import s from "./footer.module.css";
+import s from "./index.module.css";
 
 const Mondrian = dynamic(() => import("@components/mondrian"), {
   ssr: false,
