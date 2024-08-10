@@ -1,0 +1,27 @@
+.wrapper {
+  @apply mx-auto container max-w-screen-lg pt-32;
+}
+
+.imageWrapper {
+  @apply absolute w-full h-96 bg-black left-0 top-16 -z-10;
+}
+
+.imageWrapper img {
+  @apply object-cover object-center;
+}
+
+.imageOverlay {
+  @apply absolute w-full h-full bg-gradient-to-b via-black/50 lg:bg-gradient-to-t from-transparent to-black backdrop-blur-sm;
+}
+
+.contentWrapper {
+  @apply font-sans shadow-lg lg:rounded-lg mt-8 overflow-hidden;
+}
+
+.titleWrapper {
+  @apply p-6 w-full lg:p-12 lg:bg-white flex flex-col justify-end lg:justify-center;
+}
+
+.detailWrapper {
+  @apply p-6 lg:p-12 lg:gap-8 w-full bg-white prose min-w-full;
+}

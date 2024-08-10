@@ -40,7 +40,7 @@ export async function getBook(id: string): Promise<Book> {
   const document = getDocumentBySlug("books", id, [
     "title",
     "author",
-    "body",
+    "content",
     "coverImage",
   ]);
   if (!document) {

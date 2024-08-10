@@ -11,17 +11,18 @@ export default async function Library() {
   return (
     <main className={s.wrapper}>
       <div className={s.imageWrapper}>
-        <Image src={LibraryHeaderImage} alt="Library" fill />
+        <Image src={LibraryHeaderImage} alt="Library" fill placeholder="blur" />
         <div className={s.imageOverlay} />
       </div>
       <div className={s.contentWrapper}>
         <div className={s.titleWrapper}>
           <PageTitle
-            title="Library 📚"
-            subtitle="A collection of books that I have read, am reading, or want to read."
+            title="Bookshelf 📚"
+            subtitle="The pile on my bedside table"
             variant={PageTitleVariant.WhiteBeforeLg}
           />
         </div>
+        <hr />
         <div className={s.booksWrapper}>
           {books.map((book, i) => (
             <BookCard key={book.id} book={book} delay={300 + i * 100} />

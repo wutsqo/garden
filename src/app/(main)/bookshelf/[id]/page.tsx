@@ -2,6 +2,8 @@ import Image from "next/image";
 import s from "./page.module.css";
 import { getBook, getBookStaticPaths } from "@services/books";
 import PageTitle, { PageTitleVariant } from "@components/page-title";
+import getImage from "@utils/get-image";
+import markdownToHtml from "@utils/markdown-to-html";
 
 export default async function BookDetail({
   params,
@@ -11,11 +13,13 @@ export default async function BookDetail({
   };
 }>) {
   const book = await getBook(params.id);
+  const { color, img } = await getImage(book.cover);
+  const content = await markdownToHtml(book.body);
 
   return (
     <main className={s.wrapper}>
-      <div className={s.imageWrapper}>
-        <Image src={book.cover} alt="Library" fill />
+      <div className={s.imageWrapper} style={{ backgroundColor: color.hex }}>
+        <Image src={img.src} alt="Library" fill />
         <div className={s.imageOverlay} />
       </div>
       <div className={s.contentWrapper}>
@@ -26,10 +30,11 @@ export default async function BookDetail({
             variant={PageTitleVariant.WhiteBeforeLg}
           />
         </div>
+        <hr />
         <div
-          className={s.booksWrapper}
+          className={s.detailWrapper}
           dangerouslySetInnerHTML={{
-            __html: book.body ?? "",
+            __html: content,
           }}
         />
       </div>

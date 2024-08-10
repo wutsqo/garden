@@ -8,8 +8,8 @@ export const NAVIGATIONS = [
     path: "/bookmarks",
   },
   {
-    name: "Library",
-    path: "/library",
+    name: "Bookshelf",
+    path: "/bookshelf",
   },
   {
     name: "Running",
