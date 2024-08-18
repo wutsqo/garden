@@ -12,8 +12,12 @@ export default function Footer() {
         <Mondrian keyPrefix="footer" />
       </div>
       <div className={s.innerWrapper}>
-        <div>THE PERSONAL SITE & PORTFOLIO • </div>
-        <div>MUHAMMAD URWATIL WUTSQO</div>
+        <div className="flex items-center gap-2 h-12">
+          <div className="text-4xl -ml-3">✷</div>
+          <div>
+            <div>THE PERSONAL SITE & PORTFOLIO • WUTSQO</div>
+          </div>
+        </div>
       </div>
     </footer>
   );
