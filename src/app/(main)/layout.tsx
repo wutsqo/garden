@@ -36,7 +36,7 @@ export default function RootLayout({
     <html lang="en" className={`${chivo.variable} ${chivoMono.variable}`}>
       <body className="font-mono">
         <Navbar />
-        <div className="mt-8 absolute">
+        <div className="mt-8 absolute z-10">
           <Mondrian keyPrefix="header" />
         </div>
         <div className="min-h-screen pt-16">{children}</div>
