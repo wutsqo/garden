@@ -8,6 +8,27 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    borderRadius: {
+      none: "0px",
+      DEFAULT: "0.5rem",
+      full: "9999px",
+    },
+    fontWeight: {
+      light: 300,
+      normal: 400,
+      medium: 500,
+      bold: 700,
+      black: 900,
+    },
+    container: {
+      center: true,
+      padding: "1rem",
+      screens: {
+        sm: "100%",
+        md: "100%",
+        lg: "1024px",
+      },
+    },
     extend: {
       fontFamily: {
         sans: ["var(--font-chivo)"],
@@ -35,15 +56,9 @@ module.exports = {
         height: "height",
       },
       animation: {
-        "spin-slow": "spin 8s linear infinite",
         write: "write 1000ms ease-out 800ms",
         "fade-in": "fade-in 300ms ease-out forwards",
         "fade-in-up": "fade-in-up 300ms ease-out forwards",
-        nudge: "nudge 400ms linear",
-      },
-      borderRadius: {
-        cartoon: "2% 95% 1% 95%/95% 3% 92% 3%",
-        cartoon2: "95% 1% 90% 1%/5% 90% 2% 93%",
       },
       keyframes: {
         write: {
@@ -57,18 +72,6 @@ module.exports = {
         "fade-in-up": {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0px)" },
-        },
-        nudge: {
-          "0%": {
-            transform: "rotate(-7deg)",
-          },
-          "33%": {
-            transform: "rotate(7deg)",
-          },
-
-          "66%": {
-            transform: "rotate(-7deg)",
-          },
         },
       },
     },

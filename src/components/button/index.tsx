@@ -3,6 +3,7 @@
 import { mergeClassname } from "@utils/merge-classname";
 import React, { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
+import s from "./index.module.css";
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
@@ -24,13 +25,13 @@ const Button: React.FC<ButtonProps> = ({ onClick, children, className }) => {
           duration: 0.1,
           translateX: 4,
           translateY: 4,
-          boxShadow: "0 0 0 0 rgba(0, 0, 0, 1)",
+          boxShadow: "0 0 #1a1a1a",
         })
         .to(ref.current, {
           duration: 0.05,
           translateX: 0,
           translateY: 0,
-          boxShadow: "4px 4px rgba(0, 0, 0, 1)",
+          boxShadow: "2px 2px #1a1a1a",
         });
 
       tlHover.current = gsap
@@ -47,10 +48,7 @@ const Button: React.FC<ButtonProps> = ({ onClick, children, className }) => {
 
   return (
     <button
-      className={mergeClassname(
-        "bg-white px-8 py-2 border-2 border-black relative overflow-hidden rounded-cartoon2 shadow-brutalist",
-        className
-      )}
+      className={mergeClassname(s.button, className)}
       onClick={() => {
         tlClick.current?.restart();
         onClick?.();
@@ -58,7 +56,7 @@ const Button: React.FC<ButtonProps> = ({ onClick, children, className }) => {
       onMouseEnter={() => tlHover.current?.play(0)}
       ref={ref}
     >
-      <span className="children block">{children}</span>
+      <span className={s.children}>{children}</span>
     </button>
   );
 };

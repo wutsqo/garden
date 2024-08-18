@@ -4,6 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import SectionTitle from "../components/section-title";
 import s from "./about.module.css";
 import Map from "react-map-gl";
+import {
+  MagnifyingGlassMinusIcon,
+  MagnifyingGlassPlusIcon,
+} from "@heroicons/react/24/outline";
 
 const ZOOM = [
   {
@@ -44,7 +48,7 @@ export default function About() {
   }, [zoomIndex]);
 
   return (
-    <div className={s.container}>
+    <div className={s.wrapper}>
       <SectionTitle number="📋" title="About" />
 
       <div className={s.content}>
@@ -70,14 +74,14 @@ export default function About() {
               onClick={zoomIn}
               disabled={zoomIndex === ZOOM.length - 1}
             >
-              Zoom In
+              <MagnifyingGlassPlusIcon className={s.zoomIcon} />
             </button>
             <button
               className={s.zoom}
               onClick={zoomOut}
               disabled={zoomIndex === 0}
             >
-              Zoom Out
+              <MagnifyingGlassMinusIcon className={s.zoomIcon} />
             </button>
           </div>
         </div>

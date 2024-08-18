@@ -16,7 +16,7 @@ const WorkCard: FC<Work> = ({
   repo,
 }) => {
   return (
-    <div className="w-full sm:w-[calc(50%-2rem)] lg:w-[calc(33%-2rem)] shadow-brutalist border-2 border-black bg-white relative rounded-cartoon2 overflow-hidden">
+    <div className="w-full shadow-brutalist border-2 border-black bg-white relative overflow-hidden rounded">
       {image ? (
         <div className={s.imageContainer}>
           <Image

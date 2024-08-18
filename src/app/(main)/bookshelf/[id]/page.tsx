@@ -20,23 +20,23 @@ export default async function BookDetail({
     <main className={s.wrapper}>
       <div className={s.imageWrapper} style={{ backgroundColor: color.hex }}>
         <Image src={img.src} alt="Library" fill />
-        <div className={s.imageOverlay} />
-      </div>
-      <div className={s.contentWrapper}>
-        <div className={s.titleWrapper}>
-          <PageTitle
-            title={book.title}
-            subtitle={`By ${book.author}`}
-            variant={PageTitleVariant.WhiteBeforeLg}
-          />
+        <div className={s.imageOverlay}>
+          <div className={s.titleWrapper}>
+            <PageTitle
+              title={book.title}
+              subtitle={`By ${book.author}`}
+              variant={PageTitleVariant.WhiteBeforeLg}
+            />
+          </div>
+          <div className={s.contentWrapper}>
+            <div
+              className={s.detailWrapper}
+              dangerouslySetInnerHTML={{
+                __html: content,
+              }}
+            />
+          </div>
         </div>
-        <hr />
-        <div
-          className={s.detailWrapper}
-          dangerouslySetInnerHTML={{
-            __html: content,
-          }}
-        />
       </div>
     </main>
   );

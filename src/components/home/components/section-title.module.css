@@ -1,35 +1,14 @@
 .container {
-  font-weight: 600;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1.5rem;
-  color: black;
-}
+  @apply flex justify-start items-center gap-6;
+  @apply font-medium text-black;
 
-.container.dark {
-  color: white;
-}
+  .title {
+    @apply text-2xl font-sans;
+  }
 
-.number {
-  border: 2px solid black;
-  height: 3rem;
-  width: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.25rem;
-  background: white;
-
-  @apply rounded-cartoon2;
-}
-
-.dark .number {
-  background: black;
-  color: white;
-  border: 2px solid white;
-}
-
-.title {
-  font-size: 1.25rem;
+  .number {
+    @apply border-2 border-black rounded;
+    @apply h-12 w-12 flex justify-center items-center;
+    @apply bg-white text-lg;
+  }
 }

@@ -1,14 +1,15 @@
-import Experiences from "@components/home/sections/experiences";
-import Expertise from "@components/home/sections/expertise";
 import Hero from "@components/home/sections/hero";
 import Works from "@components/home/sections/works";
-import s from "./page.module.css";
-import About from "@components/home/sections/about-v2";
+import Expertise from "@components/home/sections/expertise";
+import Experiences from "@components/home/sections/experiences";
 import Contact from "@components/home/sections/contact";
+import dynamic from "next/dynamic";
+
+const About = dynamic(() => import("@components/home/sections/about"));
 
 export default function Home() {
   return (
-    <main className={s.main}>
+    <main>
       <Hero />
       <Works />
       <Expertise />

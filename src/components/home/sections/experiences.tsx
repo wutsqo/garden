@@ -15,11 +15,11 @@ export default function Experiences() {
   const colors = Object.keys(COLOR_PALETTE);
 
   return (
-    <>
-      <div className={s.wrapper}>
+    <div className={s.wrapper}>
+      <div className={s.innerWrapper}>
         <SectionTitle number="🚀" title="Experiences" />
       </div>
-      <div className={s.detailWrapper}>
+      <div className={s.innerWrapper}>
         <div className={s.companies}>
           <div
             className={mergeClassname(
@@ -44,7 +44,7 @@ export default function Experiences() {
           ))}
         </div>
       </div>
-      <div className={s.detailWrapper}>
+      <div className={s.innerWrapper}>
         <div className={s.detail}>
           <h3 className={s.header}>
             <span className={s.title}>{activeExperience.title}</span> @{" "}
@@ -52,17 +52,19 @@ export default function Experiences() {
           </h3>
           <div className={s.date}>{activeExperience.date}</div>
           <div className={s.description}>
-            {activeExperience.desc.map((desc) => (
-              <li
-                key={desc}
-                dangerouslySetInnerHTML={{
-                  __html: desc,
-                }}
-              ></li>
-            ))}
+            <ul>
+              {activeExperience.desc.map((desc) => (
+                <li
+                  key={desc}
+                  dangerouslySetInnerHTML={{
+                    __html: desc,
+                  }}
+                ></li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

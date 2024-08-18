@@ -1,11 +1,12 @@
 .wrapper {
-  @apply container mx-auto max-w-screen-lg p-0 pt-8 md:px-4 md:py-48 prose md:prose-lg;
+  @apply py-24;
 }
 
 .contentWrapper {
-  @apply bg-white shadow-lg md:rounded-lg py-24 px-4 md:px-24 font-sans;
+  @apply bg-white shadow-lg md:rounded font-sans;
+  @apply container prose md:prose-lg max-w-screen-lg py-8 md:py-16 md:px-16;
 }
 
 .imageWrapper {
-  @apply absolute w-full h-96 md:h-64 bg-black left-0 top-16 -z-10;
+  @apply absolute w-full h-96 lg:h-64 bg-black left-0 top-16 -z-10;
 }

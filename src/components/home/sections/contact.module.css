@@ -1,15 +1,15 @@
 .wrapper {
-  @apply p-4 mt-24 pb-32 md:px-8 container mx-auto max-w-screen-lg;
+  @apply mt-24 pb-32 container;
 }
 
 .content {
-  margin-top: 4rem;
+  margin-top: 2rem;
   font-size: 2rem;
   max-width: 56rem;
 }
 
 .connect {
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
@@ -23,7 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   @apply shadow-brutalist;
 }
 

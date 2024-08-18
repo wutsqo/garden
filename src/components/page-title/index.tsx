@@ -1,6 +1,7 @@
 import { FC } from "react";
 import s from "./index.module.css";
 import { PageTitleProps, PageTitleVariant } from "./index.type";
+import { mergeClassname } from "@utils/merge-classname";
 
 const PageTitle: FC<PageTitleProps> = ({
   title,
@@ -8,7 +9,7 @@ const PageTitle: FC<PageTitleProps> = ({
   variant = PageTitleVariant.Default,
 }) => {
   return (
-    <div className={s[variant]}>
+    <div className={mergeClassname(s[variant], s.wrapper)}>
       <h1 className={s.title}>{title}</h1>
       {subtitle ? <div className={s.subtitle}>{subtitle}</div> : null}
     </div>

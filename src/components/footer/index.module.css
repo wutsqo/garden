@@ -1,5 +1,5 @@
 .wrapper {
-  @apply bg-black w-full h-72 relative text-white;
+  @apply bg-black w-full h-96 relative text-white;
 }
 
 .mondrianWrapper {

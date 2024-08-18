@@ -1,5 +1,6 @@
 .wrapper {
-  @apply px-4 py-28 text-3xl sm:text-4xl font-medium md:px-8 leading-snug container mx-auto max-w-screen-lg;
+  @apply text-3xl sm:text-4xl font-medium leading-snug;
+  @apply container py-28;
 }
 
 .main {
@@ -18,7 +19,7 @@
   background-size: 500% auto;
   animation: textShine 5s ease-in-out infinite alternate;
 
-  @apply text-6xl sm:text-7xl font-semibold opacity-0 animate-fade-in-up animation-delay-[150ms];
+  @apply text-6xl sm:text-7xl font-medium opacity-0 animate-fade-in-up animation-delay-[150ms];
 }
 
 .subText {

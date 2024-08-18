@@ -4,7 +4,7 @@
 }
 
 .cover {
-  @apply w-full aspect-2/3 relative rounded-r-xl shadow-xl overflow-hidden bg-gray-300;
+  @apply w-full aspect-2/3 relative rounded-r shadow-xl overflow-hidden bg-gray-300;
   @apply hover:-translate-y-2 transition-transform;
 }
 

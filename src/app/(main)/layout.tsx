@@ -1,6 +1,5 @@
 import "./globals.css";
 import Navbar from "@components/navbar";
-import Footer from "@components/footer";
 import dynamic from "next/dynamic";
 import { Chivo, Chivo_Mono } from "next/font/google";
 import { Metadata } from "next";
@@ -8,6 +7,7 @@ import { Metadata } from "next";
 const Mondrian = dynamic(() => import("@components/mondrian"), {
   ssr: false,
 });
+const Footer = dynamic(() => import("@components/footer"));
 
 const chivo = Chivo({
   display: "swap",
@@ -26,6 +26,25 @@ const defaultMetadata = {
   description:
     "The personal site and portfolio of creative technologist Muhammad Urwatil Wutsqo",
 };
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={`${chivo.variable} ${chivoMono.variable}`}>
+      <body className="font-mono">
+        <Navbar />
+        <div className="mt-8 absolute">
+          <Mondrian keyPrefix="header" />
+        </div>
+        <div className="min-h-screen pt-16">{children}</div>
+        <Footer />
+      </body>
+    </html>
+  );
+}
 
 export const metadata: Metadata = {
   title: defaultMetadata.title,
@@ -49,22 +68,3 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" className={`${chivo.variable} ${chivoMono.variable}`}>
-      <body className="font-mono">
-        <Navbar />
-        <div className="mt-8 absolute">
-          <Mondrian keyPrefix="header" />
-        </div>
-        <div className="min-h-screen">{children}</div>
-        <Footer />
-      </body>
-    </html>
-  );
-}

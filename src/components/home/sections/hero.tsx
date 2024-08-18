@@ -19,7 +19,7 @@ export default function Hero() {
       </div>
 
       <Link href="/services" className={styles.buttonText}>
-        <Button>Book a Consultation</Button>
+        <Button>See My Services</Button>
       </Link>
     </div>
   );
