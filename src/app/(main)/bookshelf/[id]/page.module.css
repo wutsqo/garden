@@ -5,15 +5,10 @@
     @apply relative w-full h-96 lg:h-64 bg-black left-0 top-0;
 
     .imageOverlay {
-      @apply absolute w-full backdrop-blur block h-full;
-      @apply flex flex-col justify-start;
+      @apply absolute w-full backdrop-blur h-full flex flex-col justify-start;
 
       .titleWrapper {
-        @apply container lg:rounded-t mt-20 lg:px-12 lg:pt-12 py-6;
-        @apply w-full flex flex-col justify-end;
-        @apply lg:shadow-lg;
-        @apply bg-gradient-to-b from-transparent to-black;
-        @apply lg:bg-white lg:from-white lg:via-white;
+        @apply container lg:rounded-t mt-20 lg:px-12 lg:pt-12 py-6 w-full flex flex-col justify-end lg:shadow-lg bg-gradient-to-b from-transparent to-black lg:bg-white lg:from-white lg:via-white;
       }
     }
   }
@@ -26,9 +21,7 @@
     @apply font-sans lg:mb-16;
 
     .detailWrapper {
-      @apply container py-6 lg:px-12 lg:shadow-lg rounded-b;
-      @apply w-full bg-white pb-16 lg:pb-6 min-h-96;
-      @apply prose lg:prose-lg max-w-screen-lg;
+      @apply container py-6 lg:px-12 lg:shadow-lg rounded-b w-full bg-white pb-16 lg:pb-6 min-h-96 prose lg:prose-lg max-w-screen-lg;
     }
   }
 }
