@@ -1,5 +1,9 @@
+.outerWrapper {
+  @apply mt-24 bg-green-carribean py-16 border-y border-y-black;
+}
+
 .wrapper {
-  @apply mt-24 container flex flex-col gap-8;
+  @apply container flex flex-col gap-8;
 }
 
 .content {

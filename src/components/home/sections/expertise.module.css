@@ -3,27 +3,12 @@
 }
 
 .content {
-  margin-top: 2rem;
-  font-size: 0.875rem;
-
-  @media (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-
-    font-size: 1.25rem;
-    row-gap: 0.5rem;
-    column-gap: 1rem;
-  }
+  @apply flex flex-wrap mt-8 text-base items-baseline gap-4;
 }
 
-.content .item:first-child {
-  font-size: 1.25rem;
-  color: #885edd;
-
-  @media (min-width: 768px) {
-    font-size: 1.75rem;
-  }
+.content .item {
+  @apply border-2 border-black rounded;
+  @apply px-4 py-2 bg-white;
 }
 
 .scroll {

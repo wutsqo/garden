@@ -10,10 +10,11 @@ export default function Expertise() {
         <SectionTitle number="🔥" title="Expertise" />
         <div className={s.content}>
           {EXPERTISES.map((item) => (
-            <span className={s.item} key={item}>
-              {item}.{" "}
-            </span>
+            <div className={s.item} key={item}>
+              {item}
+            </div>
           ))}
+          <div className={s.item}>+++ And many more!</div>
         </div>
       </div>
       <div className={s.scroll}>

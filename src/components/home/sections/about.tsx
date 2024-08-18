@@ -48,54 +48,56 @@ export default function About() {
   }, [zoomIndex]);
 
   return (
-    <div className={s.wrapper}>
-      <SectionTitle number="📋" title="About" />
+    <div className={s.outerWrapper}>
+      <div className={s.wrapper}>
+        <SectionTitle number="📋" title="About" />
 
-      <div className={s.content}>
-        <div className={s.map}>
-          <Map
-            ref={mapRef}
-            mapLib={import("mapbox-gl")}
-            style={{ width: "100%", height: "100%" }}
-            mapStyle={MAP_STYLE}
-            mapboxAccessToken={TOKEN}
-            onLoad={(event) => {
-              mapRef.current = event.target;
-            }}
-            initialViewState={{
-              latitude: ZOOM[2].center[1],
-              longitude: ZOOM[2].center[0],
-              zoom: ZOOM[2].zoom,
-            }}
-          />
-          <div className={s.mapOverlay}>
-            <button
-              className={s.zoom}
-              onClick={zoomIn}
-              disabled={zoomIndex === ZOOM.length - 1}
-            >
-              <MagnifyingGlassPlusIcon className={s.zoomIcon} />
-            </button>
-            <button
-              className={s.zoom}
-              onClick={zoomOut}
-              disabled={zoomIndex === 0}
-            >
-              <MagnifyingGlassMinusIcon className={s.zoomIcon} />
-            </button>
+        <div className={s.content}>
+          <div className={s.map}>
+            <Map
+              ref={mapRef}
+              mapLib={import("mapbox-gl")}
+              style={{ width: "100%", height: "100%" }}
+              mapStyle={MAP_STYLE}
+              mapboxAccessToken={TOKEN}
+              onLoad={(event) => {
+                mapRef.current = event.target;
+              }}
+              initialViewState={{
+                latitude: ZOOM[2].center[1],
+                longitude: ZOOM[2].center[0],
+                zoom: ZOOM[2].zoom,
+              }}
+            />
+            <div className={s.mapOverlay}>
+              <button
+                className={s.zoom}
+                onClick={zoomIn}
+                disabled={zoomIndex === ZOOM.length - 1}
+              >
+                <MagnifyingGlassPlusIcon className={s.zoomIcon} />
+              </button>
+              <button
+                className={s.zoom}
+                onClick={zoomOut}
+                disabled={zoomIndex === 0}
+              >
+                <MagnifyingGlassMinusIcon className={s.zoomIcon} />
+              </button>
+            </div>
           </div>
-        </div>
-        <div className={s.story}>
-          <p>
-            Meet Muhammad Urwatil Wutsqo, a vibrant 22-year-old CS student from
-            the University of Indonesia. He is driven by curiosity, a zest for
-            life, and a passion for coding. Wutsqo finds inspiration in
-            rejuvenating naps 💤 and exploring the real world 🌍. As an aspiring
-            software engineer, he aims to conquer the ever-expanding tech
-            industry 🔥 with his determination and thirst for success 💪. Wutsqo
-            is ready to achieve great things 🚀 in this rapidly evolving
-            landscape.
-          </p>
+          <div className={s.story}>
+            <p>
+              Meet Muhammad Urwatil Wutsqo, a vibrant 22-year-old CS student
+              from the University of Indonesia. He is driven by curiosity, a
+              zest for life, and a passion for coding. Wutsqo finds inspiration
+              in rejuvenating naps 💤 and exploring the real world 🌍. As an
+              aspiring software engineer, he aims to conquer the ever-expanding
+              tech industry 🔥 with his determination and thirst for success 💪.
+              Wutsqo is ready to achieve great things 🚀 in this rapidly
+              evolving landscape.
+            </p>
+          </div>
         </div>
       </div>
     </div>
