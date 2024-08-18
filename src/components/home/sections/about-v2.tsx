@@ -64,7 +64,7 @@ const About = () => {
       />
       <div className={s.mapOverlay}>
         <div className={s.mapOverlayContent}>
-          <SectionTitle number="📋" title="About" darkMode />
+          <SectionTitle number="📋" title="About" />
           <p className={s.story}>
             Hey, I am a vibrant CS student 👨‍💻 and aspiring software engineer ✨
             based in Indonesia 🇮🇩. Driven by curiosity, a zest for life, and a
