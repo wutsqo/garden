@@ -1,9 +1,11 @@
+import { generateBookSlugs } from "../data";
 import Image from "next/image";
-import s from "./page.module.css";
-import { getBook, getBookStaticPaths } from "@services/books";
+import { notFound } from "next/navigation";
 import PageTitle, { PageTitleVariant } from "@components/page-title";
 import getImage from "@utils/get-image";
 import markdownToHtml from "@utils/markdown-to-html";
+import { getBookBySlug } from "./data";
+import s from "./page.module.css";
 
 export default async function BookDetail({
   params,
@@ -12,7 +14,9 @@ export default async function BookDetail({
     id: string;
   };
 }>) {
-  const book = await getBook(params.id);
+  const document = await getBookBySlug(params.id);
+  if (!document) notFound();
+  const book = document.metadata;
   const { color, img } = await getImage(book.cover);
   const content = await markdownToHtml(book.body);
 
@@ -42,4 +46,4 @@ export default async function BookDetail({
   );
 }
 
-export const generateStaticParams = getBookStaticPaths;
+export const generateStaticParams = generateBookSlugs;

@@ -17,11 +17,6 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    outputFileTracingIncludes: {
-      "/*": ["./space/**/*"],
-    },
-  },
 };
 
 export default withPlaiceholder(nextConfig);

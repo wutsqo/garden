@@ -1,9 +1,9 @@
-import PageTitle from "@components/page-title";
-import markdownToHtml from "@utils/markdown-to-html";
-import s from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getPageData, getPageMetadata, getPageSlugs } from "./data";
+import PageTitle from "@components/page-title";
+import markdownToHtml from "@utils/markdown-to-html";
+import { generatePageMetadata, generatePageSlugs, getPageData } from "./data";
+import s from "./page.module.css";
 
 export default async function Page({
   params,
@@ -13,19 +13,18 @@ export default async function Page({
   };
 }>) {
   const { slug } = params;
-  const data = await getPageData(slug);
-
-  if (!data) notFound();
-
-  const content = await markdownToHtml(data?.content ?? "");
+  const page = await getPageData(slug);
+  if (!page) notFound();
+  const { content, metadata } = page;
+  const contentHtml = await markdownToHtml(content);
 
   return (
     <main className={s.wrapper}>
       <div className={s.imageWrapper}>
-        {data?.coverImage ? (
+        {metadata?.coverImage ? (
           <Image
-            src={data?.coverImage ?? ""}
-            alt={data?.title ?? ""}
+            src={metadata.coverImage}
+            alt={metadata?.title}
             fill
             style={{
               objectFit: "cover",
@@ -35,19 +34,16 @@ export default async function Page({
         ) : null}
       </div>
       <div className={s.contentWrapper}>
-        <PageTitle
-          title={data?.title ?? ""}
-          subtitle={data?.subtitle as string | undefined}
-        />
+        <PageTitle title={metadata.title} />
         <div
           className={s.content}
-          dangerouslySetInnerHTML={{ __html: content }}
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       </div>
     </main>
   );
 }
 
-export const generateStaticParams = getPageSlugs;
+export const generateStaticParams = generatePageSlugs;
 
-export const generateMetadata = getPageMetadata;
+export const generateMetadata = generatePageMetadata;

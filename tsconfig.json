@@ -23,8 +23,7 @@
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@images/*": ["./public/images/*"],
-      "@components/*": ["./src/components/*"],
-      "@services/*": ["./src/services/*"]
+      "@components/*": ["./src/components/*"]
     },
     "removeComments": true
   },

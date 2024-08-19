@@ -1,4 +1,4 @@
-import { Book } from "@services/books";
+import { Book } from "../../interface";
 
 export interface BookCardProps {
   book: Book;

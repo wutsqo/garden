@@ -1,8 +1,10 @@
 export interface Book {
-  id: string;
+  slug: string;
   title: string;
   author: string;
   cover: string;
-  status: string;
   body: string;
+  isRead: boolean;
+  readAt: string;
+  summary: string;
 }

@@ -1,9 +1,9 @@
-import s from "./page.module.css";
-import PageTitle, { PageTitleVariant } from "@components/page-title";
-import BookCard from "../../../components/book-card";
 import Image from "next/image";
+import PageTitle, { PageTitleVariant } from "@components/page-title";
+import BookCard from "./components/book-card";
 import LibraryHeaderImage from "@images/library.jpg";
-import { getBooks } from "@services/books";
+import { getBooks } from "./data";
+import s from "./page.module.css";
 
 export default async function Library() {
   const books = await getBooks();
@@ -25,7 +25,11 @@ export default async function Library() {
       <div className={s.contentWrapper}>
         <div className={s.booksWrapper}>
           {books.map((book, i) => (
-            <BookCard key={book.id} book={book} delay={300 + i * 100} />
+            <BookCard
+              key={book.slug}
+              book={book.metadata}
+              delay={300 + i * 100}
+            />
           ))}
         </div>
       </div>

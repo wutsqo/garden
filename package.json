@@ -14,12 +14,10 @@
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "@plaiceholder/next": "^3.0.0",
-    "axios": "^1.7.2",
+    "axios": "^1.7.4",
     "gsap": "^3.12.5",
-    "just-debounce": "^1.1.0",
     "mapbox-gl": "^2.15.0",
     "next": "14.2.5",
-    "outstatic": "^1.4.9",
     "plaiceholder": "^3.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
