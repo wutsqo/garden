@@ -1,9 +1,14 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import PageTitle from "@components/page-title";
-import markdownToHtml from "@utils/markdown-to-html";
 import { generatePageMetadata, generatePageSlugs, getPageData } from "./data";
 import s from "./page.module.css";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import ProjectForm from "@components/mdx/project-form";
+
+const COMPONENTS = {
+  ProjectForm,
+};
 
 export default async function Page({
   params,
@@ -16,7 +21,6 @@ export default async function Page({
   const page = await getPageData(slug);
   if (!page) notFound();
   const { content, metadata } = page;
-  const contentHtml = await markdownToHtml(content);
 
   return (
     <main className={s.wrapper}>
@@ -35,10 +39,7 @@ export default async function Page({
       </div>
       <div className={s.contentWrapper}>
         <PageTitle title={metadata.title} />
-        <div
-          className={s.content}
-          dangerouslySetInnerHTML={{ __html: contentHtml }}
-        />
+        <MDXRemote source={content} components={COMPONENTS} />
       </div>
     </main>
   );

@@ -1,11 +1,11 @@
 "use client";
 
 import { mergeClassname } from "@utils/merge-classname";
-import React, { useLayoutEffect, useRef } from "react";
+import React, { ButtonHTMLAttributes, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import s from "./index.module.css";
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
   children: React.ReactNode;
 }
