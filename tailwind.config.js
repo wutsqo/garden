@@ -23,17 +23,24 @@ module.exports = {
     },
     container: {
       center: true,
-      padding: "1rem",
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+        md: "2rem",
+        lg: "2rem",
+        xl: "2rem",
+      },
       screens: {
         sm: "100%",
         md: "100%",
         lg: "1024px",
+        xl: "1280px",
       },
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-chivo)"],
-        mono: ["var(--font-chivo-mono)"],
+        sans: ["var(--font-space-grotesk)"],
+        mono: ["var(--font-space-mono)"],
       },
       colors: {
         "magenta-cerise": "#DA1D7E",

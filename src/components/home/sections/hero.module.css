@@ -1,14 +1,9 @@
 .wrapper {
-  @apply text-3xl sm:text-4xl font-medium leading-snug;
-  @apply container py-28;
+  @apply container py-28 font-sans font-medium;
 }
 
 .main {
-  @apply flex flex-col;
-}
-
-.superText {
-  @apply mb-8 opacity-0 animate-fade-in-up animation-delay-0;
+  @apply text-4xl sm:text-5xl leading-normal sm:leading-normal;
 }
 
 .mainText {
@@ -18,24 +13,11 @@
   -webkit-text-fill-color: transparent;
   background-size: 500% auto;
   animation: textShine 5s ease-in-out infinite alternate;
-
-  @apply text-6xl sm:text-7xl font-medium opacity-0 animate-fade-in-up animation-delay-[150ms];
-}
-
-.subText {
-  @apply text-2xl mt-8 opacity-0 animate-fade-in-up animation-delay-[300ms];
-}
-
-.subtitleWrapper {
-  @apply mt-4 opacity-0 animate-fade-in-up animation-delay-[450ms];
-}
-
-.firstHighlight {
-  @apply text-magenta-cerise;
+  font-weight: 700;
 }
 
 .buttonText {
-  @apply text-base block mt-12 opacity-0 animate-fade-in-up animation-delay-[600ms] max-w-max;
+  @apply text-base block mt-12 max-w-max;
 }
 
 @keyframes textShine {

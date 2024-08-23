@@ -8,7 +8,7 @@ const Input: FC<InputProps> = ({ label, id, ...props }) => {
   return (
     <div className="w-full">
       {label && (
-        <label className="text-sm" htmlFor={id}>
+        <label className="text-base" htmlFor={id}>
           <span>{label}</span>
           {props.required && <span className="text-red-500"> *</span>}
         </label>

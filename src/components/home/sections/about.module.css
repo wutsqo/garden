@@ -11,37 +11,10 @@
   @apply rounded border-2 border-black shadow-brutalist;
   @apply divide-x-0 md:divide-x-2 divide-black;
   @apply divide-y-2 md:divide-y-0;
+}
 
-  .map {
-    @apply h-80 w-full md:max-w-xs relative;
-
-    .mapOverlay {
-      @apply absolute bottom-0 left-0 w-full h-full;
-      @apply flex items-end divide-x-2;
-
-      .zoom {
-        @apply bg-white w-1/2 border-t-2 border-black;
-        @apply h-12 flex items-center justify-center;
-        @apply hover:bg-yellow-beer;
-
-        .zoomIcon {
-          @apply w-6 h-6;
-        }
-      }
-
-      .zoom:disabled {
-        @apply bg-gray-300;
-
-        .zoomIcon {
-          @apply opacity-50;
-        }
-      }
-    }
-  }
-
-  .story {
-    @apply w-full relative bg-white;
-    @apply px-4 md:px-8 prose h-80 max-w-full;
-    @apply overflow-y-auto text-black;
-  }
+.story {
+  @apply w-full relative bg-white;
+  @apply px-4 md:px-8 prose h-80 max-w-full;
+  @apply overflow-y-auto text-black;
 }

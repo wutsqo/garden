@@ -6,17 +6,19 @@ import { STACKS } from "../data";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { mergeClassname } from "@utils/merge-classname";
 
-const WorkCard: FC<Work> = ({
-  title,
-  description,
-  image,
-  label,
-  live,
-  stack,
-  repo,
-}) => {
+const WorkCard: FC<
+  Work & {
+    delay?: number;
+  }
+> = ({ title, description, image, label, live, stack, repo, delay }) => {
   return (
-    <div className="w-full shadow-brutalist border-2 border-black bg-white relative overflow-hidden rounded">
+    <div
+      style={{ animationDelay: `${delay}ms` }}
+      className={mergeClassname(
+        "w-full shadow-brutalist border-2 border-black bg-white relative overflow-hidden rounded",
+        delay ? "opacity-0 animate-fade-in" : ""
+      )}
+    >
       {image ? (
         <div className={s.imageContainer}>
           <Image

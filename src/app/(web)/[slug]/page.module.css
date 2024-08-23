@@ -1,0 +1,19 @@
+.wrapper {
+  @apply py-24;
+}
+
+.contentWrapper {
+  @apply bg-white shadow-lg rounded font-sans border-2 border-black container py-8 md:py-16 md:px-16;
+}
+
+.imageWrapper {
+  @apply absolute w-full h-96 lg:h-64 bg-black left-0 top-16 -z-10;
+}
+
+.article {
+  @apply flex flex-col-reverse sm:flex-row relative gap-4 justify-between;
+}
+
+.articleContent {
+  @apply prose md:prose-lg;
+}

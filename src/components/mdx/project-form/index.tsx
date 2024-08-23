@@ -36,16 +36,16 @@ const ProjectForm: FC = () => {
           placeholder="What should I call you?"
           name="name"
           id="name"
-          label="Name"
+          label="Your Name"
           type="text"
           required
         />
         <Input
-          placeholder="Where can I reach you back?"
+          placeholder="To reach you back"
           name="email"
           id="email"
           type="email"
-          label="Email"
+          label="Your Email"
           required
         />
       </div>

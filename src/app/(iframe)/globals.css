@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mapboxgl-control-container {
+  display: none !important;
+}
+
+.mapboxgl-map div:last-child {
+  display: none !important;
+}

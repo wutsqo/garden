@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     min-height: 100vh;
     scroll-behavior: smooth;
@@ -32,12 +35,4 @@
   h6 {
     @apply text-base font-sans font-medium;
   }
-}
-
-.mapboxgl-control-container {
-  display: none !important;
-}
-
-.mapboxgl-map div:last-child {
-  display: none !important;
 }

@@ -23,5 +23,5 @@
 }
 
 .detailWrapper {
-  @apply container py-6 lg:px-12 lg:shadow-lg rounded-b w-full bg-white pb-16 lg:pb-6 min-h-96 prose lg:prose-lg max-w-screen-lg;
+  @apply container py-6 lg:px-12 lg:shadow-lg rounded-b w-full bg-white pb-16 lg:pb-6 min-h-96 prose lg:prose-lg max-w-screen-xl;
 }

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
+    "@next/bundle-analyzer": "^14.2.6",
     "@plaiceholder/next": "^3.0.0",
     "axios": "^1.7.4",
     "gsap": "^3.12.5",

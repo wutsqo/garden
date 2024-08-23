@@ -1,5 +1,10 @@
 // @ts-check
 import withPlaiceholder from "@plaiceholder/next";
+import bundleAnalyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
 
 /**
  * @type {import('next').NextConfig}
@@ -19,4 +24,4 @@ const nextConfig = {
   },
 };
 
-export default withPlaiceholder(nextConfig);
+export default withBundleAnalyzer(withPlaiceholder(nextConfig));

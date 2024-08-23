@@ -23,8 +23,8 @@ const SelectedWorks: FC = () => {
 
         {collapsed
           ? null
-          : WORKS.slice(3).map((work) => (
-              <WorkCard {...work} key={work.title} />
+          : WORKS.slice(3).map((work, i) => (
+              <WorkCard {...work} key={work.title} delay={i * 100} />
             ))}
       </div>
 
