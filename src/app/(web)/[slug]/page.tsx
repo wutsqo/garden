@@ -1,12 +1,10 @@
 import { notFound } from "next/navigation";
 import { generatePageMetadata, generatePageSlugs, getPageData } from "./data";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import ProjectForm from "@components/mdx/project-form";
 import TableOfContents from "@components/mdx/table-of-contents";
 import { H1, H2, H3, H4, H5, H6 } from "@components/mdx/headings";
 
 const COMPONENTS = {
-  ProjectForm,
   h1: H1,
   h2: H2,
   h3: H3,
