@@ -11,42 +11,121 @@
   z-index: 50;
 }
 
+.navInverted {
+  background: white;
+}
+
 .logo {
-  display: none;
-  height: calc(4rem - 8px);
+  display: flex;
+  height: 3.5rem;
   padding-left: 1rem;
   align-items: center;
   font-size: 1.25rem;
+}
 
-  @media (min-width: 768px) {
-    display: flex;
+.linksWrapper {
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  right: 0;
+
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.2s ease-in-out;
+  background: inherit;
+
+  @screen md {
+    position: static;
+    top: 0;
+    margin-left: auto;
+    margin-right: 1rem;
   }
+}
+
+.linksWrapper:has(input:checked) {
+  grid-template-rows: 1fr;
 }
 
 .links {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  width: 100%;
-  justify-content: flex-start;
-  padding-right: 2rem;
-  height: calc(4rem - 8px);
-  padding-left: 1rem;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+  border-bottom: 4px solid black;
 
-  @media (min-width: 768px) {
-    justify-content: flex-end;
-    gap: 2rem;
+  @screen md {
+    height: 3.5rem;
+    gap: 1rem;
+    flex-direction: row;
+    border-bottom: none;
   }
 }
 
+.link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0 1rem;
+}
+
 .link:first-child {
+  margin-top: 1rem;
+
   @screen md {
     display: none;
   }
 }
 
-.navInverted {
-  background: white;
+.link:last-child {
+  margin-bottom: 2rem;
+
+  @screen md {
+    margin-bottom: 0;
+  }
+}
+
+.burger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 4rem;
+  width: 4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @screen md {
+    display: none;
+  }
+}
+
+.burger input {
+  display: none;
+}
+
+.burger svg {
+  stroke: white;
+  width: 2rem;
+  height: 2rem;
+}
+
+.navInverted .burger svg {
+  stroke: black;
+}
+
+.iconOpen {
+  display: block;
+}
+
+.burger:has(input:checked) .iconOpen {
+  display: none;
+}
+
+.iconClose {
+  display: none;
+}
+
+.burger:has(input:checked) .iconClose {
+  display: block;
 }
