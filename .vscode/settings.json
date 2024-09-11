@@ -2,24 +2,30 @@
   "css.customData": [
     ".vscode/tailwind.json"
   ],
+  "peacock.color": "#b5bd63",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.defaultProfile.linux": "zsh",
   "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#c6cc87",
-    "activityBar.background": "#c6cc87",
-    "activityBar.foreground": "#15202b",
-    "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#43959d",
+    "activityBar.activeBackground": "#520b31",
+    "activityBar.background": "#520b31",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#43700f",
     "activityBarBadge.foreground": "#e7e7e7",
-    "commandCenter.border": "#15202b99",
-    "sash.hoverBorder": "#c6cc87",
-    "statusBar.background": "#b5bd63",
-    "statusBar.foreground": "#15202b",
-    "statusBarItem.hoverBackground": "#9ea746",
-    "statusBarItem.remoteBackground": "#b5bd63",
-    "statusBarItem.remoteForeground": "#15202b",
-    "titleBar.activeBackground": "#b5bd63",
-    "titleBar.activeForeground": "#15202b",
-    "titleBar.inactiveBackground": "#b5bd6399",
-    "titleBar.inactiveForeground": "#15202b99"
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#520b31",
+    "statusBar.background": "#250516",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#520b31",
+    "statusBarItem.remoteBackground": "#250516",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#250516",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#25051699",
+    "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#b5bd63"
+  "peacock.remoteColor": "#250516"
 }
