@@ -1,11 +1,11 @@
 "use client";
 
+import { useWindowSize } from "@hooks/use-window-size";
 import { FC, useEffect, useRef } from "react";
 
 const ColorfulTriangle: FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+  const [width, height] = useWindowSize();
   const size = Math.min(width, height / 2);
 
   useEffect(() => {
