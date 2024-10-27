@@ -1,11 +1,3 @@
-// @ts-check
-import withPlaiceholder from "@plaiceholder/next";
-import bundleAnalyzer from "@next/bundle-analyzer";
-
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
-});
-
 /**
  * @type {import('next').NextConfig}
  */
@@ -22,6 +14,7 @@ const nextConfig = {
       },
     ],
   },
+  transpilePackages: ["next-mdx-remote"],
 };
 
-export default withBundleAnalyzer(withPlaiceholder(nextConfig));
+export default nextConfig;

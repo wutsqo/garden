@@ -7,4 +7,5 @@ export interface Book {
   isRead: boolean;
   readAt: string;
   summary: string;
+  goodreads: string;
 }
