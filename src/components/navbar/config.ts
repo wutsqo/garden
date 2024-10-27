@@ -7,4 +7,8 @@ export const NAVIGATIONS = [
     name: "Bookshelf",
     path: "/bookshelf",
   },
+  {
+    name: "WebGL",
+    path: "/learn-webgl",
+  },
 ];
