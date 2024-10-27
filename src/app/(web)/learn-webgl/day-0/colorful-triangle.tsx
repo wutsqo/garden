@@ -6,13 +6,14 @@ import { FC, useEffect, useRef } from "react";
 const ColorfulTriangle: FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [width, height] = useWindowSize();
-  const size = Math.min(width, height / 2);
+  const size = Math.min(width, height) * 0.8;
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !size) return;
     const gl = canvas.getContext("webgl");
     if (!gl) return;
+    gl.viewport(0, 0, size, size);
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     const vertexShaderSource = `
@@ -62,7 +63,13 @@ const ColorfulTriangle: FC = () => {
     gl.enableVertexAttribArray(colorAttribLocation);
     gl.useProgram(program);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
-  }, []);
+    return () => {
+      gl.deleteBuffer(triangleVertexBuffer);
+      gl.deleteProgram(program);
+      gl.deleteShader(vertexShader);
+      gl.deleteShader(fragmentShader);
+    };
+  }, [size]);
 
   return <canvas ref={canvasRef} width={size} height={size} />;
 };
