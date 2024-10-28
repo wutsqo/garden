@@ -9,7 +9,7 @@ export default function LearnWebglPage() {
         <div className={"my-4"}>
           <div className="flex flex-col sm:flex-row justify-between items-baseline">
             <h2>0. Colorful Triangle</h2>
-            <p>Oct 28, 2021</p>
+            <p>Oct 28, 2024</p>
           </div>
           <div className={"border-t border-white my-2 flex justify-center"}>
             <ColorfulTriangle />
