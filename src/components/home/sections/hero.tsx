@@ -12,7 +12,7 @@ export default function Hero() {
         </span>
         <span>
           {" "}
-          who cares about making beautiful and functional digital products.
+          who makes beautiful and functional digital products.
         </span>
       </div>
 
