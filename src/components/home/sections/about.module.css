@@ -16,5 +16,9 @@
 .story {
   @apply w-full relative bg-white;
   @apply px-4 md:px-8 prose h-80 max-w-full;
-  @apply overflow-y-auto text-black;
+  @apply overflow-y-auto text-black text-lg;
+}
+
+.story p {
+  @apply max-w-xl pt-4;
 }

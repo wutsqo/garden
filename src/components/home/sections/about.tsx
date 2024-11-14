@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SectionTitle from "../components/section-title";
 import s from "./about.module.css";
 
@@ -11,14 +12,21 @@ export default function About() {
           <iframe src="/map" title="Map" className="h-80 w-full md:max-w-xs" />
           <div className={s.story}>
             <p>
-              Meet Muhammad Urwatil Wutsqo, a vibrant 22-year-old CS student
-              from the University of Indonesia. He is driven by curiosity, a
-              zest for life, and a passion for coding. Wutsqo finds inspiration
-              in rejuvenating naps 💤 and exploring the real world 🌍. As an
-              aspiring software engineer, he aims to conquer the ever-expanding
-              tech industry 🔥 with his determination and thirst for success 💪.
-              Wutsqo is ready to achieve great things 🚀 in this rapidly
-              evolving landscape.
+              Hi, I am <strong>Wutsqo / Uko</strong> (he/him), a Jakarta-based
+              Creative Developer. I indulge in <strong>web technologies</strong>{" "}
+              both for fun and for a living.
+            </p>
+            <p>
+              I also love to run, attend community events, and currently
+              managing a local{" "}
+              <a
+                href="https://www.instagram.com/makarabookclub/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>book club</strong>
+              </a>{" "}
+              📚 in my area.
             </p>
           </div>
         </div>
