@@ -1,19 +1,33 @@
 "use client";
 
 import { mergeClassname } from "@utils/merge-classname";
-import React, { ButtonHTMLAttributes, useLayoutEffect, useRef } from "react";
+import React, {
+  ButtonHTMLAttributes,
+  FC,
+  ReactNode,
+  RefObject,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import { gsap } from "gsap";
 import s from "./index.module.css";
+import Link from "next/link";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   onClick?: () => void;
-  children: React.ReactNode;
-}
+  children: ReactNode;
+  href?: string;
+};
 
-const Button: React.FC<ButtonProps> = ({ onClick, children, className }) => {
-  const ref = useRef<HTMLButtonElement>(null);
+const Button: FC<Props> = ({ children, className, onClick, href }) => {
+  const classNames = mergeClassname(s.button, className);
+  const ref = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
   const tlClick = useRef<gsap.core.Timeline | null>(null);
   const tlHover = useRef<gsap.core.Timeline | null>(null);
+  const onClickHandler = () => {
+    tlClick.current?.restart();
+    onClick?.();
+  };
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -46,15 +60,28 @@ const Button: React.FC<ButtonProps> = ({ onClick, children, className }) => {
     };
   }, []);
 
+  if (href) {
+    const LinkTag = href.startsWith("http") ? "a" : Link;
+    return (
+      <LinkTag
+        href={href}
+        className={classNames}
+        prefetch
+        onClick={onClickHandler}
+        onMouseEnter={() => tlHover.current?.play(0)}
+        ref={ref as RefObject<HTMLAnchorElement>}
+      >
+        <span className={s.children}>{children}</span>
+      </LinkTag>
+    );
+  }
+
   return (
     <button
-      className={mergeClassname(s.button, className)}
-      onClick={() => {
-        tlClick.current?.restart();
-        onClick?.();
-      }}
+      className={classNames}
+      onClick={onClickHandler}
       onMouseEnter={() => tlHover.current?.play(0)}
-      ref={ref}
+      ref={ref as RefObject<HTMLButtonElement>}
     >
       <span className={s.children}>{children}</span>
     </button>
