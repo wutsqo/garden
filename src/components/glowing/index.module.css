@@ -1,0 +1,10 @@
+.text {
+  background: linear-gradient(to right, #885edd, #da1d7e, #23c8a0, #f8b725);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+  font-weight: 700;
+  white-space: nowrap;
+}
