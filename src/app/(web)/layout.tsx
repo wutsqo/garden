@@ -1,13 +1,9 @@
 import "./globals.css";
 import Navbar from "@components/navbar";
-import dynamic from "next/dynamic";
 import { Space_Grotesk, Space_Mono } from "next/font/google";
 import { Metadata } from "next";
-
-const Mondrian = dynamic(() => import("@components/mondrian"), {
-  ssr: false,
-});
-const Footer = dynamic(() => import("@components/footer"));
+import Mondrian from "@components/mondrian";
+import Footer from "@components/footer";
 
 const defaultMetadata = {
   title: "Muhammad Urwatil Wutsqo",

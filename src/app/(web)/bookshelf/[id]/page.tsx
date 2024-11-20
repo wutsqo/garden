@@ -6,15 +6,15 @@ import getImage from "@utils/get-image";
 import markdownToHtml from "@utils/markdown-to-html";
 import { getBookBySlug } from "./data";
 import s from "./page.module.css";
+import { Params } from "./interface";
 
 export default async function BookDetail({
   params,
 }: Readonly<{
-  params: {
-    id: string;
-  };
+  params: Params;
 }>) {
-  const document = await getBookBySlug(params.id);
+  const { id } = await params;
+  const document = await getBookBySlug(id);
   if (!document) notFound();
   const book = document.metadata;
   const { color, img } = await getImage(book.cover);

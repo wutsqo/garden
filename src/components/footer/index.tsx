@@ -1,9 +1,5 @@
-import dynamic from "next/dynamic";
 import s from "./index.module.css";
-
-const Mondrian = dynamic(() => import("@components/mondrian"), {
-  ssr: false,
-});
+import Mondrian from "@components/mondrian";
 
 export default function Footer() {
   return (

@@ -12,8 +12,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: React.FC<ButtonProps> = ({ onClick, children, className }) => {
   const ref = useRef<HTMLButtonElement>(null);
-  const tlClick = useRef<gsap.core.Timeline>();
-  const tlHover = useRef<gsap.core.Timeline>();
+  const tlClick = useRef<gsap.core.Timeline | null>(null);
+  const tlHover = useRef<gsap.core.Timeline | null>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {

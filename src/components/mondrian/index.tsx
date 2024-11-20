@@ -16,25 +16,10 @@ interface MondrianProps {
 const Mondrian: FC<MondrianProps> = ({ keyPrefix }) => {
   const [windowWidth] = useWindowSize();
   const gridWidth = useMemo(() => {
-    return (
-      windowWidth /
-      parseInt(
-        window
-          .getComputedStyle(window.document.body)
-          .getPropertyValue("font-size")
-      )
-    );
+    return windowWidth / 16;
   }, [windowWidth]);
   const count = useMemo(() => {
-    return Math.floor(
-      (windowWidth /
-        parseInt(
-          window
-            .getComputedStyle(window.document.body)
-            .getPropertyValue("font-size")
-        )) *
-        0.5
-    );
+    return Math.floor((windowWidth / 16) * 0.5);
   }, [windowWidth]);
 
   const randomColor = () => {

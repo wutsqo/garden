@@ -3,15 +3,7 @@ import { DEFAULT_METADATA } from "@utils/metadata";
 import { generateUrlWithParams } from "@utils/urls";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-
-export interface PageMetadata {
-  title: string;
-  status: string;
-  description: string;
-  coverImage: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import { PageMetadata, Params } from "./interface";
 
 export async function getPageData(slug: string) {
   return await getDocumentBySlug<PageMetadata>("pages", slug);
@@ -27,11 +19,10 @@ export async function generatePageSlugs() {
 export async function generatePageMetadata({
   params,
 }: {
-  params: {
-    slug: string;
-  };
+  params: Params;
 }): Promise<Metadata> {
-  const document = await getDocumentBySlug<PageMetadata>("pages", params.slug);
+  const { slug } = await params;
+  const document = await getDocumentBySlug<PageMetadata>("pages", slug);
   if (!document) notFound();
   const {
     metadata: { title, description },

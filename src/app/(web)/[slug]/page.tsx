@@ -3,6 +3,7 @@ import { generatePageMetadata, generatePageSlugs, getPageData } from "./data";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import TableOfContents from "@components/mdx/table-of-contents";
 import { H1, H2, H3, H4, H5, H6 } from "@components/mdx/headings";
+import { Params } from "./interface";
 
 const COMPONENTS = {
   h1: H1,
@@ -16,11 +17,9 @@ const COMPONENTS = {
 export default async function Page({
   params,
 }: Readonly<{
-  params: {
-    slug: string;
-  };
+  params: Params;
 }>) {
-  const { slug } = params;
+  const { slug } = await params;
   const page = await getPageData(slug);
   if (!page) notFound();
   const { content, metadata } = page;

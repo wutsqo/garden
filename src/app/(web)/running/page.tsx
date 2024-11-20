@@ -6,7 +6,7 @@ import StravaLogo from "./strava.svg";
 import SamsungHealthLogo from "./shealth.svg";
 import RecentRun from "./recent-run";
 
-export const revalidate = 60 * 5;
+export const revalidate = 300;
 
 export default async function GalleryPage() {
   const data = await getData();

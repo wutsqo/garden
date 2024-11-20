@@ -55,11 +55,32 @@ const ColorfulTriangle: FC = () => {
     );
     const triangleVertexBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(triangleVertices), gl.STATIC_DRAW);
-    const positionAttribLocation = gl.getAttribLocation(program, "vertPosition");
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array(triangleVertices),
+      gl.STATIC_DRAW
+    );
+    const positionAttribLocation = gl.getAttribLocation(
+      program,
+      "vertPosition"
+    );
     const colorAttribLocation = gl.getAttribLocation(program, "vertColor");
-    gl.vertexAttribPointer(positionAttribLocation, 2, gl.FLOAT, false, 5 * Float32Array.BYTES_PER_ELEMENT, 0);
-    gl.vertexAttribPointer(colorAttribLocation, 3, gl.FLOAT, false, 5 * Float32Array.BYTES_PER_ELEMENT, 2 * Float32Array.BYTES_PER_ELEMENT);
+    gl.vertexAttribPointer(
+      positionAttribLocation,
+      2,
+      gl.FLOAT,
+      false,
+      5 * Float32Array.BYTES_PER_ELEMENT,
+      0
+    );
+    gl.vertexAttribPointer(
+      colorAttribLocation,
+      3,
+      gl.FLOAT,
+      false,
+      5 * Float32Array.BYTES_PER_ELEMENT,
+      2 * Float32Array.BYTES_PER_ELEMENT
+    );
     gl.enableVertexAttribArray(positionAttribLocation);
     gl.enableVertexAttribArray(colorAttribLocation);
     gl.useProgram(program);
