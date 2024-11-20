@@ -1,6 +1,4 @@
-"use client";
-
-import { FC, useState } from "react";
+import { FC } from "react";
 import SectionTitle from "../components/section-title";
 import s from "./works.module.css";
 import WorkCard from "../components/work-card";
@@ -8,8 +6,6 @@ import { WORKS } from "../data";
 import Button from "@components/button";
 
 const SelectedWorks: FC = () => {
-  const [collapsed, setCollapsed] = useState(true);
-
   return (
     <div className={s.wrapper}>
       <div className={s.title}>
@@ -20,21 +16,10 @@ const SelectedWorks: FC = () => {
         {WORKS.slice(0, 3).map((work) => (
           <WorkCard {...work} key={work.title} />
         ))}
-
-        {collapsed
-          ? null
-          : WORKS.slice(3).map((work, i) => (
-              <WorkCard {...work} key={work.title} delay={i * 100} />
-            ))}
       </div>
 
-      <Button
-        onClick={() => {
-          setCollapsed((prev) => !prev);
-        }}
-        className="max-w-fit"
-      >
-        See {collapsed ? "more" : "less"}
+      <Button href="/projects" className="max-w-fit">
+        See more
       </Button>
     </div>
   );
