@@ -1,10 +1,7 @@
-// @ts-check
 import withPlaiceholder from "@plaiceholder/next";
+import { NextConfig } from "next";
 
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
+const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
