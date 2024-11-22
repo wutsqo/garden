@@ -2,17 +2,11 @@ import { Work } from "./interface";
 import Dewa19 from "@images/dewa19.png";
 import Purwalenta from "@images/purwalenta.png";
 import Pansos from "@images/pmb.png";
+import SplitEasy from "@images/spliteasy.png";
+import CariBuku from "@images/caribuku.png";
+import Sisidang from "@images/sisidang.png";
 
 export const WORKS: Work[] = [
-  {
-    title: "Konser 30 Tahun Dewa 19",
-    description:
-      "An official page containing information about the concert and ticket purchase.",
-    label: "Landing Page",
-    stack: ["Typescript", "Gatsby", "Tailwind", "Styled"],
-    image: Dewa19,
-    live: "https://dewa19.tiketnft.com",
-  },
   {
     title: "Purwalenta Website",
     description:
@@ -32,12 +26,40 @@ export const WORKS: Work[] = [
     live: "https://pmb.cs.ui.ac.id",
   },
   {
+    title: "CariBuku | Book Search Engine",
+    description:
+      "An OPAC aggregator that helps you find books across various libraries.",
+    label: "App/Product",
+    stack: ["NextJS"],
+    live: "https://caribuku.vercel.app",
+    image: CariBuku,
+  },
+  {
+    title: "SplitEasy | An Expense Sharing App",
+    description:
+      "An app that helps you split bills and track your shared expenses.",
+    label: "App/Product",
+    stack: ["NextJS"],
+    live: "https://split-easy.vercel.app",
+    image: SplitEasy,
+  },
+  {
+    title: "Konser 30 Tahun Dewa 19",
+    description:
+      "An official page containing information about the concert and ticket purchase.",
+    label: "Landing Page",
+    stack: ["Typescript", "Gatsby", "Tailwind", "Styled"],
+    image: Dewa19,
+    live: "https://dewa19.tiketnft.com",
+  },
+  {
     title: "SISIDANG Fasilkom UI",
     description:
       "A web app that streamlines the thesis submission and revision process.",
     label: "App/Features",
     stack: ["Django", "SQL", "Javascript"],
     live: "https://sidang.cs.ui.ac.id",
+    image: Sisidang,
   },
   {
     title: "Kulinerakyat",
