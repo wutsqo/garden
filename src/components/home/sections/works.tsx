@@ -19,7 +19,7 @@ const SelectedWorks: FC = () => {
       </div>
 
       <Button href="/projects" className="max-w-fit">
-        See more
+        See More Projects
       </Button>
     </div>
   );
