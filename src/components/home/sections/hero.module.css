@@ -9,12 +9,3 @@
 .buttonText {
   @apply text-base block mt-12 max-w-max;
 }
-
-@keyframes textShine {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}

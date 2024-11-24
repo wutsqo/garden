@@ -15,7 +15,7 @@
     "@heroicons/react": "^2.2.0",
     "@plaiceholder/next": "^3.0.0",
     "axios": "^1.7.7",
-    "gsap": "^3.12.5",
+    "framer-motion": "12.0.0-alpha.1",
     "mapbox-gl": "^2.15.0",
     "next": "15.0.3",
     "next-mdx-remote": "^5.0.0",

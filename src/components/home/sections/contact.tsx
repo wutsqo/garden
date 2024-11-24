@@ -30,56 +30,44 @@ const Contact = () => {
       </div>
       <div className={s.connect}>
         <Button
-          onClick={() => {
-            window.open("mailto:urwatilwutsqo16@gmail.com");
-          }}
+          href="mailto:urwatilwutsqo16@gmail.com"
           className={mergeClassname(s.email)}
         >
-          <span className="flex gap-4 items-center justify-center">
-            <Image src={Email} alt="Email" width={40} height={40} />
-            CONTACT ME
-          </span>
+          <Image src={Email} alt="Email" width={36} height={36} />
+          Email
         </Button>
         <Button
-          onClick={() => {
-            window.open("https://github.com/wutsqo");
-          }}
+          href="https://github.com/wutsqo"
           className={mergeClassname(s.github, s.link)}
         >
-          <div>
-            <Image src={Github} alt="Github" width={48} height={48} />
-          </div>
+          <Image src={Github} alt="Github" width={36} height={36} />
+          <span className="hidden sm:block">GitHub</span>
         </Button>
         <Button
-          onClick={() => {
-            window.open("https://www.linkedin.com/in/wutsqo");
-          }}
+          href="https://www.linkedin.com/in/wutsqo"
           className={mergeClassname(s.linkedin, s.link)}
         >
-          <div>
-            <Image src={Linkedin} alt="Github" width={48} height={48} />
-          </div>
+          <Image src={Linkedin} alt="Github" width={36} height={36} />
+          <span className="hidden sm:block">LinkedIn</span>
         </Button>
         <Button
-          onClick={() => {
-            window.open("https://open.spotify.com/user/urwatilwutsqo");
-          }}
+          href="https://open.spotify.com/user/urwatilwutsqo"
           className={mergeClassname(s.spotify, s.link)}
         >
-          <div className="flex items-center gap-4">
-            <Image src={Spotify} alt="Spotify" width={48} height={48} />
-            {lastPlayed && (
-              <div className="text-white text-left">
-                <div className="text-sm">Last played: </div>
-                <div className="text-lg">
-                  {`${lastPlayed?.item?.name} - `}
-                  {lastPlayed?.item?.artists
-                    .map((artist: any) => artist.name)
-                    .join(", ")}
-                </div>
+          <Image src={Spotify} alt="Spotify" width={48} height={48} />
+          {lastPlayed ? (
+            <div className="text-white text-left">
+              <div className="text-sm">Last played: </div>
+              <div className="text-lg">
+                {`${lastPlayed?.item?.name} - `}
+                {lastPlayed?.item?.artists
+                  .map((artist: any) => artist.name)
+                  .join(", ")}
               </div>
-            )}
-          </div>
+            </div>
+          ) : (
+            <div className="text-white text-2xl">Spotify</div>
+          )}
         </Button>
       </div>
     </div>

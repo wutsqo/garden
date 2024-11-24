@@ -1,8 +1,10 @@
 .button {
-  @apply border-2 border-black shadow-brutalist rounded;
-  @apply px-8 py-2 relative bg-white text-black overflow-hidden;
-
-  .children {
-    @apply block;
-  }
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+  background: white;
+  color: black;
+  overflow: hidden;
+  @apply shadow-brutalist;
 }

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styles from "./hero.module.css";
 import Button from "@components/button";
 import Glowing from "@components/glowing";
@@ -14,9 +13,9 @@ export default function Hero() {
         <span> who makes beautiful and functional digital products.</span>
       </div>
 
-      <Link href="/services" className={styles.buttonText}>
-        <Button>See My Services</Button>
-      </Link>
+      <Button href="/services" className={styles.buttonText}>
+        See My Services
+      </Button>
     </div>
   );
 }
