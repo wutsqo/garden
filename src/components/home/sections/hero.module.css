@@ -3,7 +3,7 @@
 }
 
 .main {
-  @apply text-4xl sm:text-5xl leading-normal sm:leading-normal;
+  @apply text-4xl sm:text-5xl xl:text-6xl leading-normal sm:leading-normal xl:leading-normal;
 }
 
 .buttonText {
