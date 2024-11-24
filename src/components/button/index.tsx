@@ -4,7 +4,7 @@ import { mergeClassname } from "@utils/merge-classname";
 import React, { ButtonHTMLAttributes, FC, ReactNode, useCallback } from "react";
 import s from "./index.module.css";
 import { motion, TapHandlers, useAnimate } from "framer-motion";
-import MotionLink from "./motion-link";
+import Link from "next/link";
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   onClick?: () => void;
@@ -31,7 +31,7 @@ const Button: FC<Props> = ({ children, className, onClick, href }) => {
     ]);
   }, [animate]);
   const renderContent = () => (
-    <span className="letter w-full h-full flex justify-center items-center gap-4 px-2">
+    <span className="letter w-full h-full flex justify-center items-center gap-4 px-2 font-medium">
       {children}
     </span>
   );
@@ -66,9 +66,9 @@ const Button: FC<Props> = ({ children, className, onClick, href }) => {
       </motion.a>
     );
   }
-  const Link = motion.create(MotionLink);
+  const NextLink = motion.create(Link);
   return (
-    <Link
+    <NextLink
       ref={scope}
       href={href}
       className={classNames}
@@ -77,7 +77,7 @@ const Button: FC<Props> = ({ children, className, onClick, href }) => {
       {...tapHandlers}
     >
       {renderContent()}
-    </Link>
+    </NextLink>
   );
 };
 
