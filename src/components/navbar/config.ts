@@ -11,4 +11,8 @@ export const NAVIGATIONS = [
     name: "Projects",
     path: "/projects",
   },
+  {
+    name: "Feed",
+    path: "/feed",
+  }
 ];
