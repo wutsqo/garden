@@ -1,20 +1,17 @@
 import { FC } from "react";
-import s from "./index.module.css";
-import { PageTitleProps, PageTitleVariant } from "./index.type";
-import { mergeClassname } from "@utils/merge-classname";
+import { PageTitleProps } from "./index.type";
+import Glowing from "@components/glowing";
 
-const PageTitle: FC<PageTitleProps> = ({
-  title,
-  subtitle,
-  variant = PageTitleVariant.Default,
-}) => {
+const PageTitle: FC<PageTitleProps> = ({ title, subtitle, xl }) => {
   return (
-    <div className={mergeClassname(s[variant], s.wrapper)}>
-      <h1 className={s.title}>{title}</h1>
-      {subtitle ? <div className={s.subtitle}>{subtitle}</div> : null}
+    <div className="">
+      <Glowing>
+        <h1 className={`pb-1 ${xl ? "text-4xl sm:text-5xl" : "text-4xl"}`}>{title}</h1>
+      </Glowing>
+      {subtitle ? <div className="text-xl mt-2">{subtitle}</div> : null}
     </div>
   );
 };
 
 export default PageTitle;
-export { PageTitleVariant, type PageTitleProps };
+export { type PageTitleProps };

@@ -11,7 +11,7 @@
 }
 
 .titleWrapper {
-  @apply container lg:rounded-t mt-20 lg:px-12 lg:pt-12 py-6 w-full flex flex-col justify-end lg:shadow-lg bg-gradient-to-b from-transparent to-black lg:bg-white lg:from-white lg:via-white;
+  @apply container lg:rounded-t mt-20 lg:px-12 lg:pt-12 py-6 w-full flex flex-col justify-end border border-b-0 bg-white lg:from-white lg:via-white;
 }
 
 .imageWrapper img {
@@ -23,5 +23,5 @@
 }
 
 .detailWrapper {
-  @apply container py-6 lg:px-12 lg:shadow-lg rounded-b w-full bg-white pb-16 lg:pb-6 min-h-96 prose lg:prose-lg max-w-screen-xl;
+  @apply container py-6 lg:px-12 border border-t-0 rounded-b w-full bg-white pb-16 lg:pb-6 min-h-96 prose lg:prose-lg max-w-screen-xl;
 }

@@ -47,5 +47,5 @@
   @apply font-sans font-medium mt-2;
 }
 .author {
-  @apply font-light text-sm mt-1;
+  @apply font-light text-gray-700 text-sm mt-1;
 }

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PageTitle, { PageTitleVariant } from "@components/page-title";
+import PageTitle from "@components/page-title";
 import BookCard from "./components/book-card";
 import LibraryHeaderImage from "@images/library.jpg";
 import { getBooks } from "./data";
@@ -15,9 +15,9 @@ export default async function Library() {
         <div className={s.imageOverlay}>
           <div className={s.titleWrapper}>
             <PageTitle
-              title="Bookshelf 📚"
+              title="Bookshelf"
               subtitle="The pile on my bedside table"
-              variant={PageTitleVariant.WhiteBeforeLg}
+              xl
             />
           </div>
         </div>

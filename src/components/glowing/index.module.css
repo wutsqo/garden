@@ -6,7 +6,6 @@
   background-size: 500% auto;
   animation: textShine 5s ease-in-out infinite alternate;
   font-weight: 700;
-  white-space: nowrap;
 }
 
 @keyframes textShine {

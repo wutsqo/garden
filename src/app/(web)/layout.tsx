@@ -1,6 +1,6 @@
 import "./globals.css";
 import Navbar from "@components/navbar";
-import { Space_Grotesk, Space_Mono } from "next/font/google";
+import { Space_Mono, Figtree } from "next/font/google";
 import { Metadata } from "next";
 import Mondrian from "@components/mondrian";
 import Footer from "@components/footer";
@@ -11,16 +11,17 @@ const defaultMetadata = {
     "The personal site and portfolio of creative technologist Muhammad Urwatil Wutsqo",
 };
 
-const space = Space_Grotesk({
-  display: "swap",
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-});
-
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
   display: "swap",
   variable: "--font-space-mono",
+  subsets: ["latin"],
+});
+
+const figtree = Figtree({
+  weight: ["400", "500", "700"],
+  display: "swap",
+  variable: "--font-figtree",
   subsets: ["latin"],
 });
 
@@ -30,8 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${space.variable} ${spaceMono.variable}`}>
-      <body className="font-mono">
+    <html lang="en" className={`${spaceMono.variable} ${figtree.variable}`}>
+      <body className="font-sans">
         <Navbar />
         <div className="mt-8 absolute z-10">
           <Mondrian keyPrefix="header" />

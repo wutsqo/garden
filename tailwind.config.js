@@ -39,7 +39,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-space-grotesk)"],
+        sans: ["var(--font-figtree)"],
         mono: ["var(--font-space-mono)"],
       },
       colors: {

@@ -1,7 +1,7 @@
 import { generateBookSlugs } from "../data";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import PageTitle, { PageTitleVariant } from "@components/page-title";
+import PageTitle from "@components/page-title";
 import markdownToHtml from "@utils/markdown-to-html";
 import { getBookBySlug } from "./data";
 import s from "./page.module.css";
@@ -24,11 +24,7 @@ export default async function BookDetail({
         <Image src={book.cover} alt="Library" fill />
         <div className={s.imageOverlay}>
           <div className={s.titleWrapper}>
-            <PageTitle
-              title={book.title}
-              subtitle={`By ${book.author}`}
-              variant={PageTitleVariant.WhiteBeforeLg}
-            />
+            <PageTitle title={book.title} subtitle={`By ${book.author}`} />
           </div>
           <div className={s.contentWrapper}>
             <div

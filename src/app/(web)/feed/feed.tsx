@@ -2,6 +2,7 @@
 
 import { FC, useState } from "react";
 import { FeedItem, FeedSource } from "./interface";
+import { formatRelativeDate } from "@utils/dates";
 
 interface Props {
   items: FeedItem[];
@@ -38,7 +39,7 @@ const Feed: FC<Props> = ({ items, channels }) => {
               <span className="font-sans font-medium">
                 {item["dc:creator"]}
               </span>{" "}
-              <span className="hidden sm:inline">
+              <span>
                 on{" "}
                 <a
                   href={item.channelLink}
@@ -49,23 +50,7 @@ const Feed: FC<Props> = ({ items, channels }) => {
                   {item.channel}
                 </a>
               </span>{" "}
-              <span>
-                (
-                {(() => {
-                  const now = new Date();
-                  const pubDate = new Date(item.pubDate);
-                  const diffTime = Math.abs(now.getTime() - pubDate.getTime());
-                  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                  if (diffDays < 1) return "today";
-                  if (diffDays === 1) return "yesterday";
-                  const options: Intl.DateTimeFormatOptions = {
-                    day: "numeric",
-                    month: "long",
-                  };
-                  return pubDate.toLocaleDateString("id-ID", options);
-                })()}
-                )
-              </span>
+              <span>({formatRelativeDate(item.pubDate)})</span>
             </p>
           </div>
         ))}
