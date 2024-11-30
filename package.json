@@ -12,6 +12,7 @@
     "content": "node ./scripts/content.js && node ./scripts/static.js"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.26.28",
     "@heroicons/react": "^2.2.0",
     "axios": "^1.7.7",
     "fast-xml-parser": "^4.5.0",

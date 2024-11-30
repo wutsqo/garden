@@ -1,19 +1,21 @@
 import { getFeeds } from "./data";
+import PageDescription from "./description";
 import Feed from "./feed";
 import PageTitle from "@components/page-title";
 
-export const revalidate = 86400;
+export const revalidate = 3600;
 
 export default async function Page() {
   const { channels, lastUpdated, items } = await getFeeds();
-  const updatedAt = new Date(lastUpdated).toLocaleDateString("id-ID", {
+  const updatedAt = new Date(lastUpdated).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
   return (
     <main className="container bg-white py-20 border-x">
-      <PageTitle title="RSS Feed" subtitle={updatedAt} xl />
+      <PageTitle title="RSS Feed" xl />
+      <PageDescription channels={channels} updatedAt={updatedAt} />
       <Feed items={items} channels={channels} />
     </main>
   );

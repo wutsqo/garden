@@ -29,5 +29,5 @@ export function formatRelativeDate(
     month: "long",
     ...options,
   };
-  return target.toLocaleDateString("id-ID", targetOptions);
+  return target.toLocaleDateString("en-US", targetOptions);
 }

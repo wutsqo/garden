@@ -4,7 +4,12 @@ import { FeedItem, RSSChannel } from "./interface";
 const CHANNELS = [
   "https://www.lesswrong.com/feed.xml?view=frontpage-rss&karmaThreshold=75",
   "https://www.joshwcomeau.com/rss.xml",
-  "https://hnrss.org/frontpage",
+  // "https://hnrss.org/frontpage",
+  "https://samsarigged.substack.com/feed",
+  "https://medium.com/@a.hamardikan/feed",
+  // "https://www.astralcodexten.com/feed",
+  "https://maggieappleton.com/rss.xml",
+  "http://www.aaronsw.com/2002/feeds/pgessays.rss",
 ];
 
 const parser = new XMLParser();
@@ -16,7 +21,7 @@ export const getFeeds = async () => {
     const data = parser.parse(xml);
     return {
       ...data.rss.channel,
-      item: data.rss.channel.item.slice(0, 3),
+      item: data.rss.channel.item.slice(0, 10),
     } as RSSChannel;
   });
   const res = await Promise.all(feedPromises);
@@ -33,21 +38,17 @@ export const getFeeds = async () => {
           ...item,
           channel: feed.title,
           channelLink: item.comments ?? feed.link,
+          creator: item["dc:creator"] ?? feed.title,
+          description: item.description ?? item["content:encoded"] ?? "",
         })),
       ];
     }, [] as FeedItem[])
     .sort((a, b) => {
       return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
-    })
-    .filter((item) => {
-      const publishedDate = new Date(item.pubDate);
-      const now = new Date();
-      const oneWeekAgo = new Date(now.setDate(now.getDate() - 7));
-      return publishedDate > oneWeekAgo;
     });
   return {
     lastUpdated: new Date(),
     channels,
-    items: items.slice(0, 20),
+    items: items,
   };
 };

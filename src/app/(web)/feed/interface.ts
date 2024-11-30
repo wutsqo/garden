@@ -4,8 +4,9 @@ export interface RSSItem {
   description: string;
   pubDate: string;
   guid: string;
-  "dc:creator": string;
+  "dc:creator"?: string;
   comments?: string;
+  "content:encoded"?: string;
 }
 export interface RSSChannel {
   title: string;
@@ -17,6 +18,8 @@ export interface RSSChannel {
 export interface FeedItem extends RSSItem {
   channel: string;
   channelLink: string;
+  creator: string;
+  description: string;
 }
 export interface FeedSource {
   title: string;
