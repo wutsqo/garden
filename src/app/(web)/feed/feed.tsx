@@ -3,6 +3,7 @@
 import { FC, useState } from "react";
 import { FeedItem, FeedSource } from "./interface";
 import { formatRelativeDate } from "@utils/dates";
+import Input from "@components/input";
 
 interface Props {
   items: FeedItem[];
@@ -16,10 +17,10 @@ const Feed: FC<Props> = ({ items, channels }) => {
   );
   return (
     <>
-      <input
+      <Input
         type="text"
         placeholder="Search"
-        className="w-full p-2 border border-gray-300 rounded-md mt-4"
+        className="mt-4"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />

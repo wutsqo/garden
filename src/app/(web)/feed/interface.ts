@@ -5,6 +5,7 @@ export interface RSSItem {
   pubDate: string;
   guid: string;
   "dc:creator": string;
+  comments?: string;
 }
 export interface RSSChannel {
   title: string;
