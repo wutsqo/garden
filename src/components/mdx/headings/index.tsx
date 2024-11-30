@@ -7,14 +7,17 @@ interface HProps extends HTMLProps<HTMLHeadingElement> {
 
 const Heading: FC<HProps> = ({ level, children, className, ...props }) => {
   const Tag = `h${level}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  const slug = slugify(children?.toString() ?? "");
 
   return (
     <Tag
       className={["scroll-mt-24", className].filter(Boolean).join(" ")}
-      id={slugify(children?.toString() ?? "")}
+      id={slug}
       {...props}
     >
-      {children}
+      <a href={`#${slug}`} className="no-underline hover:underline">
+        {children}
+      </a>
     </Tag>
   );
 };
