@@ -48,8 +48,10 @@ const TableOfContents: FC<TableOfContentsProps> = ({ mdx }) => {
           <li key={text} className="list-inside">
             <a
               className={mergeClassname(
-                "no-underline hover:text-black font-normal",
-                active === slugify(text) ? "lg:text-bluish-purple" : "text-gray-600"
+                "no-underline hover:text-black font-sans",
+                active === slugify(text)
+                  ? "text-black font-medium"
+                  : "text-gray-600 font-normal"
               )}
               href={`#${slugify(text)}`}
             >
