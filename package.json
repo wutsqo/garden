@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node ./scripts/static.js && next dev -p 3004",
+    "dev": "node ./scripts/static.js && next dev -p 3004 --turbo",
     "build": "node ./scripts/static.js && next build",
     "start": "next start",
     "lint": "next lint",
@@ -13,14 +13,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@plaiceholder/next": "^3.0.0",
     "axios": "^1.7.7",
     "framer-motion": "12.0.0-alpha.1",
     "jotai": "^2.10.3",
     "mapbox-gl": "^2.15.0",
     "next": "15.0.3",
     "next-mdx-remote": "^5.0.0",
-    "plaiceholder": "^3.0.0",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-map-gl": "^7.1.7",
