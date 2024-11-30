@@ -1,14 +1,11 @@
 .container {
-  @apply flex justify-start items-center gap-6;
-  @apply font-medium text-black;
+  @apply flex justify-start items-center gap-6 font-medium text-black;
 
   .title {
     @apply text-2xl font-sans;
   }
 
   .number {
-    @apply border-2 border-black rounded;
-    @apply h-12 w-12 flex justify-center items-center;
-    @apply bg-white text-lg;
+    @apply border border-black rounded h-12 w-12 flex justify-center items-center bg-white text-lg shadow-brutalist;
   }
 }

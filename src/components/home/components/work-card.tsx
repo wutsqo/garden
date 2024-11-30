@@ -15,7 +15,7 @@ const WorkCard: FC<
     <div
       style={{ animationDelay: `${delay}ms` }}
       className={mergeClassname(
-        "w-full shadow-brutalist border-2 border-black bg-white relative overflow-hidden rounded",
+        "w-full shadow-brutalist border border-black bg-white relative overflow-hidden rounded",
         delay ? "opacity-0 animate-fade-in" : ""
       )}
     >
@@ -54,7 +54,7 @@ const WorkCard: FC<
 
       {live ? (
         <a href={live} target="_blank" rel="noopener noreferrer group">
-          <div className="border-t-2 border-black px-4 py-3 flex gap-2 items-center justify-center absolute bottom-0 left-0 right-0 hover:bg-yellow-beer">
+          <div className="border-t border-black px-4 py-3 flex gap-2 items-center justify-center absolute bottom-0 left-0 right-0 hover:bg-yellow-beer">
             See live{" "}
             <span className="group-hover:translate-x-2 transition-all">
               <ArrowUpRightIcon className="h-4 w-4" />
@@ -65,7 +65,7 @@ const WorkCard: FC<
 
       {repo ? (
         <a href={repo} target="_blank" rel="noopener noreferrer group">
-          <div className="border-t-2 border-black px-4 py-3 flex gap-2 items-center justify-center absolute bottom-0 left-0 right-0 hover:bg-yellow-beer">
+          <div className="border-t border-black px-4 py-3 flex gap-2 items-center justify-center absolute bottom-0 left-0 right-0 hover:bg-yellow-beer">
             See repo{" "}
             <span className="group-hover:translate-x-2 transition-all">
               <ArrowUpRightIcon className="h-4 w-4" />

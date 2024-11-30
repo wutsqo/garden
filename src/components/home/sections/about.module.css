@@ -7,16 +7,11 @@
 }
 
 .content {
-  @apply flex flex-col md:flex-row overflow-hidden;
-  @apply rounded border-2 border-black shadow-brutalist;
-  @apply divide-x-0 md:divide-x-2 divide-black;
-  @apply divide-y-2 md:divide-y-0;
+  @apply flex flex-col md:flex-row overflow-hidden rounded border border-black shadow-brutalist divide-x-0 md:divide-x divide-black divide-y md:divide-y-0;
 }
 
 .story {
-  @apply w-full relative bg-white;
-  @apply px-4 md:px-8 prose h-80 max-w-full;
-  @apply overflow-y-auto text-black text-lg;
+  @apply w-full relative bg-white px-4 md:px-8 prose h-80 max-w-full overflow-y-auto text-black text-lg;
 }
 
 .story p {

@@ -1,12 +1,13 @@
+import { mergeClassname } from "@utils/merge-classname";
 import { FC } from "react";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
-const Input: FC<InputProps> = ({ label, id, ...props }) => {
+const Input: FC<InputProps> = ({ label, id, className, ...props }) => {
   return (
-    <div className="w-full">
+    <div className={mergeClassname("w-full", className)}>
       {label && (
         <label className="text-base" htmlFor={id}>
           <span>{label}</span>
@@ -15,7 +16,7 @@ const Input: FC<InputProps> = ({ label, id, ...props }) => {
       )}
       <input
         type="text"
-        className="px-4 py-2 w-full border-2 border-black rounded bg-gray-100"
+        className="px-4 py-2 w-full border border-black rounded bg-gray-100 focus:outline-none focus:ring-1 focus:ring-bluish-purple"
         {...props}
       />
     </div>

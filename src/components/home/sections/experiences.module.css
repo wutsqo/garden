@@ -9,21 +9,16 @@
 .companies {
   --company-width: 9rem;
 
-  @apply flex justify-start w-full;
-  @apply border-2 border-black shadow-brutalist;
-  @apply mt-8 relative rounded-t;
-  @apply overflow-x-auto overflow-y-hidden;
+  @apply flex justify-start w-full border border-black shadow-brutalist mt-8 relative rounded-t overflow-x-auto overflow-y-hidden;
 
   .marker {
     width: var(--company-width);
-    @apply absolute top-0 h-16 pointer-events-none -z-10;
-    @apply transition-all duration-300 ease-in-out;
+    @apply absolute top-0 h-16 pointer-events-none -z-10 transition-all duration-300 ease-in-out;
   }
 
   .company {
     width: var(--company-width);
-    @apply shrink-0 text-left py-2 px-4;
-    @apply border-r-2 border-black;
+    @apply shrink-0 text-left py-2 px-4 border-r border-black;
   }
 
   .company.active {
@@ -32,10 +27,7 @@
 }
 
 .detail {
-  @apply bg-white min-h-48 p-4;
-  @apply shadow-brutalist rounded-b;
-  @apply border-2 border-black;
-  @apply -translate-y-1;
+  @apply bg-white min-h-48 p-4 shadow-brutalist rounded-b border border-black -translate-y-1;
 
   .header {
     font-size: 1.25rem;

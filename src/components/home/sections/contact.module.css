@@ -32,7 +32,7 @@
   grid-row: span 2 / span 2;
   grid-column: span 2 / span 2;
   background: rgb(248 183 37);
-  border: 2px solid black;
+  border: 1px solid black;
   color: white;
   font-size: 1.5rem;
   gap: 1rem;
@@ -52,19 +52,19 @@
 .github {
   height: 8rem;
   background-color: #24292e;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .linkedin {
   height: 8rem;
   background-color: #0077b5;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .spotify {
   height: 8rem;
   background-color: #1db954;
-  border: 2px solid black;
+  border: 1px solid black;
   grid-row: span 2 / span 2;
   grid-column: span 2 / span 2;
 

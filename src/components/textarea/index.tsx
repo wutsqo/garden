@@ -14,7 +14,7 @@ const Textarea: FC<TextAreaProps> = ({ label, id, ...props }) => {
         </label>
       )}
       <textarea
-        className="px-4 py-2 w-full border-2 border-black rounded bg-gray-100"
+        className="px-4 py-2 w-full border border-black rounded bg-gray-100"
         {...props}
       />
     </div>

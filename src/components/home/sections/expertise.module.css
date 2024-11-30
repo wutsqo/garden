@@ -7,8 +7,7 @@
 }
 
 .content .item {
-  @apply border-2 border-black rounded;
-  @apply px-4 py-2 bg-white;
+  @apply border border-black rounded px-4 py-2 bg-white;
 }
 
 .scroll {
@@ -19,8 +18,8 @@
   margin: auto;
   overflow: hidden;
   z-index: 1;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   margin-top: 2rem;
   background: rgb(35, 200, 160);
   background: linear-gradient(
