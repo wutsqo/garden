@@ -39,7 +39,7 @@ export const getFeeds = async () => {
           channel: feed.title,
           channelLink: item.comments ?? feed.link,
           creator: item["dc:creator"] ?? feed.title,
-          description: item.description ?? item["content:encoded"] ?? "",
+          description: item.description ?? item["content:encoded"],
         })),
       ];
     }, [] as FeedItem[])

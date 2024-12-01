@@ -47,8 +47,10 @@ const Feed: FC<Props> = ({ items, channels }) => {
                 </a>
               </TooltipTrigger>
               <TooltipContent
-                className="bg-white border border-black shadow-lg p-2 rounded max-w-sm max-h-96 overflow-hidden prose prose-sm"
-                dangerouslySetInnerHTML={{ __html: item.description }}
+                className="bg-white border border-black shadow-lg p-2 rounded max-w-sm max-h-96 overflow-hidden prose prose-sm opacity-0 animation-delay-200 animate-fade-in"
+                dangerouslySetInnerHTML={{
+                  __html: item.description ?? item.title,
+                }}
               />
             </Tooltip>
             <p className="text-xs sm:text-sm text-gray-500 mt-1">
@@ -67,7 +69,7 @@ const Feed: FC<Props> = ({ items, channels }) => {
                       {item.channel}
                     </a>
                   </TooltipTrigger>
-                  <TooltipContent className="bg-white border border-black shadow-lg p-2 rounded max-w-sm text-sm">
+                  <TooltipContent className="bg-white border border-black shadow-lg p-2 rounded max-w-sm text-sm opacity-0 animation-delay-200 animate-fade-in">
                     {channelMap[item.channel]}
                   </TooltipContent>
                 </Tooltip>
