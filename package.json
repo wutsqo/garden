@@ -9,7 +9,8 @@
     "lint": "next lint",
     "prepare": "husky",
     "collect": "node ./scripts/static.js",
-    "content": "node ./scripts/content.js && node ./scripts/static.js"
+    "content": "node ./scripts/content.js && node ./scripts/static.js",
+    "notes": "node ./scripts/notes.js"
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.28",
@@ -17,6 +18,7 @@
     "axios": "^1.7.7",
     "fast-xml-parser": "^4.5.0",
     "framer-motion": "12.0.0-alpha.1",
+    "gray-matter": "^4.0.3",
     "jotai": "^2.10.3",
     "mapbox-gl": "^2.15.0",
     "next": "15.0.3",
