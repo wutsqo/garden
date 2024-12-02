@@ -16,7 +16,7 @@ export const NAVIGATIONS = [
     path: "/feed",
   },
   {
-    name: "The Garden",
-    path: "/garden",
+    name: "Zettelkasten",
+    path: "/zettelkasten",
   },
 ];

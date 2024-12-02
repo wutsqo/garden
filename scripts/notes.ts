@@ -1,26 +1,34 @@
-const fs = require("fs");
+import fs from "fs";
+import matter from "gray-matter";
+import cuid2 from "@paralleldrive/cuid2";
 
 const notesSrc = "./content/notes";
 
 const main = async () => {
-  console.log(" 🔁 Refreshing notes metadata");
+  console.log(" 🔎 Scanning and generating Ids for new notes");
   const noteFiles = fs
     .readdirSync(notesSrc)
     .filter((file) => file.endsWith(".md"));
-  const notes = new Map();
-  const titleToId = new Map();
-  const tagMap = new Map();
   noteFiles.forEach((noteFile) => {
-    const noteContent = fs.readFileSync(`${notesSrc}/${noteFile}`, "utf-8");
+    const { data, content } = matter.read(`${notesSrc}/${noteFile}`);
+    if (data.id) return;
+    data.id = cuid2.createId();
+    const newFileContent = matter.stringify(content, data);
+    fs.writeFileSync(`${notesSrc}/${noteFile}`, newFileContent);
+  });
+
+  console.log(" 🔁 Refreshing notes metadata");
+  const notes = new Map<string, any>();
+  const titleToId = new Map<string, string>();
+  const tagMap = new Map<string, string[]>();
+  noteFiles.forEach((noteFile) => {
     const title = noteFile.replace(".md", "");
-    const { data, content } = require("gray-matter")(noteContent);
+    const { data, content } = matter.read(`${notesSrc}/${noteFile}`);
     const { id } = data;
     titleToId.set(title, id);
-    data.tags.forEach((tag) => {
-      if (!tagMap.has(tag)) {
-        tagMap.set(tag, []);
-      }
-      tagMap.get(tag).push(id);
+    data.tags.forEach((tag: string) => {
+      if (!tagMap.has(tag)) tagMap.set(tag, []);
+      tagMap.get(tag)!.push(id);
     });
     notes.set(id, { title, ...data, content, backlinks: [] });
   });
@@ -50,10 +58,10 @@ const main = async () => {
     while ((match = regex.exec(note.content))) {
       const reference = match[1];
       backlinks.add(titleToId.get(reference));
-      notes.get(titleToId.get(reference)).backlinks.push(note.id);
+      notes.get(titleToId.get(reference)!).backlinks.push(note.id);
       note.content = note.content.replace(
         new RegExp(`\\[\\[${reference}\\]\\]`, "g"),
-        `[${reference}](/garden/${titleToId.get(reference)})`
+        `[${reference}](/zettelkasten/${titleToId.get(reference)})`
       );
     }
   });
@@ -64,11 +72,11 @@ const main = async () => {
       notes: Array.from(notes.entries()).reduce((acc, [id, note]) => {
         acc[id] = note;
         return acc;
-      }, {}),
+      }, {} as Record<string, any>),
       tags: Array.from(tagMap.entries()).reduce((acc, [tag, notes]) => {
         acc[tag] = notes;
         return acc;
-      }, {}),
+      }, {} as Record<string, string[]>),
     })
   );
   console.log(" ✅ Notes metadata refreshed.");

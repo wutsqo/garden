@@ -34,8 +34,8 @@ export default async function NoteDetail({
   return (
     <main className="prose pb-8">
       <div className="flex items-center gap-2 text-sm text-gray-500">
-        <Link href="/garden" className="hover:text-gray-700">
-          <span className="hidden sm:inline">Digital</span> Garden
+        <Link href="/zettelkasten" className="hover:text-gray-700">
+          <span className="hidden sm:inline">Zettelkasten</span>
         </Link>
         <span>/</span>
         <span className="truncate">{note.title}</span>
@@ -58,7 +58,7 @@ export default async function NoteDetail({
           <ul>
             {note.backlinks.map((backlink) => (
               <li key={backlink}>
-                <Link prefetch href={`/garden/${backlink}`}>
+                <Link prefetch href={`/zettelkasten/${backlink}`}>
                   {db.notes[backlink as keyof typeof db.notes].title}
                 </Link>
               </li>
