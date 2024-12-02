@@ -6,10 +6,7 @@ export const getNotes = () => {
     (id) => db.notes[id as keyof typeof db.notes]
   ) as Notes[];
   const sortedNotes = notes
-    .map((note) => ({
-      ...note,
-      title: note.title.replace("Collection: ", ""),
-    }))
+    .filter((note) => !note.isCollection)
     .sort((a, b) => a.title.localeCompare(b.title));
   return sortedNotes;
 };
