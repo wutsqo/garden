@@ -15,8 +15,4 @@ export const NAVIGATIONS = [
     name: "Feed",
     path: "/feed",
   },
-  {
-    name: "Zettelkasten",
-    path: "/zettelkasten",
-  },
 ];
