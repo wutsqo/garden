@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import {
   useFloating,
@@ -70,7 +72,7 @@ export function useTooltip({
       ...interactions,
       ...data,
     }),
-    [open, setOpen, interactions, data]
+    [open, setOpen, interactions, data],
   );
 }
 
@@ -88,57 +90,49 @@ export const useTooltipContext = () => {
   return context;
 };
 
-export function Tooltip({
-  children,
-  ...options
-}: { children: React.ReactNode } & TooltipOptions) {
+export function Tooltip({ children, ...options }: { children: React.ReactNode } & TooltipOptions) {
   // This can accept any props as options, e.g. `placement`,
   // or other positioning options.
   const tooltip = useTooltip(options);
-  return (
-    <TooltipContext.Provider value={tooltip}>
-      {children}
-    </TooltipContext.Provider>
-  );
+  return <TooltipContext.Provider value={tooltip}>{children}</TooltipContext.Provider>;
 }
 
-export const TooltipTrigger = React.forwardRef<
-  HTMLElement,
-  React.HTMLProps<HTMLElement> & { asChild?: boolean }
->(function TooltipTrigger({ children, asChild = false, ...props }, propRef) {
-  const context = useTooltipContext();
-  const childrenRef = (children as any).ref;
-  const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef]);
+export const TooltipTrigger = React.forwardRef<HTMLElement, React.HTMLProps<HTMLElement> & { asChild?: boolean }>(
+  function TooltipTrigger({ children, asChild = false, ...props }, propRef) {
+    const context = useTooltipContext();
+    const childrenRef = (children as any).ref;
+    const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef]);
 
-  // `asChild` allows the user to pass any element as the anchor
-  if (asChild && React.isValidElement(children)) {
-    return React.cloneElement(
-      children,
-      context.getReferenceProps({
-        ref,
-        ...props,
-        ...(typeof children.props === "object" ? children.props : {}),
-        "data-state": context.open ? "open" : "closed",
-      } as React.HTMLAttributes<HTMLElement>)
+    // `asChild` allows the user to pass any element as the anchor
+    if (asChild && React.isValidElement(children)) {
+      return React.cloneElement(
+        children,
+        context.getReferenceProps({
+          ref,
+          ...props,
+          ...(typeof children.props === "object" ? children.props : {}),
+          "data-state": context.open ? "open" : "closed",
+        } as React.HTMLAttributes<HTMLElement>),
+      );
+    }
+
+    return (
+      <button
+        ref={ref}
+        // The user can style the trigger based on the state
+        data-state={context.open ? "open" : "closed"}
+        {...context.getReferenceProps(props)}
+      >
+        {children}
+      </button>
     );
-  }
+  },
+);
 
-  return (
-    <button
-      ref={ref}
-      // The user can style the trigger based on the state
-      data-state={context.open ? "open" : "closed"}
-      {...context.getReferenceProps(props)}
-    >
-      {children}
-    </button>
-  );
-});
-
-export const TooltipContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLProps<HTMLDivElement>
->(function TooltipContent({ style, ...props }, propRef) {
+export const TooltipContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(function TooltipContent(
+  { style, ...props },
+  propRef,
+) {
   const context = useTooltipContext();
   const ref = useMergeRefs([context.refs.setFloating, propRef]);
 
