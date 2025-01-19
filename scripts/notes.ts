@@ -36,7 +36,7 @@ const main = async () => {
   console.log(" 📝 Generating custom note for each tags");
   tagMap.forEach((noteIds, tagName) => {
     const tagNote = {
-      id: `tag-${tagName}`,
+      id: tagName,
       title: `Tagged with #${tagName}`,
       tags: [],
       content: "\n",
