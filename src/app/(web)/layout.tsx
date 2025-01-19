@@ -7,8 +7,7 @@ import Footer from "@components/footer";
 
 const defaultMetadata = {
   title: "Muhammad Urwatil Wutsqo",
-  description:
-    "The personal site and portfolio of creative technologist Muhammad Urwatil Wutsqo",
+  description: "The personal site and portfolio of creative technologist Muhammad Urwatil Wutsqo",
 };
 
 const spaceMono = Space_Mono({
@@ -34,7 +33,7 @@ export default function RootLayout({
     <html lang="en" className={`${spaceMono.variable} ${figtree.variable}`}>
       <body className="font-sans">
         <Navbar />
-        <div className="mt-8 absolute z-10">
+        <div className="absolute z-10 mt-8">
           <Mondrian keyPrefix="header" />
         </div>
         <div className="min-h-screen pt-16">{children}</div>
@@ -54,9 +53,7 @@ export const metadata: Metadata = {
     siteName: defaultMetadata.title,
     images: [
       {
-        url: `${process.env.SITE_URL ?? "http://localhost:3000"}/api/og?title=${
-          defaultMetadata.title
-        }&description=${defaultMetadata.description}`,
+        url: `${process.env.SITE_URL ?? "http://localhost:3000"}/og.png`,
         width: 1200,
         height: 630,
         alt: defaultMetadata.title,

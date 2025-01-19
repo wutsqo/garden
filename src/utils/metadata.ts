@@ -18,7 +18,7 @@ export const DEFAULT_METADATA: Metadata = {
     title: "The Garden of Wutsqo",
     description: "The portfolio and digital garden of Wutsqo.",
     images: {
-      url: `${URL}/api/og?title=The%20Garden%20of%20Wutsqo&description=The%20portfolio%20and%20digital%20garden%20of%20Wutsqo.`,
+      url: `${URL}/og.png`,
       alt: "The Garden of Wutsqo",
     },
   },
@@ -29,7 +29,7 @@ export const DEFAULT_METADATA: Metadata = {
     siteName: "The Garden of Wutsqo",
     images: [
       {
-        url: `${URL}/api/og?title=The%20Garden%20of%20Wutsqo&description=The%20portfolio%20and%20digital%20garden%20of%20Wutsqo.`,
+        url: `${URL}/og.png`,
         width: 1200,
         height: 630,
         alt: "The Garden of Wutsqo",
