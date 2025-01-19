@@ -24,6 +24,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@images/*": ["./public/images/*"],
       "@components/*": ["./src/components/*"],
+      "@content/*": ["./content/*"],
       "react": ["./node_modules/@types/react"]
     },
     "removeComments": true
