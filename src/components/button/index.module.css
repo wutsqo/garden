@@ -6,5 +6,5 @@
   background: white;
   color: black;
   overflow: hidden;
-  @apply shadow-brutalist;
+  box-shadow: 2px 2px #1a1a1a;
 }
