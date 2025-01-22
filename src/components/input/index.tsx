@@ -16,7 +16,7 @@ const Input: FC<InputProps> = ({ label, id, className, ...props }) => {
       )}
       <input
         type="text"
-        className="px-4 py-2 w-full border border-black rounded bg-gray-100 focus:outline-none focus:ring-1 focus:ring-bluish-purple"
+        className="px-4 py-2 w-full border border-black rounded bg-gray-100 focus:outline-hidden focus:ring-1 focus:ring-bluish-purple"
         {...props}
       />
     </div>
