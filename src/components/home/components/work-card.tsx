@@ -15,8 +15,8 @@ const WorkCard: FC<
     <div
       style={{ animationDelay: `${delay}ms` }}
       className={mergeClassname(
-        "w-full shadow-brutalist border border-black bg-white relative overflow-hidden rounded",
-        delay ? "opacity-0 animate-fade-in" : ""
+        "shadow-brutalist relative w-full overflow-hidden rounded border border-black bg-white",
+        delay ? "animate-fade-in opacity-0" : "",
       )}
     >
       {image ? (
@@ -38,11 +38,7 @@ const WorkCard: FC<
         <div className={s.stack}>
           {stack.map((item) => (
             <div className={s.logos} key={item}>
-              <Image
-                src={STACKS.find((stack) => stack.name === item)!.src}
-                alt={item}
-                fill
-              />
+              <Image src={STACKS.find((stack) => stack.name === item)!.src} alt={item} fill />
             </div>
           ))}
           <span className={s.label}>{label}</span>
@@ -54,9 +50,9 @@ const WorkCard: FC<
 
       {live ? (
         <a href={live} target="_blank" rel="noopener noreferrer group">
-          <div className="border-t border-black px-4 py-3 flex gap-2 items-center justify-center absolute bottom-0 left-0 right-0 hover:bg-yellow-beer">
+          <div className="hover:bg-yellow-beer absolute right-0 bottom-0 left-0 flex items-center justify-center gap-2 border-t border-black px-4 py-3">
             See live{" "}
-            <span className="group-hover:translate-x-2 transition-all">
+            <span className="transition-all group-hover:translate-x-2">
               <ArrowUpRightIcon className="h-4 w-4" />
             </span>
           </div>
@@ -65,9 +61,9 @@ const WorkCard: FC<
 
       {repo ? (
         <a href={repo} target="_blank" rel="noopener noreferrer group">
-          <div className="border-t border-black px-4 py-3 flex gap-2 items-center justify-center absolute bottom-0 left-0 right-0 hover:bg-yellow-beer">
+          <div className="hover:bg-yellow-beer absolute right-0 bottom-0 left-0 flex items-center justify-center gap-2 border-t border-black px-4 py-3">
             See repo{" "}
-            <span className="group-hover:translate-x-2 transition-all">
+            <span className="transition-all group-hover:translate-x-2">
               <ArrowUpRightIcon className="h-4 w-4" />
             </span>
           </div>
