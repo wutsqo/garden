@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default async function ProjectPage() {
   return (
-    <main className="container border-x border-gray-200 bg-white py-16">
+    <main className="container mx-auto border-x border-gray-200 bg-white py-16">
       <PageTitle title="Projects" subtitle="A selection of public projects" xl />
       <div className="my-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {WORKS.map((project, i) => (

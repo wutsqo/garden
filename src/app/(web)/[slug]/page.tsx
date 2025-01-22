@@ -29,7 +29,7 @@ export default async function Page({
   return (
     <main className="bg-white">
       <div className="bg-green-carribean/50 w-full border-b-2 border-black py-24">
-        <div className="container">
+        <div className="container mx-auto">
           <div className="prose sm:prose-lg max-w-5xl">
             <h1 className="text-5xl sm:text-7xl" style={{ marginBottom: 0 }}>
               {metadata.title}
@@ -40,7 +40,7 @@ export default async function Page({
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container mx-auto">
         <div className="flex flex-col gap-x-40 gap-y-20 py-20 lg:flex-row">
           <div className="max-w-xl shrink-0 self-start lg:sticky lg:top-28">
             <TableOfContents mdx={content} />
