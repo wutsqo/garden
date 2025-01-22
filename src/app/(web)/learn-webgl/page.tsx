@@ -3,7 +3,7 @@ import ColorfulTriangle from "./day-0/colorful-triangle";
 export default function LearnWebglPage() {
   return (
     <div className={"min-h-screen w-screen bg-black pt-20 text-white"}>
-      <div className="container mx-auto">
+      <div className="container mx-auto px-6">
         <h1>WebGL Learning Journal</h1>
         <div className="my-4 border-t border-white"></div>
         <div className={"my-4"}>

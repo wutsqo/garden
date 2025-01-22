@@ -23,7 +23,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="container mx-auto mt-24 pb-32">
+    <div className="container mx-auto px-6 mt-24 pb-32">
       <SectionTitle number="🤝" title="Connect" />
       <div className={s.content}>Let&apos; connect! Say hello and have a chat. →</div>
       <div className={s.connect}>

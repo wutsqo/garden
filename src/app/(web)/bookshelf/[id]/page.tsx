@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import PageTitle from "@components/page-title";
 import { getImageSrc } from "@utils/images";
 import BookDescription from "./description";
+import Timeline from "./timeline";
+import { BookTimeline } from "@/payload.types";
 
 type Params = Promise<{
   id: string;
@@ -24,7 +26,7 @@ export default async function BookDetail({
         <Image src={getImageSrc(book.cover_image)} alt="Library" fill className="object-cover object-center" />
         <div className="absolute flex h-full w-full bg-white/50 backdrop-blur-3xl"></div>
       </div>
-      <div className="relative z-10 container mx-auto rounded border border-gray-200 bg-white p-6 lg:p-12">
+      <div className="relative z-10 container mx-auto px-6 rounded border border-gray-200 bg-white p-6 lg:p-12">
         <div className="flex w-full flex-col gap-8 sm:flex-row">
           <div className="w-full max-w-56 shrink-0 self-start">
             <figure className="relative aspect-2/3 h-auto w-full overflow-hidden rounded-r shadow-sm">
@@ -35,10 +37,7 @@ export default async function BookDetail({
           <div>
             <PageTitle title={book.title} subtitle={`By ${book.author}`} />
             <BookDescription book={book} />
-            <div className="prose">
-              <h2 className="border-bluish-purple mt-8 border-l-4 pl-2">Commentaries</h2>
-              <p className="italic">No commentaries yet.</p>
-            </div>
+            <Timeline timelines={book.timeline as BookTimeline[]} />
           </div>
         </div>
       </div>

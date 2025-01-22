@@ -4,7 +4,7 @@ import AboutMap from "@components/map";
 export default function About() {
   return (
     <div className="bg-green-carribean mt-24 border-y border-y-black py-16">
-      <div className="container mx-auto flex flex-col gap-8">
+      <div className="container mx-auto px-6 flex flex-col gap-8">
         <SectionTitle number="📋" title="About" />
 
         <div className="shadow-brutalist flex flex-col divide-x-0 divide-y divide-black overflow-hidden rounded border border-black md:flex-row md:divide-x md:divide-y-0">

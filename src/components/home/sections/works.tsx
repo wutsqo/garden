@@ -6,7 +6,7 @@ import Button from "@components/button";
 
 const SelectedWorks: FC = () => {
   return (
-    <div className="container mx-auto flex flex-col gap-6">
+    <div className="container mx-auto px-6 flex flex-col gap-6">
       <div>
         <SectionTitle number="🎨" title="Selected Works" />
       </div>

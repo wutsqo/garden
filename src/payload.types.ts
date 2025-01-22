@@ -13,6 +13,7 @@ export interface Config {
   collections: {
     books: Book;
     media: Media;
+    'book-timelines': BookTimeline;
     users: User;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -22,6 +23,7 @@ export interface Config {
   collectionsSelect: {
     books: BooksSelect<false> | BooksSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'book-timelines': BookTimelinesSelect<false> | BookTimelinesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -85,6 +87,7 @@ export interface Book {
   cover_image: string | Media;
   slug?: string | null;
   status?: ('tbr' | 'reading' | 'read') | null;
+  timeline?: (string | BookTimeline)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -106,6 +109,33 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "book-timelines".
+ */
+export interface BookTimeline {
+  id: string;
+  time: string;
+  type: 'tbr' | 'started' | 'comment' | 'finished' | 'not-finished';
+  comment?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  book: string | Book;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -138,6 +168,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'book-timelines';
+        value: string | BookTimeline;
       } | null)
     | ({
         relationTo: 'users';
@@ -196,6 +230,7 @@ export interface BooksSelect<T extends boolean = true> {
   cover_image?: T;
   slug?: T;
   status?: T;
+  timeline?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -216,6 +251,18 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "book-timelines_select".
+ */
+export interface BookTimelinesSelect<T extends boolean = true> {
+  time?: T;
+  type?: T;
+  comment?: T;
+  book?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

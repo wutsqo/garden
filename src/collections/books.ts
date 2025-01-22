@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { slug } from "@fields/slug";
+import { revalidatePath } from "next/cache";
 export const Books: CollectionConfig = {
   slug: "books",
   fields: [
@@ -37,9 +38,22 @@ export const Books: CollectionConfig = {
         { label: "read", value: "read" },
       ],
     },
+    {
+      name: "timeline",
+      type: "relationship",
+      relationTo: "book-timelines",
+      hasMany: true,
+    },
   ],
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "author", "status"],
+  },
+  hooks: {
+    afterChange: [
+      ({ doc }) => {
+        revalidatePath(`/bookshelf/${doc.slug}`);
+      },
+    ],
   },
 };

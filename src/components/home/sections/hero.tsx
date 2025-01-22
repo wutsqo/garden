@@ -3,7 +3,7 @@ import Glowing from "@components/glowing";
 
 export default function Hero() {
   return (
-    <div className="container mx-auto py-28 font-sans font-medium">
+    <div className="container mx-auto px-6 py-28 font-sans font-medium">
       <div className="text-4xl leading-normal sm:text-5xl sm:leading-normal xl:text-6xl xl:leading-normal">
         <span>Wutsqo is a </span>
         <Glowing>

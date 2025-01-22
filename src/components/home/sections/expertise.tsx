@@ -6,7 +6,7 @@ import s from "./expertise.module.css";
 export default function Expertise() {
   return (
     <>
-      <div className="container mx-auto mt-24">
+      <div className="container mx-auto px-6 mt-24">
         <SectionTitle number="🔥" title="Expertise" />
         <div className="mt-8 flex flex-wrap items-baseline gap-4 text-base">
           {EXPERTISES.map((item) => (

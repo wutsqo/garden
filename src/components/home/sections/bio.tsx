@@ -6,7 +6,7 @@ import { mergeClassname } from "@utils/merge-classname";
 export default function Bio() {
   return (
     <div className={s.container}>
-      <div className={mergeClassname("container mx-auto", s.innerContainer)}>
+      <div className={mergeClassname("container mx-auto px-6", s.innerContainer)}>
         <Image
           src={Avatar}
           alt="Muhammad Urwatil Wutsqo"

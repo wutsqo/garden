@@ -26,7 +26,7 @@
 }
 
 .mapOverlayContent {
-  @apply container mx-auto max-w-screen-lg md:px-8;
+  @apply container mx-auto px-6 max-w-screen-lg md:px-8;
 }
 
 .story {

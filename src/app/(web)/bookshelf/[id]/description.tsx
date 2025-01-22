@@ -15,7 +15,7 @@ const BookDescription: FC<Props> = ({ book }) => {
     <article
       className="prose relative overflow-hidden"
       style={{
-        height: truncated ? "20rem" : "auto",
+        height: truncated ? "15rem" : "auto",
       }}
     >
       <h2 className="border-bluish-purple mt-8 border-l-4 pl-2">Description</h2>
