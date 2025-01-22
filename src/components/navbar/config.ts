@@ -15,4 +15,8 @@ export const NAVIGATIONS = [
     name: "Feed",
     path: "/feed",
   },
+  {
+    name: "Collage",
+    path: "/collage",
+  },
 ];
