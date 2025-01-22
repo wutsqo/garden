@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.3",
-    "@heroicons/react": "^2.2.0",
     "@paralleldrive/cuid2": "^2.2.2",
     "@payloadcms/db-vercel-postgres": "^3.18.0",
     "@payloadcms/next": "^3.18.0",

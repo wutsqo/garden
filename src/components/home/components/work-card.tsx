@@ -3,8 +3,8 @@ import s from "./work-card.module.css";
 import { Work } from "../interface";
 import Image from "next/image";
 import { STACKS } from "../data";
-import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { mergeClassname } from "@utils/merge-classname";
+import { ArrowUpRight } from "lucide-react";
 
 const WorkCard: FC<
   Work & {
@@ -53,7 +53,7 @@ const WorkCard: FC<
           <div className="hover:bg-yellow-beer absolute right-0 bottom-0 left-0 flex items-center justify-center gap-2 border-t border-black px-4 py-3">
             See live{" "}
             <span className="transition-all group-hover:translate-x-2">
-              <ArrowUpRightIcon className="h-4 w-4" />
+              <ArrowUpRight />
             </span>
           </div>
         </a>
@@ -64,7 +64,7 @@ const WorkCard: FC<
           <div className="hover:bg-yellow-beer absolute right-0 bottom-0 left-0 flex items-center justify-center gap-2 border-t border-black px-4 py-3">
             See repo{" "}
             <span className="transition-all group-hover:translate-x-2">
-              <ArrowUpRightIcon className="h-4 w-4" />
+              <ArrowUpRight />
             </span>
           </div>
         </a>

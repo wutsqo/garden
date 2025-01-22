@@ -1,7 +1,7 @@
 "use client";
 import Map from "react-map-gl";
 import { useEffect, useRef, useState } from "react";
-import { MagnifyingGlassMinusIcon, MagnifyingGlassPlusIcon } from "@heroicons/react/24/outline";
+import { ZoomIn, ZoomOut } from "lucide-react";
 
 const ZOOM = [
   {
@@ -66,7 +66,7 @@ export default function AboutMap() {
           onClick={zoomIn}
           disabled={zoomIndex === ZOOM.length - 1}
         >
-          <MagnifyingGlassPlusIcon className={"h-6 w-6"} />
+          <ZoomIn className={"h-6 w-6"} />
         </button>
         <button
           className={
@@ -75,7 +75,7 @@ export default function AboutMap() {
           onClick={zoomOut}
           disabled={zoomIndex === 0}
         >
-          <MagnifyingGlassMinusIcon className={"h-6 w-6"} />
+          <ZoomOut className={"h-6 w-6"} />
         </button>
       </div>
     </div>
