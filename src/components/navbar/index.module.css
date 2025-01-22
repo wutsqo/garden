@@ -21,7 +21,6 @@
   padding-left: 1rem;
   align-items: center;
   font-size: 1.25rem;
-  @apply font-mono;
 }
 
 .linksWrapper {
@@ -35,7 +34,7 @@
   transition: grid-template-rows 0.2s ease-in-out;
   background: inherit;
 
-  @screen md {
+  @media (min-width: 768px) {
     position: static;
     top: 0;
     margin-left: auto;
@@ -54,7 +53,7 @@
   overflow: hidden;
   border-bottom: 4px solid black;
 
-  @screen md {
+  @media (min-width: 768px) {
     height: 3.5rem;
     gap: 1rem;
     flex-direction: row;
@@ -72,7 +71,7 @@
 .link:first-child {
   margin-top: 1rem;
 
-  @screen md {
+  @media (min-width: 768px) {
     display: none;
   }
 }
@@ -80,7 +79,7 @@
 .link:last-child {
   margin-bottom: 2rem;
 
-  @screen md {
+  @media (min-width: 768px) {
     margin-bottom: 0;
   }
 }
@@ -96,7 +95,7 @@
   justify-content: center;
   align-items: center;
 
-  @screen md {
+  @media (min-width: 768px) {
     display: none;
   }
 }
