@@ -4,6 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import TableOfContents from "@components/mdx/table-of-contents";
 import { H1, H2, H3, H4, H5, H6 } from "@components/mdx/headings";
 import { Params } from "./interface";
+import ProjectForm from "@components/project-form";
 
 const COMPONENTS = {
   h1: H1,
@@ -12,6 +13,7 @@ const COMPONENTS = {
   h4: H4,
   h5: H5,
   h6: H6,
+  ProjectForm,
 };
 
 export default async function Page({
@@ -39,8 +41,8 @@ export default async function Page({
         </div>
       </div>
       <div className="container">
-        <div className="py-20 flex flex-col lg:flex-row gap-y-20 gap-x-40">
-          <div className="max-w-xl shrink-0 lg:sticky lg:top-28 self-start">
+        <div className="flex flex-col gap-x-40 gap-y-20 py-20 lg:flex-row">
+          <div className="max-w-xl shrink-0 self-start lg:sticky lg:top-28">
             <TableOfContents mdx={content} />
           </div>
           <div className="prose sm:prose-lg max-w-xl font-sans">

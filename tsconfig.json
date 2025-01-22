@@ -31,6 +31,14 @@
     },
     "removeComments": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.ts", "tailwind.config.cjs"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "next.config.ts",
+    "tailwind.config.ts",
+    "postcss.config.ts"
+  ],
   "exclude": ["node_modules"]
 }

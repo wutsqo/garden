@@ -13,7 +13,7 @@ export default async function Page() {
     day: "numeric",
   });
   return (
-    <main className="container bg-white py-20 border-x">
+    <main className="container bg-white py-20 border-x border-gray-200">
       <PageTitle title="RSS Feed" xl />
       <PageDescription channels={channels} updatedAt={updatedAt} />
       <Feed items={items} channels={channels} />

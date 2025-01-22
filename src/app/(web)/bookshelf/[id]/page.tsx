@@ -27,7 +27,7 @@ export default async function BookDetail({
       <div className="container relative z-10 rounded border border-gray-200 bg-white p-6 lg:p-12">
         <div className="flex w-full flex-col gap-8 sm:flex-row">
           <div className="w-full max-w-56 shrink-0 self-start">
-            <figure className="relative aspect-2/3 h-auto w-full overflow-hidden rounded-r shadow">
+            <figure className="relative aspect-2/3 h-auto w-full overflow-hidden rounded-r shadow-sm">
               <Image src={getImageSrc(book.cover_image)} alt="Library" fill className="object-cover object-center" />
             </figure>
             <div className="mt-4 rounded border border-gray-200 py-2 text-center capitalize">Status: {book.status}</div>
