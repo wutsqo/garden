@@ -1,29 +1,25 @@
-import Link from "next/link";
 import SectionTitle from "../components/section-title";
-import s from "./about.module.css";
+import AboutMap from "@components/map";
 
 export default function About() {
   return (
-    <div className={s.outerWrapper}>
-      <div className={s.wrapper}>
+    <div className="bg-green-carribean mt-24 border-y border-y-black py-16">
+      <div className="container flex flex-col gap-8">
         <SectionTitle number="📋" title="About" />
 
-        <div className={s.content}>
-          <iframe src="/map" title="Map" className="h-80 w-full md:max-w-xs" />
-          <div className={s.story}>
-            <p>
-              Hi, I am <strong>Wutsqo / Uko</strong> (he/him), a Jakarta-based
-              Creative Developer. I indulge in <strong>web technologies</strong>{" "}
-              both for fun and for a living.
+        <div className="shadow-brutalist flex flex-col divide-x-0 divide-y divide-black overflow-hidden rounded border border-black md:flex-row md:divide-x md:divide-y-0">
+          <div className="h-80 w-full md:max-w-xs">
+            <AboutMap />
+          </div>
+
+          <div className="prose relative h-80 w-full max-w-full overflow-y-auto bg-white px-4 text-lg text-black md:px-8">
+            <p className="max-w-xl pt-4">
+              Hi, I am <strong>Wutsqo / Uko</strong> (he/him), a Jakarta-based Creative Developer. I indulge in{" "}
+              <strong>web technologies</strong> both for fun and for a living.
             </p>
-            <p>
-              I also love to run, attend community events, and currently
-              managing a local{" "}
-              <a
-                href="https://www.instagram.com/makarabookclub/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <p className="max-w-xl pt-4">
+              I also love to run, attend community events, and currently managing a local{" "}
+              <a href="https://www.instagram.com/makarabookclub/" target="_blank" rel="noopener noreferrer">
                 <strong>book club</strong>
               </a>{" "}
               📚 in my area.
