@@ -6,11 +6,11 @@ import s from "./expertise.module.css";
 export default function Expertise() {
   return (
     <>
-      <div className={s.wrapper}>
+      <div className="container mt-24">
         <SectionTitle number="🔥" title="Expertise" />
-        <div className={s.content}>
+        <div className="mt-8 flex flex-wrap items-baseline gap-4 text-base">
           {EXPERTISES.map((item) => (
-            <div className={s.item} key={item}>
+            <div className="rounded border border-black bg-white px-4 py-2" key={item}>
               {item}
             </div>
           ))}
