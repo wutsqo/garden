@@ -23,50 +23,34 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className={s.wrapper}>
+    <div className="container mt-24 pb-32">
       <SectionTitle number="🤝" title="Connect" />
-      <div className={s.content}>
-        Let&apos; connect! Say hello and have a chat. →
-      </div>
+      <div className={s.content}>Let&apos; connect! Say hello and have a chat. →</div>
       <div className={s.connect}>
-        <Button
-          href="mailto:urwatilwutsqo16@gmail.com"
-          className={mergeClassname(s.email)}
-        >
+        <Button href="mailto:urwatilwutsqo16@gmail.com" className={mergeClassname(s.email)}>
           <Image src={Email} alt="Email" width={36} height={36} />
           Email
         </Button>
-        <Button
-          href="https://github.com/wutsqo"
-          className={mergeClassname(s.github, s.link)}
-        >
+        <Button href="https://github.com/wutsqo" className={mergeClassname(s.github, s.link)}>
           <Image src={Github} alt="Github" width={36} height={36} />
           <span className="hidden sm:block">GitHub</span>
         </Button>
-        <Button
-          href="https://www.linkedin.com/in/wutsqo"
-          className={mergeClassname(s.linkedin, s.link)}
-        >
+        <Button href="https://www.linkedin.com/in/wutsqo" className={mergeClassname(s.linkedin, s.link)}>
           <Image src={Linkedin} alt="Github" width={36} height={36} />
           <span className="hidden sm:block">LinkedIn</span>
         </Button>
-        <Button
-          href="https://open.spotify.com/user/urwatilwutsqo"
-          className={mergeClassname(s.spotify, s.link)}
-        >
+        <Button href="https://open.spotify.com/user/urwatilwutsqo" className={mergeClassname(s.spotify, s.link)}>
           <Image src={Spotify} alt="Spotify" width={48} height={48} />
           {lastPlayed ? (
-            <div className="text-white text-left">
+            <div className="text-left text-white">
               <div className="text-sm">Last played: </div>
               <div className="text-lg">
                 {`${lastPlayed?.item?.name} - `}
-                {lastPlayed?.item?.artists
-                  .map((artist: any) => artist.name)
-                  .join(", ")}
+                {lastPlayed?.item?.artists.map((artist: any) => artist.name).join(", ")}
               </div>
             </div>
           ) : (
-            <div className="text-white text-2xl">Spotify</div>
+            <div className="text-2xl text-white">Spotify</div>
           )}
         </Button>
       </div>
