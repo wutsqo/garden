@@ -15,17 +15,14 @@ export default function Experiences() {
   const colors = Object.keys(COLOR_PALETTE);
 
   return (
-    <div className={s.wrapper}>
-      <div className={s.innerWrapper}>
+    <div className="mt-24">
+      <div className="container">
         <SectionTitle number="🚀" title="Experiences" />
       </div>
-      <div className={s.innerWrapper}>
+      <div className="container">
         <div className={s.companies}>
           <div
-            className={mergeClassname(
-              s.marker,
-              s[colors[activeId % colors.length]]
-            )}
+            className={mergeClassname(s.marker, s[colors[activeId % colors.length]])}
             style={{
               transform: `translateX(${activeId * 100}%)`,
             }}
@@ -33,10 +30,7 @@ export default function Experiences() {
           {EXPERIENCES.map((experience, i) => (
             <button
               key={experience.id}
-              className={mergeClassname(
-                s.company,
-                experience.id === activeId ? s.active : ""
-              )}
+              className={mergeClassname(s.company, experience.id === activeId ? s.active : "")}
               onClick={() => setActiveId(experience.id)}
             >
               {experience.company}
@@ -47,8 +41,7 @@ export default function Experiences() {
       <div className={s.innerWrapper}>
         <div className={s.detail}>
           <h3 className={s.header}>
-            <span className={s.title}>{activeExperience.title}</span> @{" "}
-            <span>{activeExperience.company}</span>
+            <span className={s.title}>{activeExperience.title}</span> @ <span>{activeExperience.company}</span>
           </h3>
           <div className={s.date}>{activeExperience.date}</div>
           <div className={s.description}>
