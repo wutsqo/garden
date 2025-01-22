@@ -14,22 +14,14 @@ export default async function Library() {
         <Image src={LibraryHeaderImage} alt="Library" fill placeholder="blur" />
         <div className={s.imageOverlay}>
           <div className={s.titleWrapper}>
-            <PageTitle
-              title="Bookshelf"
-              subtitle="The pile on my bedside table"
-              xl
-            />
+            <PageTitle title="Bookshelf" subtitle="The pile on my bedside table" xl />
           </div>
         </div>
       </div>
       <div className={s.contentWrapper}>
         <div className={s.booksWrapper}>
           {books.map((book, i) => (
-            <BookCard
-              key={book.slug}
-              book={book.metadata}
-              delay={300 + i * 100}
-            />
+            <BookCard key={book.slug} book={book} delay={300 + i * 100} />
           ))}
         </div>
       </div>

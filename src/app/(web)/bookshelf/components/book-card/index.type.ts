@@ -1,6 +1,6 @@
-import { Book } from "../../interface";
+import { Book } from "@/payload.types";
 
 export interface BookCardProps {
-  book: Book;
+  book: Partial<Book>;
   delay?: number;
 }

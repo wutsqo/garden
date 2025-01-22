@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FC } from "react";
 import s from "./index.module.css";
 import { BookCardProps } from "./index.type";
+import { getImageSrc } from "@utils/images";
 
 const BookCard: FC<BookCardProps> = async ({ book, delay }) => {
   return (
@@ -14,7 +15,7 @@ const BookCard: FC<BookCardProps> = async ({ book, delay }) => {
     >
       <Link href={`/bookshelf/${book.slug}`} className={s.cover}>
         <Image
-          src={book.cover}
+          src={getImageSrc(book.cover_image)}
           alt={`${book.title} cover`}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
