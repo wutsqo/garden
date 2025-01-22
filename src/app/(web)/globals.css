@@ -2,10 +2,6 @@
 @plugin "@tailwindcss/typography";
 @plugin "daisyui";
 
-@plugin "daisyui" {
-  themes: light --default;
-}
-
 @theme {
   --radius-*: initial;
   --radius-none: 0px;
@@ -128,4 +124,12 @@
   h6 {
     @apply font-sans text-base font-medium;
   }
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+@plugin "daisyui" {
+  themes:
+    light --default,
+    light --prefersdark;
 }

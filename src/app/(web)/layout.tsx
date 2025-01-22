@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${spaceMono.variable} ${figtree.variable}`}>
-      <body className="font-sans">
+      <body className="font-sans text-black">
         <Navbar />
         <div className="absolute z-10 mt-8">
           <Mondrian keyPrefix="header" />
