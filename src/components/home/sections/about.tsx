@@ -3,7 +3,7 @@ import AboutMap from "@components/map";
 
 export default function About() {
   return (
-    <div className="bg-green-carribean mt-24 border-y border-y-black py-16">
+    <div className="bg-green-carribean mt-24 border-y border-y-black pt-16 pb-32">
       <div className="container mx-auto px-6 flex flex-col gap-8">
         <SectionTitle number="📋" title="About" />
 
