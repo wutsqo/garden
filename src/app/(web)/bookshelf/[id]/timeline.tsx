@@ -10,7 +10,7 @@ const Timeline: React.FC<Props> = ({ timelines }) => {
   return (
     <>
       <div className="prose">
-        <h2 className="border-bluish-purple mt-8 border-l-4 pl-2">Timeline</h2>
+        <h2 className="border-bluish-purple @brutalist-box-soft mt-8 border-l-4 pl-2">Timeline</h2>
       </div>
       {timelines.length === 0 ? (
         <div className="mt-4 text-gray-500">No timeline data available</div>
@@ -61,7 +61,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ timeline, isFirst, isLast }
       <div className="timeline-middle translate-y-1">
         <div className="bg-green-carribean rounded-full p-2">{timelineIconMap[timeline.type]}</div>
       </div>
-      <div className="timeline-end timeline-box w-full px-6 py-3 text-base">
+      <div className="timeline-end timeline-box w-full rounded-none border bg-white px-6 py-3 text-base shadow-none">
         <span className="text-xs text-gray-500">
           <span>{timelineTypeMap[timeline.type]} on &nbsp;</span>
           <time>
@@ -72,7 +72,9 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ timeline, isFirst, isLast }
             })}
           </time>
         </span>
-        <div className="prose prose-sm prose-p:my-2 mt-2">{timeline.comment && <RichText data={timeline.comment} />}</div>
+        <div className="prose prose-sm prose-p:my-2 mt-2">
+          {timeline.comment && <RichText data={timeline.comment} />}
+        </div>
       </div>
       {!isLast && <hr />}
     </li>

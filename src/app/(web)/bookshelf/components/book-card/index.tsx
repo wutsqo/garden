@@ -14,9 +14,7 @@ const BookCard: FC<BookCardProps> = async ({ book, delay }) => {
     >
       <Link
         href={`/bookshelf/${book.slug}`}
-        className={
-          "relative aspect-2/3 w-full overflow-hidden rounded-r bg-gray-300 shadow-xl transition-transform hover:-translate-y-2"
-        }
+        className="shadow-brutalist relative aspect-2/3 w-full overflow-hidden rounded-r border bg-gray-300 transition-transform hover:-translate-y-2"
       >
         <Image
           src={getImageSrc(book.cover_image)}

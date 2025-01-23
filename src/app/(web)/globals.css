@@ -28,6 +28,8 @@
   --color-github-black: #24292e;
 
   --shadow-brutalist: 2px 2px #1a1a1a;
+  --border-brutalist-soft: 1px solid #1a1a1a;
+  --shadow-brutalist-soft: 2px 2px oklch(58.7% 0.2262 357.09 / 25%);
 
   --aspect-21\/9: 21 / 9;
   --aspect-21\/3: 21 / 3;
