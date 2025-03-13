@@ -10,11 +10,12 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   onClick?: () => void;
   children: ReactNode;
   href?: string;
+  noShadow?: boolean;
 };
 
-const Button: FC<Props> = ({ children, className, onClick, href }) => {
+const Button: FC<Props> = ({ children, className, onClick, href, noShadow }) => {
   const [scope, animate] = useAnimate();
-  const classNames = mergeClassname(s.button, className);
+  const classNames = mergeClassname(s.button, noShadow ? s.noShadow : "", className);
   const tapHandlers: TapHandlers = {
     whileTap: {
       translateX: 2,
@@ -31,19 +32,11 @@ const Button: FC<Props> = ({ children, className, onClick, href }) => {
     ]);
   }, [animate]);
   const renderContent = () => (
-    <span className="letter w-full h-full flex justify-center items-center gap-4 px-2 font-medium">
-      {children}
-    </span>
+    <span className="letter flex h-full w-full items-center justify-center gap-4 px-2 font-medium">{children}</span>
   );
   if (!href) {
     return (
-      <motion.button
-        ref={scope}
-        className={classNames}
-        onClick={onClick}
-        onMouseEnter={onButtonHover}
-        {...tapHandlers}
-      >
+      <motion.button ref={scope} className={classNames} onClick={onClick} onMouseEnter={onButtonHover} {...tapHandlers}>
         {renderContent()}
       </motion.button>
     );

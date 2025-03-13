@@ -10,10 +10,11 @@ import { BookTimelines } from "@/collections/book-timelines";
 import { Pages } from "@/collections/pages";
 import { TechStacks } from "@/collections/tech-stacks";
 import { Projects } from "@/collections/projects";
+import { Teammates } from "@/collections/teammates";
 
 export default buildConfig({
   editor: lexicalEditor(),
-  collections: [Books, Media, BookTimelines, Pages, TechStacks, Projects],
+  collections: [Books, Media, BookTimelines, Pages, TechStacks, Projects, Teammates],
   secret: process.env.PAYLOAD_SECRET ?? "",
   db: vercelPostgresAdapter({
     pool: {

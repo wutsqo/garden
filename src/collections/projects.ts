@@ -88,6 +88,26 @@ export const Projects: CollectionConfig = {
       defaultValue: 0,
       required: true,
     },
+    {
+      name: "team_members",
+      type: "array",
+      fields: [
+        {
+          name: "name",
+          type: "relationship",
+          relationTo: "teammates",
+          required: true,
+        },
+        {
+          name: "role",
+          type: "text",
+        },
+      ],
+    },
+    {
+      name: "timeline",
+      type: "text",
+    },
   ],
   admin: {
     useAsTitle: "title",

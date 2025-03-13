@@ -7,4 +7,9 @@
   color: black;
   overflow: hidden;
   box-shadow: 2px 2px #1a1a1a;
+  cursor: pointer;
+}
+
+.noShadow {
+  box-shadow: none;
 }

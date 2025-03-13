@@ -72,6 +72,7 @@ export interface Config {
     pages: Page;
     'tech-stacks': TechStack;
     projects: Project;
+    teammates: Teammate;
     users: User;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -85,6 +86,7 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     'tech-stacks': TechStacksSelect<false> | TechStacksSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    teammates: TeammatesSelect<false> | TeammatesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -285,6 +287,25 @@ export interface Project {
   slug?: string | null;
   is_shown: boolean;
   weight: number;
+  team_members?:
+    | {
+        name: string | Teammate;
+        role?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  timeline?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "teammates".
+ */
+export interface Teammate {
+  id: string;
+  name: string;
+  url?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -335,6 +356,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'projects';
         value: string | Project;
+      } | null)
+    | ({
+        relationTo: 'teammates';
+        value: string | Teammate;
       } | null)
     | ({
         relationTo: 'users';
@@ -480,6 +505,24 @@ export interface ProjectsSelect<T extends boolean = true> {
   slug?: T;
   is_shown?: T;
   weight?: T;
+  team_members?:
+    | T
+    | {
+        name?: T;
+        role?: T;
+        id?: T;
+      };
+  timeline?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "teammates_select".
+ */
+export interface TeammatesSelect<T extends boolean = true> {
+  name?: T;
+  url?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -18,6 +18,7 @@ export default async function ProjectPage() {
       live_url: true,
       repo_url: true,
       tech_stack: true,
+      slug: true,
     },
     where: {
       is_shown: {
@@ -29,11 +30,11 @@ export default async function ProjectPage() {
   });
 
   return (
-    <main className="container mx-auto border-x border-gray-200 bg-white px-6 py-16">
+    <main className="bg-white px-6 py-16">
       <PageTitle title="Projects" subtitle="A selection of public projects" xl />
-      <div className="my-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="my-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {projects.docs.map((project, i) => (
-          <WorkCard key={project.id} project={project} delay={i * 100} />
+          <WorkCard key={project.id} project={project} delay={Math.random() * 500} />
         ))}
       </div>
       <div className="bg-yellow-beer shadow-brutalist mt-8 rounded border border-black py-12 text-center text-3xl">
