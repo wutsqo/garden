@@ -17,7 +17,7 @@ const BookCard: FC<BookCardProps> = async ({ book, delay }) => {
         className="shadow-brutalist relative aspect-2/3 w-full overflow-hidden rounded-r border bg-gray-300 transition-transform hover:-translate-y-2"
       >
         <Image
-          src={getImageSrc(book.cover_image)}
+          src={getImageSrc({ img: book.cover_image })}
           alt={`${book.title} cover`}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"

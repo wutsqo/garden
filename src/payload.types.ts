@@ -70,6 +70,8 @@ export interface Config {
     media: Media;
     'book-timelines': BookTimeline;
     pages: Page;
+    'tech-stacks': TechStack;
+    projects: Project;
     users: User;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -81,6 +83,8 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     'book-timelines': BookTimelinesSelect<false> | BookTimelinesSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    'tech-stacks': TechStacksSelect<false> | TechStacksSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -155,6 +159,7 @@ export interface Book {
 export interface Media {
   id: string;
   alt?: string | null;
+  source?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -166,6 +171,16 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+  sizes?: {
+    wide?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -223,6 +238,58 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tech-stacks".
+ */
+export interface TechStack {
+  id: string;
+  name: string;
+  logo: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: string;
+  title: string;
+  thumbnail?: (string | null) | Media;
+  category:
+    | 'App/Product'
+    | 'Backend/API'
+    | 'Landing Page'
+    | 'App/Features'
+    | 'Discord Bot'
+    | 'Dev Tools'
+    | 'App/Website';
+  description: string;
+  live_url?: string | null;
+  repo_url?: string | null;
+  tech_stack: (string | TechStack)[];
+  write_up?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  slug?: string | null;
+  is_shown: boolean;
+  weight: number;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -260,6 +327,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: string | Page;
+      } | null)
+    | ({
+        relationTo: 'tech-stacks';
+        value: string | TechStack;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: string | Project;
       } | null)
     | ({
         relationTo: 'users';
@@ -328,6 +403,7 @@ export interface BooksSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  source?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -339,6 +415,20 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+  sizes?:
+    | T
+    | {
+        wide?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -361,6 +451,35 @@ export interface PagesSelect<T extends boolean = true> {
   description?: T;
   content?: T;
   slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tech-stacks_select".
+ */
+export interface TechStacksSelect<T extends boolean = true> {
+  name?: T;
+  logo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  title?: T;
+  thumbnail?: T;
+  category?: T;
+  description?: T;
+  live_url?: T;
+  repo_url?: T;
+  tech_stack?: T;
+  write_up?: T;
+  slug?: T;
+  is_shown?: T;
+  weight?: T;
   updatedAt?: T;
   createdAt?: T;
 }

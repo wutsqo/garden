@@ -1,6 +1,16 @@
+import { ImageSizeName } from "@/collections/media";
 import { Media } from "@/payload.types";
 
-export const getImageSrc = (img: string | Media | null | undefined) => {
+const DEFAULT_IMAGE = "/images/no-image.svg";
+
+type GetImageSrcProps = {
+  img: string | Media | null | undefined;
+  size?: ImageSizeName | "original";
+};
+
+export const getImageSrc = ({ img, size = "original" }: GetImageSrcProps): string => {
+  if (!img) return DEFAULT_IMAGE;
   if (typeof img === "string") return img;
-  return img?.url ?? "/placeholder.jpg";
+  if (size === "original") return img.url ?? DEFAULT_IMAGE;
+  return img.sizes?.[size]?.url ?? img.url ?? DEFAULT_IMAGE;
 };

@@ -37,7 +37,12 @@ export default async function BookDetail({
           </div>
           <div className="flex w-full items-center justify-start sm:row-span-2 sm:justify-end sm:py-12">
             <figure className="relative aspect-2/3 h-auto w-full max-w-48 overflow-hidden rounded-r">
-              <Image src={getImageSrc(book.cover_image)} alt="Library" fill className="object-cover object-center" />
+              <Image
+                src={getImageSrc({ img: book.cover_image })}
+                alt="Library"
+                fill
+                className="object-cover object-center"
+              />
             </figure>
           </div>
           <div className="sm:col-span-2">
@@ -62,7 +67,7 @@ export default async function BookDetail({
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e5e7eb' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E")`,
         }}
       >
-        <div className="flex max-w-72 gap-4 items-end">
+        <div className="flex max-w-72 items-end gap-4">
           <MoveLeft size={40} stroke="currentColor" className="duration-300 group-hover:-translate-x-4" />
           <div>
             <div className="pl-0.5">Back to</div>
