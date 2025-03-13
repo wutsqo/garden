@@ -1,32 +1,61 @@
-import { getDocumentBySlug, getDocumentSlugs } from "@utils/collections";
 import { DEFAULT_METADATA } from "@utils/metadata";
 import { generateUrlWithParams } from "@utils/urls";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { PageMetadata, Params } from "./interface";
+import { Params } from "./interface";
+import { getPayload } from "payload";
+import config from "@payload-config";
 
 export async function getPageData(slug: string) {
-  return await getDocumentBySlug<PageMetadata>("pages", slug);
+  const payload = await getPayload({ config });
+  const result = await payload.find({
+    collection: "pages",
+    select: {
+      content: true,
+      title: true,
+      description: true,
+    },
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  });
+  if (result.docs.length === 0) return null;
+  return result.docs[0];
 }
 
 export async function generatePageSlugs() {
-  const slugs = await getDocumentSlugs("pages");
-  return slugs.map((slug) => ({
-    slug,
+  const payload = await getPayload({ config });
+  const result = await payload.find({
+    collection: "pages",
+    select: {
+      slug: true,
+    },
+  });
+  return result.docs.map((doc) => ({
+    slug: doc.slug as string,
   }));
 }
 
-export async function generatePageMetadata({
-  params,
-}: {
-  params: Params;
-}): Promise<Metadata> {
+export async function generatePageMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
-  const document = await getDocumentBySlug<PageMetadata>("pages", slug);
-  if (!document) notFound();
-  const {
-    metadata: { title, description },
-  } = document;
+  const payload = await getPayload({ config });
+  const result = await payload.find({
+    collection: "pages",
+    select: {
+      title: true,
+      description: true,
+    },
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  });
+  if (!result.docs.length) notFound();
+  const title = result.docs[0].title;
+  const description = result.docs[0].description ?? "";
   const image = generateUrlWithParams("/api/og", {
     title,
     description,

@@ -1,20 +1,8 @@
 import { notFound } from "next/navigation";
 import { generatePageMetadata, generatePageSlugs, getPageData } from "./data";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import TableOfContents from "@components/mdx/table-of-contents";
-import { H1, H2, H3, H4, H5, H6 } from "@components/mdx/headings";
 import { Params } from "./interface";
-import ProjectForm from "@components/project-form";
-
-const COMPONENTS = {
-  h1: H1,
-  h2: H2,
-  h3: H3,
-  h4: H4,
-  h5: H5,
-  h6: H6,
-  ProjectForm,
-};
+import RichText from "@components/rich-text";
+import TableOfContents from "@components/rich-text/table-of-contents";
 
 export default async function Page({
   params,
@@ -24,7 +12,7 @@ export default async function Page({
   const { slug } = await params;
   const page = await getPageData(slug);
   if (!page) notFound();
-  const { content, metadata } = page;
+  const { content, title, description } = page;
 
   return (
     <main className="bg-white">
@@ -32,10 +20,10 @@ export default async function Page({
         <div className="container mx-auto px-6">
           <div className="prose sm:prose-lg max-w-5xl">
             <h1 className="text-5xl sm:text-7xl" style={{ marginBottom: 0 }}>
-              {metadata.title}
+              {title}
             </h1>
             <p className="text-xl sm:text-2xl" style={{ marginTop: "1em" }}>
-              {metadata.description}
+              {description}
             </p>
           </div>
         </div>
@@ -43,11 +31,9 @@ export default async function Page({
       <div className="container mx-auto px-6">
         <div className="flex flex-col gap-x-40 gap-y-20 py-20 lg:flex-row">
           <div className="max-w-xl shrink-0 self-start lg:sticky lg:top-28">
-            <TableOfContents mdx={content} />
+            {content && <TableOfContents data={content} />}
           </div>
-          <div className="prose sm:prose-lg max-w-xl font-sans">
-            <MDXRemote source={content} components={COMPONENTS} />
-          </div>
+          <div className="prose sm:prose-lg max-w-xl font-sans">{content && <RichText data={content} />}</div>
         </div>
       </div>
     </main>

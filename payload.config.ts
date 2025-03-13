@@ -7,10 +7,11 @@ import path from "path";
 import { Books } from "./src/collections/books";
 import { Media } from "./src/collections/media";
 import { BookTimelines } from "@/collections/book-timelines";
+import { Pages } from "@/collections/pages";
 
 export default buildConfig({
   editor: lexicalEditor(),
-  collections: [Books, Media, BookTimelines],
+  collections: [Books, Media, BookTimelines, Pages],
   secret: process.env.PAYLOAD_SECRET ?? "",
   db: vercelPostgresAdapter({
     pool: {
