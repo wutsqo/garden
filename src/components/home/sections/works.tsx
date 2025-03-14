@@ -17,6 +17,7 @@ const SelectedWorks: FC = async () => {
       live_url: true,
       repo_url: true,
       tech_stack: true,
+      slug: true,
     },
     where: {
       is_shown: {
