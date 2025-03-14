@@ -12,10 +12,6 @@ export const NAVIGATIONS = [
     path: "/projects",
   },
   {
-    name: "Feed",
-    path: "/feed",
-  },
-  {
     name: "Collage",
     path: "/collage",
   },
