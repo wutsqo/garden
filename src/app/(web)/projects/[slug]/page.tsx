@@ -6,6 +6,7 @@ import Image from "next/image";
 import { getImageSrc } from "@utils/images";
 import { Teammate, TechStack } from "@/payload.types";
 import { LinkIcon } from "lucide-react";
+import TableOfContents from "@components/rich-text/table-of-contents";
 
 export type Params = Promise<{
   slug: string;
@@ -150,8 +151,13 @@ export default async function Page({
             />
           </div>
         )}
-        <div className="prose sm:prose-lg max-w-none pt-8 font-sans">
-          {project.write_up && <RichText data={project.write_up} />}
+        <div className="flex flex-col gap-x-40 gap-y-20 lg:flex-row">
+          <div className="max-w-xl shrink-0 self-start lg:sticky lg:top-28 pt-16">
+            {project.write_up && <TableOfContents data={project.write_up} />}
+          </div>
+          <div className="prose sm:prose-lg max-w-xl font-sans">
+            {project.write_up && <RichText data={project.write_up} />}
+          </div>
         </div>
       </div>
     </main>
