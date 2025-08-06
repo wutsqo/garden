@@ -4,7 +4,7 @@ import AboutMap from "@components/map";
 export default function About() {
   return (
     <div className="bg-green-carribean mt-24 border-y border-y-black pt-16 pb-32">
-      <div className="container mx-auto px-6 flex flex-col gap-8">
+      <div className="container mx-auto flex flex-col gap-8 px-6">
         <SectionTitle number="📋" title="About" />
 
         <div className="shadow-brutalist flex flex-col divide-x-0 divide-y divide-black overflow-hidden rounded border border-black md:flex-row md:divide-x md:divide-y-0">
@@ -16,13 +16,6 @@ export default function About() {
             <p className="max-w-xl">
               Hi, I am <strong>Wutsqo / Uko</strong> (he/him), a Jakarta-based Creative Developer. I indulge in{" "}
               <strong>web technologies</strong> both for fun and for a living.
-            </p>
-            <p className="max-w-xl">
-              I also love to run, attend community events, and currently an active member of a local{" "}
-              <a href="https://www.instagram.com/makarabookclub/" target="_blank" rel="noopener noreferrer">
-                <strong>book club</strong>
-              </a>{" "}
-              📚 in my area.
             </p>
           </div>
         </div>
