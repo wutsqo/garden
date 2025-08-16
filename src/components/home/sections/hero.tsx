@@ -13,7 +13,7 @@ export default function Hero() {
       </div>
 
       <div className="mt-12 text-xl">
-        <span>Currently SWE @ Gojek</span>
+        <span>Currently Engineering @ Gojek</span>
       </div>
 
       <Button href="/services" className="mt-12 block max-w-max text-base">
