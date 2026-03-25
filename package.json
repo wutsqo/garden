@@ -31,7 +31,7 @@
     "lodash": "^4.17.21",
     "lucide-react": "^0.473.0",
     "mapbox-gl": "^2.15.0",
-    "next": "15.2.2",
+    "next": "15.2.8",
     "next-mdx-remote": "^5.0.0",
     "payload": "^3.28.0",
     "react": "19.0.0",
