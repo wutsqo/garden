@@ -8,16 +8,31 @@ const {
   SITE_URL,
 } = process.env;
 
+const spotifyClient = axios.create({
+  timeout: 5000,
+});
+
+const getRequiredEnv = (value: string | undefined, key: string) => {
+  if (!value) {
+    throw new Error(`Missing required environment variable: ${key}`);
+  }
+
+  return value;
+};
+
 const getAccessToken = async (): Promise<string> => {
   const authKey = Buffer.from(
-    `${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`
+    `${getRequiredEnv(SPOTIFY_CLIENT_ID, "SPOTIFY_CLIENT_ID")}:${getRequiredEnv(
+      SPOTIFY_CLIENT_SECRET,
+      "SPOTIFY_CLIENT_SECRET"
+    )}`
   ).toString("base64");
 
-  const body = {
+  const body = new URLSearchParams({
     grant_type: "refresh_token",
-    refresh_token: SPOTIFY_REFRESH_TOKEN,
-    redirect_uri: `${SITE_URL}/api/spotify-callback`,
-  };
+    refresh_token: getRequiredEnv(SPOTIFY_REFRESH_TOKEN, "SPOTIFY_REFRESH_TOKEN"),
+    redirect_uri: `${SITE_URL ?? "http://localhost:3000"}/api/spotify-callback`,
+  });
 
   const config = {
     headers: {
@@ -26,7 +41,7 @@ const getAccessToken = async (): Promise<string> => {
     },
   };
 
-  const { data } = await axios.post(
+  const { data } = await spotifyClient.post(
     "https://accounts.spotify.com/api/token",
     body,
     config
@@ -43,7 +58,7 @@ const axiosOptions = (accessToken: string) => ({
 const getNowPlaying = async (
   accessToken: string
 ): Promise<SpotifyResponse | undefined> => {
-  const { data } = await axios.get(
+  const { data } = await spotifyClient.get(
     "https://api.spotify.com/v1/me/player/currently-playing?market=ID",
     axiosOptions(accessToken)
   );
@@ -54,7 +69,7 @@ const getNowPlaying = async (
 const getRecentlyPlayed = async (
   accessToken: string
 ): Promise<SpotifyResponse | undefined> => {
-  const { data } = await axios.get(
+  const { data } = await spotifyClient.get(
     "https://api.spotify.com/v1/me/player/recently-played?market=ID&limit=1",
     axiosOptions(accessToken)
   );

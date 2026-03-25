@@ -31,6 +31,14 @@ const ProjectForm: FC = () => {
       onSubmit={onSubmit}
       ref={formRef}
     >
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
       <div className="flex flex-col sm:flex-row gap-4">
         <Input
           placeholder="What should I call you?"
@@ -38,6 +46,7 @@ const ProjectForm: FC = () => {
           id="name"
           label="Your Name"
           type="text"
+          maxLength={80}
           required
         />
         <Input
@@ -46,6 +55,7 @@ const ProjectForm: FC = () => {
           id="email"
           type="email"
           label="Your Email"
+          maxLength={254}
           required
         />
       </div>
@@ -56,6 +66,7 @@ const ProjectForm: FC = () => {
           id="details"
           label="Project Details"
           rows={4}
+          maxLength={2000}
           required
         />
       </div>
