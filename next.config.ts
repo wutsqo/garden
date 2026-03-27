@@ -2,6 +2,7 @@ import { NextConfig } from "next";
 import { withPayload } from "@payloadcms/next/withPayload";
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ['192.168.1.6'],
   images: {
     remotePatterns: [
       {
