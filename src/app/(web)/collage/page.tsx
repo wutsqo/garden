@@ -22,7 +22,7 @@ export default async function Collage() {
           key={album.id}
           className="animate-fade-in group relative aspect-square overflow-hidden opacity-0"
           style={{
-            animationDelay: `${Math.random() * 1000}ms`,
+            animationDelay: `${(i % 10) * 100}ms`,
           }}
         >
           <Image

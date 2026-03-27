@@ -13,10 +13,10 @@ const WorkCard: FC<{ project: Partial<Project>; delay?: number }> = ({
 }) => {
   return (
     <div
-      style={{ animationDelay: `${delay}ms` }}
+      style={{ animationDelay: delay !== undefined ? `${delay}ms` : undefined }}
       className={mergeClassname(
         "shadow-brutalist relative w-full overflow-hidden rounded border border-black bg-white",
-        delay ? "animate-fade-in opacity-0" : "",
+        delay !== undefined ? "animate-fade-in opacity-0" : "",
         thumbnail ? "row-span-2" : "row-span-1",
       )}
     >

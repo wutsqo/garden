@@ -13,6 +13,15 @@ interface MondrianProps {
   keyPrefix: string;
 }
 
+const stringToSeed = (value: string): number => {
+  let hash = 0;
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash << 5) - hash + value.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+};
+
 const Mondrian: FC<MondrianProps> = ({ keyPrefix }) => {
   const [windowWidth] = useWindowSize();
   const gridWidth = useMemo(() => {
@@ -22,12 +31,8 @@ const Mondrian: FC<MondrianProps> = ({ keyPrefix }) => {
     return Math.floor((windowWidth / 16) * 0.5);
   }, [windowWidth]);
 
-  const randomColor = () => {
-    return COLORS[Math.floor(Math.random() * COLORS.length)];
-  };
-
   const pathName = usePathname();
-
+  const pathSeed = useMemo(() => stringToSeed(pathName), [pathName]);
   return (
     <div
       className={mergeClassname(s.gridContainer, "page-transition")}
@@ -36,8 +41,9 @@ const Mondrian: FC<MondrianProps> = ({ keyPrefix }) => {
       <div className={s.cellGrid} key={pathName}>
         {Array.from(Array(count).keys()).map((_, i) => (
           <MondrianCell
-            color={randomColor()}
+            color={COLORS[(pathSeed + i) % COLORS.length]}
             gridWidth={gridWidth}
+            seed={pathSeed + i}
             key={`${keyPrefix}-${pathName}-${i}`}
           />
         ))}

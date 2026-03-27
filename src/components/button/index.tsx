@@ -13,6 +13,8 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   noShadow?: boolean;
 };
 
+const MotionLink = motion.create(Link);
+
 const Button: FC<Props> = ({ children, className, onClick, href, noShadow }) => {
   const [scope, animate] = useAnimate();
   const classNames = mergeClassname(s.button, noShadow ? s.noShadow : "", className);
@@ -59,9 +61,8 @@ const Button: FC<Props> = ({ children, className, onClick, href, noShadow }) => 
       </motion.a>
     );
   }
-  const NextLink = motion.create(Link);
   return (
-    <NextLink
+    <MotionLink
       ref={scope}
       href={href}
       className={classNames}
@@ -70,7 +71,7 @@ const Button: FC<Props> = ({ children, className, onClick, href, noShadow }) => 
       {...tapHandlers}
     >
       {renderContent()}
-    </NextLink>
+    </MotionLink>
   );
 };
 
