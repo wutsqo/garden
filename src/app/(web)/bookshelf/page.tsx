@@ -2,25 +2,30 @@ import PageTitle from "@components/page-title";
 import BookCard from "./components/book-card";
 import { getBooks } from "./data";
 
+const cardTilt = ["md:rotate-[-1deg]", "md:rotate-[1deg]", "md:rotate-[-0.5deg]", "md:rotate-[0.5deg]"];
+
 export default async function Library() {
   const books = await getBooks();
 
   return (
     <main>
-      <div className="bg-white/10 py-16 text-white backdrop-invert">
-        <div className="container mx-auto flex w-full flex-col justify-end px-6 py-6 text-black lg:rounded-t lg:px-12 lg:pt-12">
+      <div className="container mx-auto px-6 pt-16">
+        <div>
           <PageTitle
             title="Bookshelf"
             subtitle="The pile on my bedside table"
-            subtitleProps={{ className: "text-white" }}
+            subtitleProps={{ className: "text-black/70" }}
             xl
           />
         </div>
       </div>
-      <div className="container mx-auto mt-12 grid w-full grid-cols-2 gap-6 rounded-b px-6 py-6 pb-16 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 lg:gap-8 lg:px-12 lg:pb-6 xl:grid-cols-5">
-        {books.map((book, i) => (
-          <BookCard key={book.slug} book={book} delay={300 + i * 100} />
-        ))}
+
+      <div className="relative left-1/2 mt-8 w-screen max-w-[1700px] -translate-x-1/2 px-6 pb-16 lg:px-10">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          {books.map((book, i) => (
+            <BookCard key={book.slug} book={book} delay={300 + i * 90} tiltClass={cardTilt[i % cardTilt.length]} />
+          ))}
+        </div>
       </div>
     </main>
   );

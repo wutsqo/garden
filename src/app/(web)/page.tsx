@@ -1,5 +1,6 @@
 import Hero from "@components/home/sections/hero";
 import Works from "@components/home/sections/works";
+import Bookshelf from "@components/home/sections/bookshelf";
 import Expertise from "@components/home/sections/expertise";
 import Contact from "@components/home/sections/contact";
 import dynamic from "next/dynamic";
@@ -13,6 +14,7 @@ export default function Home() {
       <Works />
       <Expertise />
       <About />
+      <Bookshelf />
       <Contact />
     </main>
   );
