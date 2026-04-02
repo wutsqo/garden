@@ -1,4 +1,5 @@
 import "./globals.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 import Navbar from "@components/navbar";
 import { Space_Mono, Figtree } from "next/font/google";
 import { Metadata } from "next";
