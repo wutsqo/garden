@@ -1,6 +1,12 @@
 import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-vercel-postgres'
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
+  const result = await db.execute(sql`SELECT 1 FROM pg_type WHERE typname = 'enum_books_status'`);
+  if (result.rows.length > 0) {
+    payload.logger.info('Schema already exists, skipping initial migration');
+    return;
+  }
+
   await db.execute(sql`
    CREATE TYPE "public"."enum_books_status" AS ENUM('tbr', 'reading', 'read');
   CREATE TYPE "public"."enum_book_timelines_type" AS ENUM('tbr', 'started', 'comment', 'finished', 'not-finished');
@@ -195,6 +201,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"_parent_id" uuid NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
   	"company" varchar NOT NULL,
+  	"logo_id" uuid,
   	"role" varchar NOT NULL,
   	"period" varchar NOT NULL,
   	"location" varchar,
@@ -230,6 +237,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   ALTER TABLE "payload_locked_documents_rels" ADD CONSTRAINT "payload_locked_documents_rels_users_fk" FOREIGN KEY ("users_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;
   ALTER TABLE "payload_preferences_rels" ADD CONSTRAINT "payload_preferences_rels_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."payload_preferences"("id") ON DELETE cascade ON UPDATE no action;
   ALTER TABLE "payload_preferences_rels" ADD CONSTRAINT "payload_preferences_rels_users_fk" FOREIGN KEY ("users_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;
+  ALTER TABLE "homepage_employment_history" ADD CONSTRAINT "homepage_employment_history_logo_id_media_id_fk" FOREIGN KEY ("logo_id") REFERENCES "public"."media"("id") ON DELETE set null ON UPDATE no action;
   ALTER TABLE "homepage_employment_history" ADD CONSTRAINT "homepage_employment_history_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."homepage"("id") ON DELETE cascade ON UPDATE no action;
   CREATE INDEX "books_cover_image_idx" ON "books" USING btree ("cover_image_id");
   CREATE UNIQUE INDEX "books_slug_idx" ON "books" USING btree ("slug");
@@ -295,7 +303,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX "payload_migrations_updated_at_idx" ON "payload_migrations" USING btree ("updated_at");
   CREATE INDEX "payload_migrations_created_at_idx" ON "payload_migrations" USING btree ("created_at");
   CREATE INDEX "homepage_employment_history_order_idx" ON "homepage_employment_history" USING btree ("_order");
-  CREATE INDEX "homepage_employment_history_parent_id_idx" ON "homepage_employment_history" USING btree ("_parent_id");`)
+  CREATE INDEX "homepage_employment_history_parent_id_idx" ON "homepage_employment_history" USING btree ("_parent_id");
+  CREATE INDEX "homepage_employment_history_logo_idx" ON "homepage_employment_history" USING btree ("logo_id");`)
 }
 
 export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
