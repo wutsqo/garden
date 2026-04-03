@@ -129,20 +129,22 @@ pnpm dev
 Notes:
 
 - The dev server runs on `http://localhost:3004`
-- `pnpm dev` runs `scripts/static.js` before starting Next.js
+- `pnpm dev` runs `scripts/static.js` before starting Next.js with webpack for more reliable hot reloads
+- `pnpm dev:turbo` is still available if you want to test Turbopack locally
 - `scripts/static.js` recreates `public/images` from `content/public/images`
 - Set `SITE_URL` explicitly so it matches your local environment
 
 ## Available Scripts
 
 ```bash
-pnpm dev       # Run static asset sync, then start Next.js on port 3004
-pnpm build     # Run static asset sync, then create a production build
-pnpm start     # Start the production server
-pnpm lint      # Run ESLint
-pnpm collect   # Run static asset collection only
-pnpm content   # Pull content updates, then collect static assets
-pnpm payload   # Start Payload CLI with the local config
+ pnpm dev       # Run static asset sync, then start Next.js with webpack on port 3004
+ pnpm dev:turbo # Run static asset sync, then start Next.js with Turbopack on port 3004
+ pnpm build     # Run static asset sync, then create a production build
+ pnpm start     # Start the production server
+ pnpm lint      # Run ESLint
+ pnpm collect   # Run static asset collection only
+ pnpm content   # Pull content updates, then collect static assets
+ pnpm payload   # Start Payload CLI with the local config
 ```
 
 ## Deployment
