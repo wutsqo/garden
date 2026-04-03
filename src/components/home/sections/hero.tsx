@@ -12,10 +12,6 @@ export default function Hero() {
         <span> who makes beautiful and functional digital products.</span>
       </div>
 
-      <div className="mt-12 text-xl">
-        <span>Currently Engineering @ Gojek</span>
-      </div>
-
       <Button href="/services" className="mt-12 block max-w-max text-base">
         See My Services
       </Button>
