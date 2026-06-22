@@ -255,6 +255,11 @@ export interface TechStack {
   id: string;
   name: string;
   logo: string | Media;
+  is_shown: boolean;
+  /**
+   * Higher values appear first in the homepage stack carousel.
+   */
+  weight: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -520,6 +525,8 @@ export interface PagesSelect<T extends boolean = true> {
 export interface TechStacksSelect<T extends boolean = true> {
   name?: T;
   logo?: T;
+  is_shown?: T;
+  weight?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -631,6 +638,15 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Homepage {
   id: string;
   /**
+   * Manage the short expertise labels shown on the homepage.
+   */
+  expertises?:
+    | {
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
    * Manage the experience section shown on the homepage.
    */
   employmentHistory?:
@@ -645,6 +661,18 @@ export interface Homepage {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Manage the contact buttons shown on the homepage.
+   */
+  socialLinks?:
+    | {
+        label: string;
+        url: string;
+        icon: string | Media;
+        variant: 'email' | 'github' | 'linkedin' | 'spotify';
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -653,6 +681,12 @@ export interface Homepage {
  * via the `definition` "homepage_select".
  */
 export interface HomepageSelect<T extends boolean = true> {
+  expertises?:
+    | T
+    | {
+        label?: T;
+        id?: T;
+      };
   employmentHistory?:
     | T
     | {
@@ -663,6 +697,15 @@ export interface HomepageSelect<T extends boolean = true> {
         location?: T;
         summary?: T;
         isCurrentRole?: T;
+        id?: T;
+      };
+  socialLinks?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+        icon?: T;
+        variant?: T;
         id?: T;
       };
   updatedAt?: T;

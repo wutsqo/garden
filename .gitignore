@@ -38,6 +38,5 @@ next-env.d.ts
 node_modules
 .env
 .npmrc
-public/images
 certificates
 analyze

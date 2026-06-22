@@ -108,16 +108,6 @@ STRAVA_REFRESH_TOKEN=
 
 `DISCORD_WEBHOOK_URL` is used by the app but is not currently listed in `.env.example`.
 
-### 4. Ensure content is available
-
-This repository uses a git submodule at `content/`. Some scripts depend on assets inside that directory, especially `content/public/images`.
-
-If you cloned without submodules, initialize them before running the app:
-
-```bash
-git submodule update --init --recursive
-```
-
 ## Development
 
 Start the development server:
@@ -129,21 +119,18 @@ pnpm dev
 Notes:
 
 - The dev server runs on `http://localhost:3004`
-- `pnpm dev` runs `scripts/static.js` before starting Next.js with webpack for more reliable hot reloads
 - `pnpm dev:turbo` is still available if you want to test Turbopack locally
-- `scripts/static.js` recreates `public/images` from `content/public/images`
 - Set `SITE_URL` explicitly so it matches your local environment
 
 ## Available Scripts
 
 ```bash
- pnpm dev       # Run static asset sync, then start Next.js with webpack on port 3004
- pnpm dev:turbo # Run static asset sync, then start Next.js with Turbopack on port 3004
- pnpm build     # Run static asset sync, then create a production build
+ pnpm dev       # Start Next.js with webpack on port 3004
+ pnpm dev:turbo # Start Next.js with Turbopack on port 3004
+ pnpm build     # Create a production build
  pnpm start     # Start the production server
  pnpm lint      # Run ESLint
- pnpm collect   # Run static asset collection only
- pnpm content   # Pull content updates, then collect static assets
+ pnpm seed:homepage # Seed Homepage expertises/social links and tech stack logos into Payload
  pnpm payload   # Start Payload CLI with the local config
 ```
 
@@ -151,21 +138,11 @@ Notes:
 
 This project is set up around a Vercel-style deployment flow.
 
-- `vercel.json` overrides install with `./install.sh && pnpm install`
-- `install.sh` hydrates the `content/` submodule contents before dependency install completes
-- `pnpm build` runs `scripts/static.js` first, which recreates `public/images` from `content/public/images`
+- Vercel can use the default package-manager install command from `package.json`
+- `pnpm build` runs the Next.js production build
 - Payload uses Vercel-specific adapters for Postgres and Blob storage
 
 ### Deployment environment variables
-
-If you are using the repository's current Vercel install flow from `vercel.json`, deployment also expects:
-
-```bash
-GITHUB_ACCESS_TOKEN=
-GITHUB_SUBMODULE=
-```
-
-Those variables are required by `install.sh`. The script exits early if either is missing.
 
 Production deployments should also set:
 
@@ -178,11 +155,8 @@ DISCORD_WEBHOOK_URL=
 
 ### Deployment caveats
 
-- The repo includes a `content/` submodule, but deployment does not rely on a normal submodule checkout alone
-- `scripts/static.js` removes `public/images` before copying from `content/public/images`
-- If `content/public/images` is missing, the copy step is skipped and the build can still continue without those synced images
 - The current image allowlist and Blob URL generation are tied to the configured Mapbox, Spotify, and Vercel Blob hostnames in source
-- The checked-in screenshot section uses `public/og.png`; media inside `content/public/images` is content data, not documented as UI screenshots
+- The checked-in screenshot section uses `public/og.png`; additional generated screenshots are not checked in today
 
 ## Project Structure
 
@@ -196,8 +170,6 @@ src/
   components/    Shared UI and feature components
   hooks/         React hooks
   utils/         Utility helpers
-scripts/         Content and static asset scripts
-content/         Git submodule for content and public assets
 ```
 
 ## Payload CMS
@@ -233,5 +205,3 @@ There is currently no dedicated test runner configured in this repository.
 ## Notes
 
 - Pre-commit hooks are enabled through Husky and run `pnpm lint`
-- `pnpm build` and `pnpm dev` both depend on the static asset sync step
-- If `content/public/images` is missing, the static copy step is skipped

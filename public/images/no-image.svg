@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">No image available</title>
+  <desc id="desc">A placeholder image used when media is unavailable.</desc>
+  <rect width="640" height="360" fill="#f8fafc" />
+  <path d="M96 280 224 144l80 88 48-56 192 104H96Z" fill="#dbe4ef" />
+  <circle cx="432" cy="112" r="36" fill="#cbd5e1" />
+  <rect x="96" y="64" width="448" height="232" rx="18" fill="none" stroke="#94a3b8" stroke-width="12" />
+</svg>

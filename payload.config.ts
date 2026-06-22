@@ -14,6 +14,12 @@ import { Teammates } from "@/collections/teammates";
 import { Homepage } from "@/globals/homepage";
 
 export default buildConfig({
+  bin: [
+    {
+      key: "seed:homepage",
+      scriptPath: path.resolve(process.cwd(), "scripts/seed-homepage-content.ts"),
+    },
+  ],
   editor: lexicalEditor(),
   collections: [Books, Media, BookTimelines, Pages, TechStacks, Projects, Teammates],
   globals: [Homepage],

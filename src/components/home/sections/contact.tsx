@@ -1,59 +1,36 @@
-"use client";
-
-import Image from "next/image";
+import { getPayload } from "payload";
+import config from "@payload-config";
+import type { Homepage, Media } from "@/payload.types";
+import { getImageSrc } from "@utils/images";
 import SectionTitle from "../components/section-title";
 import s from "./contact.module.css";
-import Github from "@images/github.svg";
-import Linkedin from "@images/linkedin.svg";
-import Email from "@images/email.svg";
-import Spotify from "@images/spotify.svg";
-import { mergeClassname } from "@utils/merge-classname";
-import Button from "@components/button";
-import { useEffect, useState } from "react";
+import ContactLinks, { ContactLink } from "./contact-client";
 
-const Contact = () => {
-  const [lastPlayed, setLastPlayed] = useState<any>();
+type SocialLink = NonNullable<Homepage["socialLinks"]>[number];
 
-  useEffect(() => {
-    fetch("/api/spotify/recent").then((res) => {
-      res.json().then((data) => {
-        setLastPlayed(data);
-      });
-    });
-  }, []);
+const getContactLink = (link: SocialLink): ContactLink => {
+  const icon = link.icon as Media;
+
+  return {
+    id: link.id ?? `${link.variant}-${link.label}`,
+    label: link.label,
+    url: link.url,
+    variant: link.variant,
+    iconSrc: getImageSrc({ img: link.icon }),
+    iconAlt: icon.alt ?? link.label,
+  };
+};
+
+const Contact = async () => {
+  const payload = await getPayload({ config });
+  const homepage = await payload.findGlobal({ slug: "homepage" });
+  const socialLinks = homepage.socialLinks?.map(getContactLink) ?? [];
 
   return (
-    <div className="container mx-auto px-6 mt-24 pb-32">
+    <div className="container mx-auto mt-24 px-6 pb-32">
       <SectionTitle number="🤝" title="Connect" />
       <div className={s.content}>Let&apos; connect! Say hello and have a chat. →</div>
-      <div className={s.connect}>
-        <Button href="mailto:urwatilwutsqo16@gmail.com" className={mergeClassname(s.email)}>
-          <Image src={Email} alt="Email" width={36} height={36} />
-          Email
-        </Button>
-        <Button href="https://github.com/wutsqo" className={mergeClassname(s.github, s.link)}>
-          <Image src={Github} alt="Github" width={36} height={36} />
-          <span className="hidden sm:block">GitHub</span>
-        </Button>
-        <Button href="https://www.linkedin.com/in/wutsqo" className={mergeClassname(s.linkedin, s.link)}>
-          <Image src={Linkedin} alt="Github" width={36} height={36} />
-          <span className="hidden sm:block">LinkedIn</span>
-        </Button>
-        <Button href="https://open.spotify.com/user/urwatilwutsqo" className={mergeClassname(s.spotify, s.link)}>
-          <Image src={Spotify} alt="Spotify" width={48} height={48} />
-          {lastPlayed ? (
-            <div className="text-left text-white">
-              <div className="text-sm">Last played: </div>
-              <div className="text-lg">
-                {`${lastPlayed?.item?.name} - `}
-                {lastPlayed?.item?.artists.map((artist: any) => artist.name).join(", ")}
-              </div>
-            </div>
-          ) : (
-            <div className="text-2xl text-white">Spotify</div>
-          )}
-        </Button>
-      </div>
+      <ContactLinks links={socialLinks} />
     </div>
   );
 };

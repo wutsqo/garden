@@ -8,7 +8,6 @@ It captures the current toolchain, commands, and coding conventions inferred fro
 - Stack: Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4, DaisyUI, Payload CMS.
 - Package manager: `pnpm` (`packageManager` is pinned in `package.json`).
 - Runtime notes:
-  - `dev` and `build` run `scripts/static.js` first.
   - Payload is integrated via `withPayload(nextConfig)` and route groups under `src/app/(payload)`.
 - Linting: ESLint with `next/core-web-vitals`.
 - Formatting: Prettier with `printWidth: 120` and `prettier-plugin-tailwindcss`.
@@ -48,19 +47,17 @@ pnpm dev
 pnpm build
 pnpm start
 pnpm lint
-pnpm content
-pnpm collect
+pnpm seed:homepage
 pnpm payload
 ```
 
 ### Command Behavior Notes
 
-- `pnpm dev`: runs static generation script, then starts Next dev server on port `3004` with webpack for more reliable local refresh behavior.
-- `pnpm dev:turbo`: runs static generation script, then starts Next dev server on port `3004` with Turbopack.
-- `pnpm build`: runs static generation script, then production build.
+- `pnpm dev`: starts Next dev server on port `3004` with webpack for more reliable local refresh behavior.
+- `pnpm dev:turbo`: starts Next dev server on port `3004` with Turbopack.
+- `pnpm build`: runs a production build.
 - `pnpm lint`: ESLint over entire repo with cache at `.next/cache/eslint`.
-- `pnpm content`: runs `scripts/content.js` then `scripts/static.js`.
-- `pnpm collect`: runs only `scripts/static.js`.
+- `pnpm seed:homepage`: seeds Homepage expertises/social links and tech stack logos into Payload using `CONTENT_ASSET_DIR` or `/Users/muhammad.wutsqo/Projects/content/public/images`.
 - `pnpm payload`: starts Payload CLI using `PAYLOAD_CONFIG_PATH=./payload.config.ts`.
 
 ### Type Checking
@@ -137,7 +134,7 @@ pnpm lint && pnpm exec tsc --noEmit && pnpm build
 ### Imports and Module Structure
 
 - Use path aliases from `tsconfig.json`:
-  - `@/*`, `@components/*`, `@utils/*`, `@hooks/*`, `@fields/*`, `@content/*`, `@images/*`.
+  - `@/*`, `@components/*`, `@utils/*`, `@hooks/*`, `@fields/*`.
 - Prefer alias imports over deep relative imports when crossing feature boundaries.
 - Keep import groups readable (framework/external first, then internal aliases, then local files).
 - Use local `./interface` or `index.type.ts` for nearby type contracts when already established.

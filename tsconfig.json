@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -24,30 +20,12 @@
       }
     ],
     "paths": {
-      "@utils/*": [
-        "./src/utils/*"
-      ],
-      "@hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@images/*": [
-        "./public/images/*"
-      ],
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@content/*": [
-        "./content/*"
-      ],
-      "@fields/*": [
-        "./src/fields/*"
-      ],
-      "@/*": [
-        "./src/*"
-      ],
-      "@payload-config": [
-        "./payload.config.ts"
-      ]
+      "@utils/*": ["./src/utils/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@components/*": ["./src/components/*"],
+      "@fields/*": ["./src/fields/*"],
+      "@/*": ["./src/*"],
+      "@payload-config": ["./payload.config.ts"]
     },
     "removeComments": true
   },
@@ -61,7 +39,5 @@
     "postcss.config.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
